@@ -33,6 +33,7 @@ public class ParticleEmitter : MonoBehaviour {
     }
     void Emitter()
     {
+        
         for (int i = 0; i < maxNumber;i++)
         {
             GameObject clone = Instantiate(particle) as GameObject;

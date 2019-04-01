@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+[ExecuteInEditMode]
 public class ScreenSpaceBoundary : MonoBehaviour {
     [Header("塞入相機物件")]
     public GameObject cameraObject ;
@@ -14,29 +15,15 @@ public class ScreenSpaceBoundary : MonoBehaviour {
 
     [HideInInspector]public float minX, maxX, minY, maxY = 0;
     [HideInInspector]public Vector3 worldCenter;
-    private void Awake()
+
+	
+
+    private void Update()
     {
         SetDistanceToCamera();
         GetBoundaryConrner();
         BoundaryVisualizer();
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-        SetDistanceToCamera();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        
-        SetDistanceToCamera();
-        GetBoundaryConrner();
-        BoundaryVisualizer();
-
-	}
-
     void SetDistanceToCamera()
     {
         //check camera gameObject
@@ -61,8 +48,6 @@ public class ScreenSpaceBoundary : MonoBehaviour {
     }
     void BoundaryVisualizer()
     {
-        float width = maxX - minX;
-        float height = maxY - minY;
 
         Vector3 TopCornerRight = new Vector3(maxX,maxY,transform.position.z);
         Vector3 TopCornerLeft = new Vector3(minX, maxY, transform.position.z);
