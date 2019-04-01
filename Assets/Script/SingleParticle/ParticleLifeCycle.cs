@@ -124,6 +124,7 @@ public class ParticleLifeCycle : ParticleBase
     {
         Run();
     }
+
     IEnumerator StageControl()
     {
         while (true)

@@ -174,6 +174,10 @@ public class InteractiveSystem : MonoBehaviour {
 
     }
 
+    private void OnMouseDown()
+    {
+        m_stage = PlayerStage.Beginning;
+    }
     private void OnTriggerEnter(Collider other)
     {
         
