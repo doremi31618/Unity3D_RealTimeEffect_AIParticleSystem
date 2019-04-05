@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Schema;
-
+public enum mainParticleStage
+{
+    rebornDelay,
+    start,
+    update,
+    end
+}
 
 public class ParticleLifeCycle : ParticleBase
 {
@@ -13,8 +19,10 @@ public class ParticleLifeCycle : ParticleBase
 
     [Range(0, 1000)] public float localMoveSpeed = 100;
 
-    public Color m_color;
+    private Color m_color;
 
+    public Color fisrtColor;
+    public Color finalColor;
 
     ScreenSpaceBoundary m_Boundary;
     Rigidbody m_rigidbody;
@@ -24,13 +32,7 @@ public class ParticleLifeCycle : ParticleBase
     public float lerpTime = 1f;
     #endregion
     public mainParticleStage m_stage = mainParticleStage.rebornDelay;
-    public enum mainParticleStage
-    {
-        rebornDelay,
-        start,
-        update,
-        end
-    }
+
 
     private void Awake()
     {
@@ -40,7 +42,8 @@ public class ParticleLifeCycle : ParticleBase
     private void Start()
     {
         Initialized();
-        AttributeInitialze();
+        //AttributeInitialze();
+        RebornPositionSetting();
         StartCoroutine(StageControl());
     }
     private void Update()
@@ -80,6 +83,9 @@ public class ParticleLifeCycle : ParticleBase
         m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
+        m_color = fisrtColor ;
+        m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.a,fisrtColor.g,fisrtColor.b,0));
+        //GetComponent<Renderer>().material = Instantiate(GetComponent<Renderer>().material);
     }
     public void AttributeInitialze()
     {
@@ -116,7 +122,8 @@ public class ParticleLifeCycle : ParticleBase
 
     public void ExitBoundary()
     {
-        AttributeInitialze();
+        //AttributeInitialze();
+        m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.r, fisrtColor.g, fisrtColor.b, 0));
         m_stage = mainParticleStage.rebornDelay;
     }
 
@@ -132,8 +139,8 @@ public class ParticleLifeCycle : ParticleBase
             
             float timer = 0;
             Color nowColor;
-            Color lerpColor = new Color(m_color.r, m_color.g, m_color.b, 0);
-
+            Color lerpColor = new Color(fisrtColor.r, fisrtColor.g, fisrtColor.b, 0);
+            Color m_color = m_renderer.material.GetColor("_TintColor");
             switch(m_stage)
             {
                 case mainParticleStage.rebornDelay:
@@ -142,7 +149,7 @@ public class ParticleLifeCycle : ParticleBase
                         timer += Time.deltaTime;
                         velocity = Vector3.zero;
                         angVelocity = Vector3.zero;
-                        m_renderer.material.SetColor("_TintColor", lerpColor);
+
                         yield return new WaitForEndOfFrame();
                     }
                     m_stage = mainParticleStage.start;
@@ -152,11 +159,10 @@ public class ParticleLifeCycle : ParticleBase
                     while (timer / lerpTime < 1)
                     {
                         timer += Time.deltaTime;
-                        nowColor = Color.Lerp(lerpColor, m_color, timer / lerpTime);
+                        nowColor = Color.Lerp(m_color, fisrtColor, timer / lerpTime);
                         m_renderer.material.SetColor("_TintColor", nowColor);
                         CollisionBoundary();
 
-                        //Debug.Log("fade in");
                         yield return new WaitForEndOfFrame();
                     }
                     m_stage = mainParticleStage.update;

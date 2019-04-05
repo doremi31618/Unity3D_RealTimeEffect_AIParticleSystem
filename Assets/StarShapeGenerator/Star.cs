@@ -56,7 +56,7 @@ public class Star : MonoBehaviour {
 		mesh.triangles = triangles;
 	}
 
-	void Reset () {
+	public void Reset () {
 		UpdateMesh();
 	}
 }

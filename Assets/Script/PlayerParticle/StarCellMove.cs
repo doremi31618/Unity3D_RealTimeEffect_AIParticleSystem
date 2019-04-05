@@ -9,6 +9,8 @@ public class StarCellMove : ParticleBase {
     [HideInInspector] public int index;
     [Range(0, 1000)] public float localMoveSpeed = 100;
 
+
+
     private void OnEnable()
     {
         
@@ -16,6 +18,7 @@ public class StarCellMove : ParticleBase {
     // Use this for initialization
     void Start () {
         Initialized();
+        StartCoroutine(spinAround());
 	}
 	
 	// Update is called once per frame
@@ -23,7 +26,20 @@ public class StarCellMove : ParticleBase {
         Run();
         OutputValue();
 	}
+    void RandomRotation()
+    {
+        
+    }
+    public float speed = 10f;
+    IEnumerator spinAround()
+    {
+        while (true)
+        {
+            transform.Rotate(0, 0, ((speed * Mathf.PerlinNoise(Time.time, Time.time)) * Time.deltaTime));
+            yield return new WaitForEndOfFrame();
+        }
 
+    }
     void Run()
     {
         direction += new Vector3(
