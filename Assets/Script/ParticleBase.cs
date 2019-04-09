@@ -13,19 +13,5 @@ public class ParticleBase : MonoBehaviour{
     [HideInInspector]public Vector3 angVelocity;
 
 
-    void initialize()
-    {
-
-    }
-
-    void Run()
-    {
-
-    }
-
-    void Output()
-    {
-
-    }
 
 }

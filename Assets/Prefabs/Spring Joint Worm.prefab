@@ -99,7 +99,8 @@ MonoBehaviour:
   radius: 1.91
   material: {fileID: 2100000, guid: b8f1ca9386c954dc7a46914a2ce5260f, type: 2}
   mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  centerColor: {r: 0.41568628, g: 0.77254903, b: 0.972549, a: 0.5019608}
+  cornerColor: {r: 0.41568628, g: 0.77254903, b: 0.972549, a: 0.44705883}
   mass: 20
   drag: 1.5
   spring: 100

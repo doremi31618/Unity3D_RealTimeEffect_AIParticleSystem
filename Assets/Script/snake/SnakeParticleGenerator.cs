@@ -14,6 +14,11 @@ public class SnakeParticleGenerator : MonoBehaviour {
     [Tooltip("change by realtime")]public float bodyDistance;
 
     public float speed = 1;
+    public Color headColor;
+    public Color bodyColor;
+
+
+
     public List<GameObject> bodyList = new List<GameObject>();
 
 	// Use this for initialization
@@ -37,6 +42,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
         GameObject Head = (Instantiate(headPrefab) as GameObject);
         Head.transform.parent = this.transform;
         Head.transform.position = this.transform.position;
+        Head.GetComponent<Renderer>().material.SetColor("_TintColor", headColor);
         //Snake layer
         Head.layer = 13;
         bodyList.Add(Head);
@@ -50,6 +56,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
             GameObject body = (Instantiate(bodyPrefab) as GameObject);
             body.transform.parent = this.transform;
             body.transform.position = bodyList[0].transform.position;
+            body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
             body.layer = 13;
 
             if(bodyList[i-1] == null)

@@ -12,7 +12,9 @@ public class SpringJointWormGenerator : MonoBehaviour {
     [Range(1, 10)] public float radius;
     public Material material;
     public Mesh mesh;
-    public Color color;
+
+    public Color centerColor;
+    public Color cornerColor;
 
     [Header("Single Worm Physic Attribute Setting")]
     public float mass = 50;
@@ -53,8 +55,10 @@ public class SpringJointWormGenerator : MonoBehaviour {
         center.transform.localPosition = Vector3.zero;
 
         center.GetComponent<SpinAround>().speed = speedOfSpinAround;
+        center.GetComponent<Renderer>().material.SetColor("_TintColor", centerColor);
 
     }
+
     void GameObjectGenerator()
     {
         GeneratorCenter();
@@ -78,7 +82,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
 
             //setting stage
             material = Instantiate(material);
-            material.SetColor("_TintColor", color);
+            material.SetColor("_TintColor", cornerColor);
             corner.GetComponent<MeshFilter>().mesh = mesh;
             corner.GetComponent<MeshRenderer>().material = material;
 
