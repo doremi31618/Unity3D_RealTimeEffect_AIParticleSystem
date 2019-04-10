@@ -69,13 +69,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4643236002085174}
+  - component: {fileID: 114655975191387882}
   - component: {fileID: 33133361131791578}
   - component: {fileID: 23269941348154276}
-  - component: {fileID: 114655975191387882}
   - component: {fileID: 135917945089170004}
   - component: {fileID: 54269082281566222}
   - component: {fileID: 114001695300579072}
   - component: {fileID: 114114162629401214}
+  - component: {fileID: 114799996212696136}
   m_Layer: 10
   m_Name: PlayerParticle
   m_TagString: Untagged
@@ -115,8 +116,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780025158077838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.96053654, w: 0.2781539}
+  m_LocalPosition: {x: 3.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4501519965211696}
@@ -179,7 +180,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544278184227782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -214,7 +215,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331415598544244}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -292,11 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   lifeTime: 0
-  direction: {x: -0.2635133, y: 0.9646558, z: 0}
-  velocity: {x: -0.17043948, y: 0.62393606, z: 0}
+  direction: {x: 0.11955142, y: 0.992828, z: 0}
+  velocity: {x: 0.10132724, y: 0.8414833, z: 0}
   angVelocity: {x: 0, y: 0, z: 0}
   index: 0
-  localMoveSpeed: 23
+  localMoveSpeed: 30
+  speed: 500
 --- !u!114 &114114162629401214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,15 +310,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05308604f3754e189cfa7ff0dc9ccc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RepulsiveForce: 50
-  AttrativeForce: 10
+  RepulsiveForce: 60
+  AttrativeForce: 100
   ExplosionVisualizer: {fileID: 1331415598544244}
   TirggerVidsualizer: {fileID: 1544278184227782}
   ColliderObject: {fileID: 1734896661756434}
-  attractiveRadius: 1.5
+  attractiveRadius: 9.3
   triggerRadius: 2
   explosionRadius: 5
+  deathRadius: 0.5
   explosionTime: 2
+  attractiveTime: 10
+  substractNumber: 19
+  HowManyToGrow: 20
   m_stage: 0
 --- !u!114 &114655975191387882
 MonoBehaviour:
@@ -330,16 +336,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center:
-    color: {r: 0, g: 0.6580112, b: 1, a: 1}
+    color: {r: 0, g: 0.14150944, b: 0.21698111, a: 1}
     position: {x: 0, y: 0, z: -0.1}
   points:
-  - color: {r: 0.6650944, g: 1, b: 0.99999994, a: 1}
-    position: {x: 0, y: 1, z: 0}
-  - color: {r: 0.7877358, g: 0.9524846, b: 1, a: 1}
+  - color: {r: 0.01375042, g: 0.64486885, b: 0.9716981, a: 1}
+    position: {x: 0, y: 0.69, z: 0}
+  - color: {r: 0, g: 0.5966703, b: 0.9056604, a: 1}
     position: {x: 0, y: 0.5, z: 0}
-  - color: {r: 0.34109113, g: 0.8876447, b: 0.990566, a: 1}
+  - color: {r: 0, g: 0.65882355, b: 1, a: 1}
     position: {x: 0, y: 0.5, z: 0}
-  frequency: 6
+  frequency: 12
+--- !u!114 &114799996212696136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780025158077838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67df3fdf446294523b5ab43cf25e08e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135400077018805942
 SphereCollider:
   m_ObjectHideFlags: 1

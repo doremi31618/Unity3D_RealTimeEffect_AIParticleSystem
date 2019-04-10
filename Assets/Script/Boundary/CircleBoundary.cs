@@ -1,18 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class SpingWormCornerBehaviour : MonoBehaviour {
-
-    MovingMode state;
-    public enum MovingMode
-    {
-        SinWave,
-        ScaleUp,
-
-    }
-
+public class CircleBoundary : MonoBehaviour {
+    float radius;
+    Vector3 center;
 	// Use this for initialization
 	void Start () {
 		

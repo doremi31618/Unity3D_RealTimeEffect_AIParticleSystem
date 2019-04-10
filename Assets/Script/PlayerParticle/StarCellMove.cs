@@ -4,17 +4,12 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class StarCellMove : ParticleBase {
 
-
-
     [HideInInspector] public int index;
+    [Range(0, 1000)] public float spinAroundSpeed = 100;
     [Range(0, 1000)] public float localMoveSpeed = 100;
+    //public bool isUseSphereBoundary = false;
+    public float distance;
 
-
-
-    private void OnEnable()
-    {
-        
-    }
     // Use this for initialization
     void Start () {
         Initialized();
@@ -35,7 +30,8 @@ public class StarCellMove : ParticleBase {
     {
         while (true)
         {
-            transform.Rotate(0, 0, ((speed * Mathf.PerlinNoise(Time.time, Time.time)) * Time.deltaTime));
+            transform.Rotate(0, 0, ((spinAroundSpeed * Mathf.PerlinNoise(Time.time, Time.time)) * Time.deltaTime));
+            Run();
             yield return new WaitForEndOfFrame();
         }
 
@@ -48,6 +44,11 @@ public class StarCellMove : ParticleBase {
         direction = direction.normalized;
         direction.Set(direction.x, direction.y, 0);
         velocity = Mathf.PerlinNoise(Time.time + index, index) * direction * localMoveSpeed * Time.deltaTime;
+        //distance = transform.parent.localScale.x * transform.parent.GetComponent<SphereCollider>().radius;
+        //if(Vector3.Distance(this.transform.localPosition,transform.parent.position) > distance * 0.5f && isUseSphereBoundary)
+        //{
+        //    velocity = -velocity;
+        //}
     }
     Rigidbody m_rigidbody;
     void OutputValue()
