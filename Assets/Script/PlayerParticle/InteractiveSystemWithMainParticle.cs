@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractiveSystem : MonoBehaviour {
+public class InteractiveSystemWithMainParticle : MonoBehaviour {
 
     [Header("Force")]
     public float RepulsiveForce = 100f;
@@ -52,7 +52,8 @@ public class InteractiveSystem : MonoBehaviour {
         {
             GetComponent<Star>().frequency += 1;
             GetComponent<Star>().Reset();
-            //substractNumber = 0;
+            substractNumber = 0;
+            //Debug.Log(GetComponent<Star>().frequency);
         }
 	}
     private void Initialize()
@@ -122,7 +123,7 @@ public class InteractiveSystem : MonoBehaviour {
             //explosion stage
             case PlayerStage.Beginning:
                 m_collider.radius = explosionRadius/2;
-
+                substractNumber = 0;
                 if(UseDebugVisualizer)
                 {
                     ExplosionVisualizer.SetActive(true);
@@ -136,7 +137,7 @@ public class InteractiveSystem : MonoBehaviour {
             //Attractive stage
             case PlayerStage.update:
                 m_collider.radius = attractiveRadius/2;
-                substractNumber = 0;
+                //substractNumber = 0;
 
                 if(UseDebugVisualizer)
                 {
@@ -199,7 +200,8 @@ public class InteractiveSystem : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "LittleParticle" && other.GetComponent<ParticleLifeCycle>().m_stage == mainParticleStage.update)
+        if (other.tag == "LittleParticle" && (other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.update ||
+                                              other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.end))
         {
             Rigidbody pRigbody = other.GetComponent<Rigidbody>();
             Vector3 Force;
@@ -208,7 +210,10 @@ public class InteractiveSystem : MonoBehaviour {
             switch (m_stage)
             {
                 case PlayerStage.Beginning:
-                    
+                    if(other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.end)
+                    {
+                        other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage = mainParticleStage.update;
+                    }
                     Force = (other.transform.position - this.transform.position).normalized * 
                         Mathf.Lerp(0,RepulsiveForce,distance/triggerRadius);
                     
@@ -216,23 +221,44 @@ public class InteractiveSystem : MonoBehaviour {
                     break;
 
                 case PlayerStage.update:
-                    if(distance < deathRadius){
-                        substractNumber += 1;
-                        other.GetComponent<ParticleLifeCycle>().ExitBoundary();
+                    if(other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.update)
+                    {
+                        Color firstColor = other.GetComponent<MainParticleLifeCycle>().fisrtColor;
+                        Color finalColor = other.GetComponent<MainParticleLifeCycle>().finalColor;
+                        Color newColor = Color.Lerp(firstColor, finalColor, 1 - distance / triggerRadius);
 
-                        break;
+                        //Debug.Log(1 - distance / triggerRadius);
+                        other.GetComponent<MeshRenderer>().material.SetColor("_TintColor", newColor);
                     }
 
                     Force = (this.transform.position - other.transform.position).normalized *
                             Mathf.Lerp(AttrativeForce,AttrativeForce/2 ,distance / triggerRadius);
                     
-                    Color firstColor = other.GetComponent<ParticleLifeCycle>().fisrtColor;
-                    Color finalColor = other.GetComponent<ParticleLifeCycle>().finalColor;
-                    Color newColor = Color.Lerp(firstColor, finalColor, 1-distance / triggerRadius);
+                    if(pRigbody.GetComponent<Rigidbody>().velocity.magnitude < pRigbody.GetComponent<MainParticleLifeCycle>().maxMoveSpeed)
+                        pRigbody.AddForce(Force);
+                    
+                    break;
 
-                    //Debug.Log(1 - distance / triggerRadius);
-                    other.GetComponent<MeshRenderer>().material.SetColor("_TintColor", newColor);
-                    pRigbody.AddForce(Force);
+                case PlayerStage.end:
+                    break;
+            }
+
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "LittleParticle" && (collision.gameObject.GetComponent<MainParticleLifeCycle>().m_stage ==  mainParticleStage.end))
+
+        {
+            //Rigidbody pRigbody = collision.gameObject.GetComponent<Rigidbody>();
+            switch (m_stage)
+            {
+                case PlayerStage.Beginning:
+                    break;
+
+                case PlayerStage.update:
+                    substractNumber += 1;
+                    collision.gameObject.GetComponent<MainParticleLifeCycle>().ExitBoundary();
                     break;
 
                 case PlayerStage.end:
@@ -246,7 +272,7 @@ public class InteractiveSystem : MonoBehaviour {
     {
         if (other.tag == "LittleParticle")
         {
-            other.GetComponent<MeshRenderer>().material.SetColor("_TintColor", other.GetComponent<ParticleLifeCycle>().fisrtColor);
+            other.GetComponent<MeshRenderer>().material.SetColor("_TintColor", other.GetComponent<MainParticleLifeCycle>().fisrtColor);
         }
     }
 

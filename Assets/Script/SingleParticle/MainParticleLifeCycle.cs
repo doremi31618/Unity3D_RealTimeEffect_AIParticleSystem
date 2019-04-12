@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Schema;
+using System.Runtime.CompilerServices;
 public enum mainParticleStage
 {
     rebornDelay,
@@ -10,16 +11,27 @@ public enum mainParticleStage
     end
 }
 
-public class ParticleLifeCycle : ParticleBase
+ 
+public class MainParticleLifeCycle : ParticleBase
 {
+    private static MainParticleLifeCycle instance;
+    public static MainParticleLifeCycle Instance{
+        get{
+            if(instance == null)
+            {
+                instance = new MainParticleLifeCycle();
+            }  
+            return instance;
+        }
+    }
     [HideInInspector] public int index;
 
     [Range(0, 10)] public float rebornDelayTimeRange;
     float rebornDelayTime;
 
-    [Range(0, 1000)] public float localMoveSpeed = 100;
+    [Range(0, 100)] public float localMoveSpeed = 100;
 
-    private Color m_color;
+    //private Color m_color;
 
     public Color fisrtColor;
     public Color finalColor;
@@ -32,30 +44,28 @@ public class ParticleLifeCycle : ParticleBase
     public float lerpTime = 1f;
     #endregion
     public mainParticleStage m_stage = mainParticleStage.rebornDelay;
-
-
-    private void Awake()
-    {
-        
-
-    }
+    public MainParticleMove m_move = new MainParticleMove();
+    public BoundaryEvent m_event;
     private void Start()
     {
         Initialized();
-        //AttributeInitialze();
         RebornPositionSetting();
         StartCoroutine(StageControl());
     }
     private void Update()
     {
-        
+        if (GetComponent<Rigidbody>().velocity.magnitude > maxMoveSpeed)
+        {
+            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * maxMoveSpeed;
+        }
     }
+
     private void FixedUpdate()
     {
         OutputValue();
     }
 
-    void Run()
+    public void Run()
     {
         
         direction += new Vector3(
@@ -64,7 +74,7 @@ public class ParticleLifeCycle : ParticleBase
         
         direction = direction.normalized;
         direction.Set(direction.x, direction.y, 0);
-
+        //Debug.Log("Run");
         velocity = Mathf.PerlinNoise( Time.time + index, index ) * direction * localMoveSpeed * Time.deltaTime;
 
     }
@@ -72,9 +82,10 @@ public class ParticleLifeCycle : ParticleBase
     {
 
         //m_rigidbody.velocity = velocity;
-        m_rigidbody.MovePosition(transform.position + velocity);
+        m_rigidbody.MovePosition(transform.position + m_move.velocity);
         //m_rigidbody.AddForce(velocity);
-        m_rigidbody.angularVelocity = angVelocity;
+        m_rigidbody.angularVelocity = m_move.angVelocity;
+        //Debug.Log("m_move" + m_move.velocity);
 
     }
     public void Initialized()
@@ -83,17 +94,19 @@ public class ParticleLifeCycle : ParticleBase
         m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
-        m_color = fisrtColor ;
+        m_event = new MainParticleBoundaryEvent(GetComponent<MainParticleLifeCycle>());
+        m_move = new MainParticleMove();
+        //m_color = fisrtColor ;
         m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.a,fisrtColor.g,fisrtColor.b,0));
-        //GetComponent<Renderer>().material = Instantiate(GetComponent<Renderer>().material);
     }
     public void AttributeInitialze()
     {
 
         RebornPositionSetting();
-        velocity = Vector3.zero;
-        angVelocity = Vector3.zero;
-        index = Random.Range(0, 823231);
+        m_move.velocity = Vector3.zero;
+        m_move.angVelocity = Vector3.zero;
+        m_move.index = Random.Range(0, 823231);
+        m_move.localMoveSpeed = localMoveSpeed;
         rebornDelayTime = Random.Range(0, rebornDelayTimeRange);
 
     }
@@ -123,8 +136,8 @@ public class ParticleLifeCycle : ParticleBase
     public void ExitBoundary()
     {
         //AttributeInitialze();
-        m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.r, fisrtColor.g, fisrtColor.b, 0));
-        m_stage = mainParticleStage.rebornDelay;
+        //m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.r, fisrtColor.g, fisrtColor.b, 0));
+        m_stage = mainParticleStage.end;
     }
 
     public void StayBoundary()
@@ -144,24 +157,36 @@ public class ParticleLifeCycle : ParticleBase
             switch(m_stage)
             {
                 case mainParticleStage.rebornDelay:
+                    velocity = Vector3.zero;
+                    angVelocity = Vector3.zero;
+                    GetComponent<Collider>().enabled = false;
+                    m_renderer.material.SetColor("_TintColor", lerpColor);
                     while (timer / rebornDelayTime < 1)
                     {
                         timer += Time.deltaTime;
-                        velocity = Vector3.zero;
-                        angVelocity = Vector3.zero;
 
+                        if(m_stage != mainParticleStage.rebornDelay)
+                        {
+                            break;
+                        }
                         yield return new WaitForEndOfFrame();
                     }
                     m_stage = mainParticleStage.start;
                     break;
                 case mainParticleStage.start:
                     AttributeInitialze();
+                    GetComponent<Collider>().enabled = true;
                     while (timer / lerpTime < 1)
                     {
                         timer += Time.deltaTime;
                         nowColor = Color.Lerp(m_color, fisrtColor, timer / lerpTime);
                         m_renderer.material.SetColor("_TintColor", nowColor);
-                        CollisionBoundary();
+                        //CollisionBoundary();
+                        m_Boundary.CollisionBoundary(transform,ref m_event);
+                        if (m_stage != mainParticleStage.start)
+                        {
+                            break;
+                        }
 
                         yield return new WaitForEndOfFrame();
                     }
@@ -172,7 +197,11 @@ public class ParticleLifeCycle : ParticleBase
                     while (timer / lifeTime < 1)
                     {
                         timer += Time.deltaTime;
-                        CollisionBoundary();
+                        m_Boundary.CollisionBoundary(transform, ref m_event);
+                        if (m_stage != mainParticleStage.update)
+                        {
+                            break;
+                        }
                         yield return new WaitForEndOfFrame();
                     }
                     m_stage = mainParticleStage.end;
@@ -185,7 +214,12 @@ public class ParticleLifeCycle : ParticleBase
                         timer += Time.deltaTime;
                         nowColor = Color.Lerp(m_color, lerpColor, timer / lerpTime);
                         m_renderer.material.SetColor("_TintColor", nowColor);
-                        CollisionBoundary();
+                        //CollisionBoundary();
+                        m_Boundary.CollisionBoundary(transform, ref m_event);
+                        if (m_stage != mainParticleStage.end)
+                        {
+                            break;
+                        }
                         yield return new WaitForEndOfFrame();
                     }
                     m_stage = mainParticleStage.rebornDelay;
@@ -198,6 +232,47 @@ public class ParticleLifeCycle : ParticleBase
 
     }
 
-  
 
+
+}
+
+public class MainParticleBoundaryEvent : BoundaryEvent
+{
+    public MainParticleLifeCycle _particle;
+    public MainParticleBoundaryEvent(MainParticleLifeCycle particle)
+    {
+        _particle = particle;
+        //Debug.Log(_particle);
+    }
+    public override void StayBoundary()
+    {
+        _particle.m_move.Run();
+        //Debug.Log("Stay boundary");
+
+    }
+    public override void ExitBoundary()
+    {
+        _particle.m_stage = mainParticleStage.end;
+        //Debug.Log("Exit boundary");
+    }
+}
+
+public class MainParticleMove : ParticleBase
+{
+    public int index;
+    public float localMoveSpeed = 100;
+
+    public void Run()
+    {
+
+        direction += new Vector3(
+            Mathf.Sin(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)),
+            Mathf.Cos(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)), 0);
+
+        direction = direction.normalized;
+        direction.Set(direction.x, direction.y, 0);
+
+        velocity = Mathf.PerlinNoise(Time.time + index, index) * direction * localMoveSpeed * Time.deltaTime;
+
+    }
 }

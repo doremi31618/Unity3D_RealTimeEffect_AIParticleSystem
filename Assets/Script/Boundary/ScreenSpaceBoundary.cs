@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEditor;
 
 [ExecuteInEditMode]
-public class ScreenSpaceBoundary : MonoBehaviour {
+public class ScreenSpaceBoundary : BoundaryBase
+{
     [Header("塞入相機物件")]
     public GameObject cameraObject ;
 
@@ -62,5 +63,12 @@ public class ScreenSpaceBoundary : MonoBehaviour {
 
     }
 
+    public override bool isPointInside(Transform _point)
+    {
+        bool checkPositionX = (_point.position.x < maxX && _point.position.x > minX);
+        bool checkPositionY = (_point.position.y < maxY && _point.position.y > minY);
+        bool pointChecker = checkPositionX && checkPositionY;
+        return pointChecker;
+    }
 }
 

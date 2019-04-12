@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class MainParticleLifeCycleAttribbute
+{
+    public float localMoveSpeed;
+    public float maxMoveSpeed;
+    public Color fisrtColor;
+    public Color finalColor;
+    public float lerpTime;
+    public LevelOfParticle level;
+}
 [RequireComponent(typeof(ScreenSpaceBoundary))]
 public class ParticleEmitter : MonoBehaviour {
     public int maxNumber = 100;
     public GameObject particle;
+    public MainParticleLifeCycleAttribbute allParticleAttribute = new MainParticleLifeCycleAttribbute();
 
     [HideInInspector]public List<GameObject> particleList;
     private void Initialized()
@@ -41,5 +51,9 @@ public class ParticleEmitter : MonoBehaviour {
             particleList.Add(clone);
         }
 
+    }
+    void CentralAttributeManager()
+    {
+        
     }
 }
