@@ -8,12 +8,27 @@ public class SpinAround : MonoBehaviour {
 	void Start () {
         StartCoroutine(spinAround());
 	}
-    public float speed = 10f;
+    public float frequency = 0.5f;
+    public int direction = 1;
+    public float minSpeed = 50;
+    public float maxSpeed = 150;
+    public bool isUsePhysicWayToRotate = false;
     IEnumerator spinAround()
     {
         while(true)
         {
-            transform.Rotate(0,0,((speed * Mathf.PerlinNoise(Time.time ,Time.time)) *  Time.deltaTime));
+            float angle = (minSpeed + (maxSpeed - minSpeed) *
+                        Mathf.PerlinNoise(Time.deltaTime *
+                                          Mathf.Sin(minSpeed + maxSpeed) *
+                                          Mathf.Cos((maxSpeed - minSpeed)),
+                                         1)) *
+                Time.deltaTime * direction * Mathf.Sin((minSpeed + Time.time) * frequency);
+
+            if(!isUsePhysicWayToRotate)
+                transform.Rotate(0,0,angle);
+            else
+                GetComponent<Rigidbody>().angularVelocity += new Vector3(0, 0, angle);
+            //Debug.Log(angle);
             yield return new WaitForEndOfFrame();
         }
 

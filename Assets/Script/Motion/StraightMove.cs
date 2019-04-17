@@ -9,18 +9,19 @@ public class StraightMove : ParticleBase {
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        PositionInitialize();
     }
     private void Update()
     {
         Run();
         OutputValue();
     }
+    void PositionInitialize()
+    {
+        this.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+    }
     void Run()
     {
-
-        //direction += new Vector3(
-        //    Mathf.Sin(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)),
-        //    Mathf.Cos(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)), 0);
 
         //direction = direction.normalized;
         //direction.Set(direction.x, direction.y, 0);
@@ -34,7 +35,7 @@ public class StraightMove : ParticleBase {
         //m_rigidbody.velocity = velocity;
         m_rigidbody.MovePosition(transform.position + velocity);
         //m_rigidbody.AddForce(velocity);
-        m_rigidbody.angularVelocity = angVelocity;
+        //m_rigidbody.angularVelocity = angVelocity;
 
     }
 }

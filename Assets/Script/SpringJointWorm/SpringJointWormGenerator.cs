@@ -7,6 +7,7 @@ using System.Runtime.Remoting;
 using System.Security.Policy;
 
 public class SpringJointWormGenerator : MonoBehaviour {
+    
     [Header("Single Shape Setting")]
     [Range(5,12)]public int frequency = 5;
     [Range(1, 10)] public float radius;
@@ -23,16 +24,67 @@ public class SpringJointWormGenerator : MonoBehaviour {
     public RigidbodyConstraints constraints = RigidbodyConstraints.FreezeRotation;
 
     [Header("Moving Attribute")]
-    public float speedOfSpinAround;
+    public float minSpeedOfSpinAround = 50;
+    public float maxSpeedOfSpinArdoun = 150;
 
+    [Header("Random Attribute range")]
+    public bool isUseRandomAttribute = true;
+
+    public Gradient randomCenterColor;
+    public Gradient randomCornerColor;
+
+    public Vector2 randomFrequencyBetweenTwoConstant = new Vector2(5,12);
+    public Vector2 randomRadiusBetweenTwoConstant = new Vector2(1, 15);
+    public Vector2 minSpinAroundBetweenTwoConstant = new Vector2(75, 100);
+    public Vector2 maxSpinAroundBetweenTwoConstant = new Vector2(100, 200);
+    #region private attribute
     bool alreadyBuild = false;
+    float index;
     GameObject center;
+    ScreenSpaceBoundary m_Boundary;
+    #endregion
+
     //List<GameObject> particles;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () 
+    {
+        PositionInitialize();
+        RandomBornSetting();
+
         GameObjectGenerator();
 	}
+    void PositionInitialize()
+    {
+        this.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+    }
+
+    void RandomBornSetting()
+    {
+        if (!isUseRandomAttribute) return;
+        m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
+
+        this.transform.localPosition = new Vector3(
+            Random.Range(m_Boundary.minX, m_Boundary.maxX),
+            Random.Range(m_Boundary.minY, m_Boundary.maxY), 0);
+        
+        index = Random.Range(12452, 59291241);
+        frequency = (int)Random.Range(randomFrequencyBetweenTwoConstant.x, randomFrequencyBetweenTwoConstant.y);
+        radius = (int)Random.Range(randomRadiusBetweenTwoConstant.x, randomRadiusBetweenTwoConstant.y);
+
+        minSpeedOfSpinAround = Random.Range(minSpinAroundBetweenTwoConstant.x, minSpinAroundBetweenTwoConstant.y);
+        maxSpeedOfSpinArdoun = Random.Range(maxSpinAroundBetweenTwoConstant.x, maxSpinAroundBetweenTwoConstant.y);
+        //color setting 
+        float randomSeed = Mathf.Sin(minSpeedOfSpinAround + maxSpeedOfSpinArdoun) *
+                           Mathf.Cos(maxSpeedOfSpinArdoun - minSpeedOfSpinAround);
+        
+        centerColor = randomCenterColor.Evaluate(Mathf.PerlinNoise(index, randomSeed));
+        cornerColor = randomCornerColor.Evaluate(Mathf.PerlinNoise(index * randomSeed, index));
+
+        //Debug.Log(Mathf.PerlinNoise(index * Mathf.Sin(index), index * Mathf.Sin(index)));
+
+        
+    }
 
     void GeneratorCenter()
     {
@@ -54,14 +106,16 @@ public class SpringJointWormGenerator : MonoBehaviour {
         center.transform.parent = this.transform;
         center.transform.localPosition = Vector3.zero;
 
-        center.GetComponent<SpinAround>().speed = speedOfSpinAround;
+        center.GetComponent<SpinAround>().minSpeed = minSpeedOfSpinAround;
+        center.GetComponent<SpinAround>().maxSpeed = maxSpeedOfSpinArdoun;
+        center.GetComponent<SpinAround>().direction = ((int)index % 2 == 0) ? 1:-1;
         center.GetComponent<Renderer>().material.SetColor("_TintColor", centerColor);
 
     }
 
     void GameObjectGenerator()
     {
-        GeneratorCenter();
+        if (center == null) GeneratorCenter();
         for (int i = 0; i < frequency;i++)
         {
             float angle = (360 * i / (frequency)) * Mathf.Deg2Rad;
@@ -71,6 +125,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
             GameObject corner = new GameObject();
             corner.name = "corner" + i;
             corner.transform.parent = this.transform;
+            corner.transform.localScale *= transform.localScale.x;
             corner.transform.position = new Vector3(x,y,transform.position.z);
 
             //add composnent

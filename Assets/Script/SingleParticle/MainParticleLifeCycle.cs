@@ -78,11 +78,20 @@ public class MainParticleLifeCycle : ParticleBase
         velocity = Mathf.PerlinNoise( Time.time + index, index ) * direction * localMoveSpeed * Time.deltaTime;
 
     }
+
     void OutputValue()
     {
-
-        //m_rigidbody.velocity = velocity;
-        m_rigidbody.MovePosition(transform.position + m_move.velocity);
+        if(m_move.index % 2 != 0)
+        {
+            m_rigidbody.AddForce(m_move.velocity * 150);
+            //Debug.Log("add force "+ m_move.index);
+        }   
+           
+        else{
+            m_rigidbody.MovePosition(transform.position + m_move.velocity);
+            //Debug.Log("Move position"+m_move.index);
+        }
+            
         //m_rigidbody.AddForce(velocity);
         m_rigidbody.angularVelocity = m_move.angVelocity;
         //Debug.Log("m_move" + m_move.velocity);
@@ -105,7 +114,7 @@ public class MainParticleLifeCycle : ParticleBase
         RebornPositionSetting();
         m_move.velocity = Vector3.zero;
         m_move.angVelocity = Vector3.zero;
-        m_move.index = Random.Range(0, 823231);
+        m_move.index = Random.Range(12345, 823231);
         m_move.localMoveSpeed = localMoveSpeed;
         rebornDelayTime = Random.Range(0, rebornDelayTimeRange);
 
@@ -116,35 +125,36 @@ public class MainParticleLifeCycle : ParticleBase
             Random.Range(m_Boundary.minX, m_Boundary.maxX),
             Random.Range(m_Boundary.minY, m_Boundary.maxY), 0);
     }
+    /*
+    //public void CollisionBoundary()
+    //{
 
-    public void CollisionBoundary()
-    {
+    //    bool checkPositionX = (transform.position.x < m_Boundary.maxX && transform.position.x > m_Boundary.minX);
+    //    bool checkPositionY = (transform.position.y < m_Boundary.maxY && transform.position.y > m_Boundary.minY);
 
-        bool checkPositionX = (transform.position.x < m_Boundary.maxX && transform.position.x > m_Boundary.minX);
-        bool checkPositionY = (transform.position.y < m_Boundary.maxY && transform.position.y > m_Boundary.minY);
+    //    if (checkPositionX && checkPositionY)
+    //    {
+    //        StayBoundary();
+    //    }
+    //    else
+    //    {
+    //        ExitBoundary();
+    //    }
+    //}
 
-        if (checkPositionX && checkPositionY)
-        {
-            StayBoundary();
-        }
-        else
-        {
-            ExitBoundary();
-        }
-    }
 
+
+    //public void StayBoundary()
+    //{
+    //    Run();
+    //}
+    */
     public void ExitBoundary()
     {
         //AttributeInitialze();
         //m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.r, fisrtColor.g, fisrtColor.b, 0));
         m_stage = mainParticleStage.end;
     }
-
-    public void StayBoundary()
-    {
-        Run();
-    }
-
     IEnumerator StageControl()
     {
         while (true)
@@ -173,6 +183,7 @@ public class MainParticleLifeCycle : ParticleBase
                     }
                     m_stage = mainParticleStage.start;
                     break;
+
                 case mainParticleStage.start:
                     AttributeInitialze();
                     GetComponent<Collider>().enabled = true;

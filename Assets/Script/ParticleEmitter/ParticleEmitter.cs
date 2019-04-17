@@ -29,11 +29,12 @@ public class ParticleEmitter : MonoBehaviour {
     private void Awake()
     {
         Initialized();
+        Emitter();
     }
     // Use this for initialization
     void Start () {
         
-        Emitter();
+
 		
 	}
 	
