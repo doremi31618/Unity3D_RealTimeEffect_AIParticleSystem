@@ -44,7 +44,7 @@ public class MainParticleLifeCycle : ParticleBase
     public float lerpTime = 1f;
     #endregion
     public mainParticleStage m_stage = mainParticleStage.rebornDelay;
-    public MainParticleMove m_move = new MainParticleMove();
+    [HideInInspector]public MainParticleMove m_move = new MainParticleMove();
     public BoundaryEvent m_event;
     private void Start()
     {
@@ -84,7 +84,6 @@ public class MainParticleLifeCycle : ParticleBase
         if(m_move.index % 2 != 0)
         {
             m_rigidbody.AddForce(m_move.velocity * 150);
-            //Debug.Log("add force "+ m_move.index);
         }   
            
         else{
@@ -167,8 +166,9 @@ public class MainParticleLifeCycle : ParticleBase
             switch(m_stage)
             {
                 case mainParticleStage.rebornDelay:
-                    velocity = Vector3.zero;
+                    //velocity = Vector3.zero;
                     angVelocity = Vector3.zero;
+                    //GetComponent<Rigidbody>().
                     GetComponent<Collider>().enabled = false;
                     m_renderer.material.SetColor("_TintColor", lerpColor);
                     while (timer / rebornDelayTime < 1)
@@ -187,6 +187,8 @@ public class MainParticleLifeCycle : ParticleBase
                 case mainParticleStage.start:
                     AttributeInitialze();
                     GetComponent<Collider>().enabled = true;
+                    GetComponent<Rigidbody>().isKinematic = false;
+                    //m_rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                     while (timer / lerpTime < 1)
                     {
                         timer += Time.deltaTime;
@@ -227,6 +229,10 @@ public class MainParticleLifeCycle : ParticleBase
                         m_renderer.material.SetColor("_TintColor", nowColor);
                         //CollisionBoundary();
                         m_Boundary.CollisionBoundary(transform, ref m_event);
+                        if(m_Boundary.isPointInside(transform))
+                        {
+                            m_move.Run();
+                        }
                         if (m_stage != mainParticleStage.end)
                         {
                             break;
@@ -264,6 +270,8 @@ public class MainParticleBoundaryEvent : BoundaryEvent
     public override void ExitBoundary()
     {
         _particle.m_stage = mainParticleStage.end;
+        _particle.velocity = Vector3.zero;
+
         //Debug.Log("Exit boundary");
     }
 }
