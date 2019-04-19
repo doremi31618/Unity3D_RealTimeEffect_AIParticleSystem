@@ -23,6 +23,8 @@ public class SnakeHead : MonoBehaviour {
             return snakeMouse.GetComponent<SnakeMouse>().isEating;
         }
     }
+    [HideInInspector]public GameObject _currentTarget;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -31,8 +33,46 @@ public class SnakeHead : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
+    
+    }
 
+    private void FixedUpdate()
+    {
+        checkEveryTarget();
+    }
+    void checkEveryTarget()
+    {
+        if (HuntingList.Count == 0) return;
+        for (int i = 0; i < HuntingList.Count;i++)
+        {
+            switch (HuntingList[i].layer)
+            {
+                //object layer
+                case 9:
+                    if (HuntingList[i].GetComponent<MainParticleLifeCycle>().m_stage != mainParticleStage.update)
+                    {
+                        
+                        if(_currentTarget == HuntingList[i].gameObject)
+                        {
+                            _currentTarget = null;
+                        }
+                        HuntingList.Remove(HuntingList[i].gameObject);
+                    }
+                    break;
+
+                //player layer
+                case 10:
+                    break;
+
+                //spring worm layer 
+                case 12:
+                    break;
+
+                case 13:
+                    break;
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         
@@ -41,7 +81,28 @@ public class SnakeHead : MonoBehaviour {
             //Debug.Log(other.gameObject.layer + " " + (int)HuntingTargets[i]);
             if(other.gameObject.layer == (int)HuntingTargets[i])
             {
-                HuntingList.Add(other.gameObject);
+                switch(other.gameObject.layer)
+                {
+                    //object layer
+                    case 9:
+                        if(other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.update)
+                        {
+                            HuntingList.Add(other.gameObject);
+                        }
+                        break;
+
+                    //player layer
+                    case 10:
+                        break;
+
+                    //spring worm layer 
+                    case 12:
+                        break;
+
+                    case 13:
+                        break;
+                }
+
             }
         }
     }

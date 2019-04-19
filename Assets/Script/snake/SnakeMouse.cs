@@ -7,9 +7,11 @@ public class SnakeMouse : MonoBehaviour {
     public float EatingTimeInterval = 0.5f;
     public bool isEating = false;
     float timer;
+    ParticleSystem m_particleEffect;
 	// Use this for initialization
 	void Start () {
-		
+        m_particleEffect = this.GetComponent<ParticleSystem>();
+        m_particleEffect.Pause();
 	}
 
     private void FixedUpdate()
@@ -32,19 +34,37 @@ public class SnakeMouse : MonoBehaviour {
         isEating = false;
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(!isEating)
+        if (!isEating)
         {
-            EatingEvent(collision.gameObject);
+            Debug.Log("eating");
+            EatingEvent(other.gameObject);
         }
     }
 
     //call event 
     void EatingEvent(GameObject beEatenGameObject)
     {
-        beEatenGameObject.SetActive(false);
+        switch(beEatenGameObject.layer)
+        {
+            case 9:
+                beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
+                m_particleEffect.Play();
+                break;
+
+            //player layer
+            case 10:
+                break;
+
+            //spring worm layer 
+            case 12:
+                break;
+
+            case 13:
+                break;
+        }
+
     }
 
 }

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54627725689626920}
   - component: {fileID: 114638135908900896}
   - component: {fileID: 114352587613179100}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,8 +60,7 @@ GameObject:
   - component: {fileID: 114775827496590450}
   - component: {fileID: 33945894697479772}
   - component: {fileID: 23099914454127982}
-  - component: {fileID: 135641002433671984}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,8 +76,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4511098535954466}
   - component: {fileID: 135217894794609210}
-  m_Layer: 0
-  m_Name: Collider
+  - component: {fileID: 114199144478135028}
+  m_Layer: 13
+  m_Name: Mouse Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4988153582590838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Snake Prefab GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,8 +111,24 @@ GameObject:
   - component: {fileID: 23917603254602574}
   - component: {fileID: 135205165627113876}
   - component: {fileID: 54087406531422114}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1798602414432196
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4527087728977830}
+  - component: {fileID: 135337003418606854}
+  m_Layer: 13
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,6 +160,19 @@ Transform:
   m_Father: {fileID: 4547222906823890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4527087728977830
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798602414432196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4547222906823890}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4547222906823890
 Transform:
   m_ObjectHideFlags: 1
@@ -155,6 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511098535954466}
+  - {fileID: 4527087728977830}
   m_Father: {fileID: 4988153582590838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263168244875442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 13.2}
+  m_LocalPosition: {x: 0, y: 1, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4716118080872364}
@@ -357,6 +387,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &114199144478135028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535532782902670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560235bfb153543b5be987e18a682836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EatingNumber: 0
+  EatingTimeInterval: 0.5
+  isEating: 0
 --- !u!114 &114352587613179100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,8 +412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafae1df3c2ea49cab788cbfee842416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beEaten: 0
   HuntingTargets: 09000000
   HuntingList: []
+  snakeMouse: {fileID: 1535532782902670}
+  _currentTarget: {fileID: 0}
 --- !u!114 &114489582278643902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,15 +467,17 @@ MonoBehaviour:
   numberOfBody: 15
   bodyDistance: 1.5
   rebornDelay: {x: 2, y: 5}
+  endingDelay: 3
   speed: 5
   maxMoveSpeed: 3.4
-  SensorTriggerRadius: 1
-  endingDelay: 1.5
+  SensorTriggerRadius: 3
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
   m_updateStage: 0
   bodyList: []
+  ifHaveTarget: 0
+  mostCloseTarget: {fileID: 0}
 --- !u!114 &114797286061528934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,13 +490,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 0}
-  distanceToCamera: 13.2
+  distanceToCamera: 12
   debugColor: {r: 0.88235295, g: 1, b: 1, a: 1}
-  minX: -21.028381
-  maxX: 21.028381
-  minY: -6.6210237
-  maxY: 8.621023
-  worldCenter: {x: 0, y: 1, z: 13.2}
+  minX: -19.116709
+  maxX: 19.116709
+  minY: -5.928203
+  maxY: 7.928203
+  worldCenter: {x: 0, y: 1, z: 12}
 --- !u!135 &135205165627113876
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -467,6 +516,18 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535532782902670}
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135337003418606854
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798602414432196}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -483,16 +544,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135641002433671984
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1343070500099954}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

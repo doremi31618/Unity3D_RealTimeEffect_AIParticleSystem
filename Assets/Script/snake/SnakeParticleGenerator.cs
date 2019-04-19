@@ -51,6 +51,9 @@ public class SnakeParticleGenerator : MonoBehaviour {
 
     [Header("Motion Related Attribbute")]
     public Vector2 rebornDelay = new Vector2(2, 5);
+    [Tooltip("How long will it reborn after leaving boundary")]
+    public float endingDelay = 1.5f;
+    [Tooltip("The moving speed")]
     public float speed = 1;
     public float maxMoveSpeed = 3.4f;
 
@@ -58,8 +61,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
     [Tooltip("defalt value : o.5 so at least bigger than 0.5f")]
     public float SensorTriggerRadius = 1f;
     public SortingLayer HuntingTarget;
+    public int HowMuchNumberForEatingToGrowUp = 5;
 
-    [HideInInspector] public float endingDelay = 1.5f;
     [HideInInspector] public bool ifAllStayInBoundary;
     [HideInInspector] public int direction = 1;
 
@@ -67,6 +70,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     float timer;
     float timerAtEnd;
     float rebbornDelayTime;
+    int eatNumber;
 
     //stage control
     public SnakeLifeStage m_stage = SnakeLifeStage.Update;
@@ -74,6 +78,12 @@ public class SnakeParticleGenerator : MonoBehaviour {
 
     [HideInInspector]public List<GameObject> bodyList = new List<GameObject>();
     ScreenSpaceBoundary m_Boundary;
+    SnakeHead m_head
+    {
+        get {
+            return bodyList[0].GetComponent<SnakeHead>();
+        }
+    }
 
     //[Header("setting Boundary Attribute ")]
     //public bool isUseBoundarySystem;
@@ -136,21 +146,38 @@ public class SnakeParticleGenerator : MonoBehaviour {
 
     void UpdateCycleStageSelector()
     {
-        
+
         //Debug.Log(m_updateStage);
+        EventManagement();
         switch (m_updateStage)
         {
             case SnakeMotionStage.Idle:
                 SnakeMove();
                 break;
             case SnakeMotionStage.Hunting:
+                Hunter();
                 break;
             case SnakeMotionStage.Eating:
+                //GrowUp();
+                m_updateStage = SnakeMotionStage.Idle;
                 break;
             case SnakeMotionStage.BeEaten:
                 break;
         }
         if (timer > 5) CheckEachBodyIffStayInBoundary();
+    }
+    void GrowUp()
+    {
+        
+        eatNumber += 1;
+        Debug.Log("HowMuchNumberForEatingToGrowUp" + HowMuchNumberForEatingToGrowUp + "||Eat Number" + eatNumber);
+        if (eatNumber > HowMuchNumberForEatingToGrowUp)
+        {
+            eatNumber = 0;
+            Debug.Log("grow");
+            AddBody();
+        }
+        m_updateStage = SnakeMotionStage.Idle;
     }
 
     //define what stage should be 
@@ -174,6 +201,97 @@ public class SnakeParticleGenerator : MonoBehaviour {
             m_updateStage = SnakeMotionStage.Eating;
         }
 
+    }
+    public bool ifHaveTarget = false;
+    public GameObject mostCloseTarget = null;
+    public GameObject currentTarget
+    {
+        get
+        {
+            return m_head._currentTarget;
+        }
+        set
+        {
+            m_head._currentTarget = value;
+        }
+    }
+    void Hunter()
+    {
+        if (!ifHaveTarget)
+        {
+            ChooseTarget();
+            TracingTarget();
+        }
+        else
+            TracingTarget();
+    }
+    void ChooseTarget()
+    {
+        if (m_head.HuntingList.Count > 0)
+        {
+            float mostCloseDistance = 0;
+            for (int i = 0; i < m_head.HuntingList.Count; i++)
+            {
+                float distanceToTarget = Vector3.Distance(m_head.transform.position, m_head.HuntingList[i].transform.position);
+                if (mostCloseTarget == null)
+                {
+                    currentTarget = m_head.HuntingList[i];
+                    mostCloseDistance = Vector3.Distance(m_head.transform.position, currentTarget.transform.position);
+                }
+                else if (distanceToTarget < mostCloseDistance)
+                {
+                    currentTarget = m_head.HuntingList[i];
+                    mostCloseDistance = distanceToTarget;
+                }
+            }
+        }
+        else if(m_head.HuntingList.Count == 0)
+        {
+            Debug.Log("lost target");
+            m_updateStage = SnakeMotionStage.Idle;
+        }
+    }
+
+    void TracingTarget()
+    {
+        float distanceToTarget = Vector3.Distance(m_head.transform.position, currentTarget.transform.position);
+        if(distanceToTarget > 1.4f)
+        {
+            for (int i = 0; i < bodyList.Count; i++)
+            {
+                if (i == 0)
+                    TracingMove(bodyList[i]);
+                else
+                    CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
+
+            } 
+        }
+        else
+        {
+            for (int i = 0; i < bodyList.Count; i++)
+            {
+                if (i == 0)
+                    TracingMove(bodyList[i]);
+                else
+                    CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
+
+            }
+            m_updateStage = SnakeMotionStage.Eating;
+            GrowUp();
+        }
+
+    }
+    void TracingMove(GameObject _head)
+    {
+        //Vector3 velocity = (currentTarget.transform.position - _head.transform.position ).normalized* speed * 1.5f * Time.deltaTime;
+        //_head.GetComponent<Rigidbody>().MovePosition(_head.transform.position + velocity);
+
+        float _distance = Vector3.Distance(currentTarget.transform.position, _head.transform.position);
+        Vector3 dir = (currentTarget.transform.position - _head.transform.position).normalized;
+        float t = Time.deltaTime * _distance / 2 * speed * 0.35f;
+        if (t > 0.5) t = 0.5f;
+        _head.GetComponent<Rigidbody>().MovePosition(
+            Vector3.Slerp(_head.transform.position, currentTarget.transform.position, t));
     }
 
     void PositionInitialize()
@@ -311,7 +429,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
 
     void SnakeMove()
     {
-        Debug.Log("StageControl");
+        //Debug.Log("StageControl");
         for (int i = 0; i < bodyList.Count;i++)
         {
             if(i == 0)
@@ -349,7 +467,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     {
         GameObject body = (Instantiate(bodyPrefab) as GameObject);
         body.transform.parent = this.transform;
-        body.transform.position = bodyList[0].transform.position;
+        body.transform.position = bodyList[bodyList.Count-1].transform.position;
         body.layer = 13;
         bodyList.Add(body);
     }

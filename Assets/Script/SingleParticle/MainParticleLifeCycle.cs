@@ -8,6 +8,7 @@ public enum mainParticleStage
     rebornDelay,
     start,
     update,
+    beEaten,
     end
 }
 
@@ -46,6 +47,7 @@ public class MainParticleLifeCycle : ParticleBase
     public mainParticleStage m_stage = mainParticleStage.rebornDelay;
     [HideInInspector]public MainParticleMove m_move = new MainParticleMove();
     public BoundaryEvent m_event;
+    //ParticleSystem m_particleEffect;
     private void Start()
     {
         Initialized();
@@ -64,7 +66,13 @@ public class MainParticleLifeCycle : ParticleBase
     {
         OutputValue();
     }
-
+    public void BeEaten()
+    {
+        Debug.Log("number" + index + "be eaten");
+        //m_particleEffect.Play();
+        m_stage = mainParticleStage.beEaten;
+        GetComponent<MeshRenderer>().enabled = false;
+    }
     public void Run()
     {
         
@@ -104,6 +112,8 @@ public class MainParticleLifeCycle : ParticleBase
         m_renderer = GetComponent<Renderer>();
         m_event = new MainParticleBoundaryEvent(GetComponent<MainParticleLifeCycle>());
         m_move = new MainParticleMove();
+
+
         //m_color = fisrtColor ;
         m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.a,fisrtColor.g,fisrtColor.b,0));
     }
@@ -169,6 +179,7 @@ public class MainParticleLifeCycle : ParticleBase
                     //velocity = Vector3.zero;
                     angVelocity = Vector3.zero;
                     //GetComponent<Rigidbody>().
+                    GetComponent<MeshRenderer>().enabled = true;
                     GetComponent<Collider>().enabled = false;
                     m_renderer.material.SetColor("_TintColor", lerpColor);
                     while (timer / rebornDelayTime < 1)
@@ -219,7 +230,9 @@ public class MainParticleLifeCycle : ParticleBase
                     }
                     m_stage = mainParticleStage.end;
                     break;
-
+                case mainParticleStage.beEaten:
+                    m_stage = mainParticleStage.rebornDelay;
+                    break;
                 case mainParticleStage.end:
                     
                     while (timer / lerpTime < 1)
@@ -235,7 +248,9 @@ public class MainParticleLifeCycle : ParticleBase
                         }
                         if (m_stage != mainParticleStage.end)
                         {
+                            
                             break;
+
                         }
                         yield return new WaitForEndOfFrame();
                     }
