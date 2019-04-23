@@ -29,33 +29,5 @@ public class ParticleBase : MonoBehaviour{
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * maxMoveSpeed;
         }
     }
-    void Eat()
-    {
-        
-    }
-
-    void BeEaten()
-    {
-        
-    }
-
-    void CheckEatOrBeEaten(LevelOfParticle other)
-    {
-        
-        if((int)level > (int)other )
-        {
-            Eat();
-        }else if((int)level < (int)other)
-        {
-            BeEaten();
-        }else{
-            //do nothing
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        
-
-    }
 
 }
