@@ -258,7 +258,7 @@ public class InteractiveSystemWithMainParticle : MonoBehaviour {
 
                 case PlayerStage.update:
                     substractNumber += 1;
-                    collision.gameObject.GetComponent<MainParticleLifeCycle>().ExitBoundary();
+                    collision.gameObject.GetComponent<MainParticleLifeCycle>().m_stage = mainParticleStage.beEaten;
                     break;
 
                 case PlayerStage.end:
@@ -275,5 +275,6 @@ public class InteractiveSystemWithMainParticle : MonoBehaviour {
             other.GetComponent<MeshRenderer>().material.SetColor("_TintColor", other.GetComponent<MainParticleLifeCycle>().fisrtColor);
         }
     }
+
 
 }

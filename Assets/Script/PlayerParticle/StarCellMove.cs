@@ -36,6 +36,7 @@ public class StarCellMove : ParticleBase {
         }
 
     }
+
     void Run()
     {
         direction += new Vector3(
@@ -50,6 +51,7 @@ public class StarCellMove : ParticleBase {
         //    velocity = -velocity;
         //}
     }
+
     Rigidbody m_rigidbody;
     void OutputValue()
     {

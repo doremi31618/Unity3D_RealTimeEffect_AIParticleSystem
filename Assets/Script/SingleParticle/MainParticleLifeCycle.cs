@@ -15,16 +15,6 @@ public enum mainParticleStage
  
 public class MainParticleLifeCycle : ParticleBase
 {
-    private static MainParticleLifeCycle instance;
-    public static MainParticleLifeCycle Instance{
-        get{
-            if(instance == null)
-            {
-                instance = new MainParticleLifeCycle();
-            }  
-            return instance;
-        }
-    }
     [HideInInspector] public int index;
 
     [Range(0, 10)] public float rebornDelayTimeRange;

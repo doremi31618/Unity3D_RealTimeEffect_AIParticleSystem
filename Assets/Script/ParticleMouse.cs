@@ -2,32 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class SnakeMouse : MonoBehaviour {
+public class ParticleMouse : MonoBehaviour {
     public int EatingNumber;
     public float EatingTimeInterval = 0.5f;
     public bool isEating = false;
-    [HideInInspector]public float timer;
-    ParticleSystem m_particleEffect;
-
+    [HideInInspector] public float timer;
+    //ParticleSystem m_particleEffect;
 	// Use this for initialization
 	void Start () {
-        m_particleEffect = this.GetComponent<ParticleSystem>();
-        m_particleEffect.Pause();
+		
 	}
-
-    private void FixedUpdate()
-    {
-        if(isEating)
-        {
-            timer += Time.deltaTime;
-            if(timer > EatingTimeInterval)
-            {
-                isEating = false;
-            }
-
-        }
-    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
     public void Reset()
     {
@@ -52,7 +41,7 @@ public class SnakeMouse : MonoBehaviour {
         {
             case 9:
                 beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
-                m_particleEffect.Play();
+                //m_particleEffect.Play();
                 break;
 
             //player layer

@@ -220,10 +220,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
         if (!ifHaveTarget)
         {
             ChooseTarget();
-            TracingTarget();
         }
-        else
-            TracingTarget();
+        TracingTarget();
     }
     void ChooseTarget()
     {
@@ -247,7 +245,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
         }
         else if(m_head.HuntingList.Count == 0)
         {
-            Debug.Log("lost target");
+            //Debug.Log("lost target");
             m_updateStage = SnakeMotionStage.Idle;
         }
     }
@@ -255,9 +253,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     void TracingTarget()
     {
         float distanceToTarget = Vector3.Distance(m_head.transform.position, currentTarget.transform.position);
-        if(distanceToTarget > 1.4f)
-        {
-            for (int i = 0; i < bodyList.Count; i++)
+        for (int i = 0; i < bodyList.Count; i++)
             {
                 if (i == 0)
                     TracingMove(bodyList[i]);
@@ -265,17 +261,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
                     CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
 
             } 
-        }
-        else
+        if(distanceToTarget < 1.39f)
         {
-            for (int i = 0; i < bodyList.Count; i++)
-            {
-                if (i == 0)
-                    TracingMove(bodyList[i]);
-                else
-                    CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
-
-            }
             m_updateStage = SnakeMotionStage.Eating;
             GrowUp();
         }
