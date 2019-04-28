@@ -28,30 +28,49 @@ public class EmitterHunter : Hunter
     [HideInInspector]public EmitterParticleBehaiour emitterParticle;
     int eatingNumber;
 
-    GameObject currentTarget;
+    public GameObject currentTarget = null;
     public GameObject getCurrentTarget{ get { return currentTarget; } }
 
     public int getEatingNumber{get{return eatingNumber;}}
-    public bool isTracing{get{ return (currentTarget == null);}}
+    public bool isTracing{get{ return (currentTarget != null);}}
 
     public void Hunting()
     {
-        if (!ifHasTarget)
+        Debug.Log("enter hunting");
+        if (!isTracing && ifHasTarget)
         {
-            SelectTracingTarget();
+            SelectTracingTarget(emitterParticle.transform);
+            //Debug.Log("select target");
+            return;
         }
+        else if (!ifHasTarget)
+        {
+            
+            Debug.Log("currentTarget = null");
+            return;
+        }
+
+       
+        Debug.Log("ifHasTarget : " + ifHasTarget + " ; isTracing : " + isTracing);
         //TracingTarget();
     }
 
     public void SelectTracingTarget(Transform m_transform)
     {
+       
         if (HuntingList.Count > 0)
         {
+            Debug.Log("select hunting target");
             float mostCloseDistance = 0;
             GameObject mostCloseTarget = null;
             for (int i = 0; i < HuntingList.Count; i++)
             {
                 float distanceToTarget = Vector3.Distance(m_transform.position, HuntingList[i].transform.position);
+                if(distanceToTarget > 10)
+                {
+                    HuntingList.Remove(HuntingList[i]);
+                    return;
+                }
                 if (mostCloseTarget == null)
                 {
                     currentTarget = HuntingList[i];
@@ -63,11 +82,14 @@ public class EmitterHunter : Hunter
                     mostCloseDistance = distanceToTarget;
                 }
             }
+
         }
-        else if (HuntingList.Count == 0)
+        else if(HuntingList.Count == 0)
         {
             currentTarget = null;
+            Debug.Log("hunting List is empty");
         }
+
     }
 
     //public void TracingTarget(Transform m_transform)
@@ -174,6 +196,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     public override void Initialize()
     {
         InitializeComponent();
+        m_hunter.emitterParticle = instance;
         if(isUseRandomReborn)
         {
             RandomReborn();
@@ -229,6 +252,8 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         direction = UnityEngine.Random.Range(0, 100) > 50 ? 1 : -1;
         transform.localPosition = RegenerateStartPosition(direction);
         PositionInitialize();
+        m_hunter.HuntingList.Clear();
+        m_hunter.currentTarget = null;
     }
 
     void UpdateBehaviour()
@@ -253,6 +278,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
                 GerridaeMoveWay();
                 break;
             case ParticleMotionState.Hunting:
+                GerridaeMoveWay();
                 //Hunter();
                 break;
             case ParticleMotionState.Eating:
@@ -282,24 +308,27 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         }
     }
 
+
     public override void EventManagement()
     {
-        if(!m_hunter.ifHasTarget && !m_hunter.isTracing && !m_hunter.getIsEating && !beEaten)
-        {
-            motionStateNow = ParticleMotionState.Idle;
-
-        }else if(m_hunter.ifHasTarget && !m_hunter.getIsEating)
+        
+        if(m_hunter.ifHasTarget && !m_hunter.getIsEating)
         {
             motionStateNow = ParticleMotionState.Hunting;
+
         }
-        else if(m_hunter.getIsEating)
+        else 
         {
-            motionStateNow = ParticleMotionState.Eating;
+            motionStateNow = ParticleMotionState.Idle;
         }
-        else if (beEaten)
-        {
-            motionStateNow = ParticleMotionState.BeEaten;
-        }
+
+
+    }
+    void HuntingTracingMove()
+    {
+       
+   
+        LerpMove(nextPosition, this.transform.position, moveDistance);
     }
 
     /// <summary>
@@ -307,14 +336,46 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     /// </summary>
     void GerridaeMoveWay()
     {
+        float currentDistance = Vector3.Distance(transform.position, nextPosition);
         //Debug.Log("transform.position : " + transform.position + " ; nextPosition : " + nextPosition + "Vector3.Distance(transform.position, nextPosition) : " + Vector3.Distance(transform.position, nextPosition));
-        if(nextPosition == Vector3.zero || Vector3.Distance(transform.position, nextPosition) < 1.5f)
+        if (currentDistance < 1.5f || currentDistance > 10f)
         {
-            GeneratNextPosion();
+            if(motionStateNow == ParticleMotionState.Idle)
+                GeneratNextPosion();
+            else if(motionStateNow == ParticleMotionState.Hunting)
+            {
+                Debug.Log("GerridaeMoveWay hunting");
+                m_hunter.Hunting();
+
+                if(m_hunter.isTracing)
+                {
+                    if (Vector3.Distance(transform.position, m_hunter.currentTarget.transform.position) > 5)
+                    {
+                        m_hunter.currentTarget = null;
+                        motionStateNow = ParticleMotionState.Idle;
+                        Debug.Log("tracing 2");
+                        return;
+                    }
+                    nextPosition = this.transform.position + (m_hunter.getCurrentTarget.transform.position - transform.position) * 3;
+                    Debug.Log("tracing 1");
+                    //Debug.Log("reset next position in hunting : current distance " + currentDistance);
+                }
+                else
+                {
+                    motionStateNow = ParticleMotionState.Idle;
+                    Debug.Log("return to idle");
+                    return;
+
+                }
+                Debug.Log("nothing happen");
+                    
+            }
+                
         }
-
-        LerpMove(nextPosition, this.transform.position, moveDistance);
-
+        else if(currentDistance < 10f && currentDistance > 1.5f)
+            LerpMove(nextPosition, this.transform.position, moveDistance);
+        
+        //LerpMove(nextPosition, this.transform.position, moveDistance);
     }
 
     float moveDistance;
@@ -330,7 +391,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 
         //if(m_Boundary.isPointInside())
         nextPosition = this.transform.position + new Vector3(newX, newY,0);
-
+        Debug.Log("reset next position in idle");
     }
 
     void LerpMove(Vector3 forwardPosition, Vector3 currentPosition, float minCloseDistance)
@@ -341,6 +402,25 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         if (t > 0.5) t = 0.5f;
             m_rigidbody.MovePosition(
             Vector3.Slerp(currentPosition, forwardPosition, t));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        for (int i = 0; i < m_hunter.HuntingTargets.Length;i++)
+        {
+            if(other.gameObject.layer == (int)m_hunter.HuntingTargets[i])
+            {
+                m_hunter.HuntingList.Add(other.gameObject); 
+            }
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(m_hunter.HuntingList.Contains(other.gameObject))
+        {
+            m_hunter.HuntingList.Remove(other.gameObject);
+        }
     }
 
 }

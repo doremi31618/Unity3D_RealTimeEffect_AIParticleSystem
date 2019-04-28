@@ -11,11 +11,10 @@ public class Hunter
     [HideInInspector] public bool ifHasTarget
     {
         get{
-            if(HuntingList.Count > 0){return true;}
-            return false;
+            return HuntingList.Count > 0;
         }
     }
-    [HideInInspector] public List<GameObject> HuntingList;
+    public List<GameObject> HuntingList;
     public bool getIsEating{get { return mouse.isEating; }}
 
     public virtual void SelectTracingTarget()
@@ -26,5 +25,6 @@ public class Hunter
     {
 
     }
+
 }
 
