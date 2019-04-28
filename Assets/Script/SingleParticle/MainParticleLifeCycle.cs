@@ -56,7 +56,7 @@ public class MainParticleLifeCycle : ParticleBase
     {
         OutputValue();
     }
-    public void BeEaten()
+    public new void BeEaten()
     {
         Debug.Log("number" + index + "be eaten");
         //m_particleEffect.Play();

@@ -63,7 +63,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
             {
                 if(cornerList[i].GetComponent<ParticleBase>().isBeaten)
                 {
-                    Debug.Log("start fade in ");
+                    
                     cornerList[i].GetComponent<ParticleBase>().FadeIn();
                 }
             }
