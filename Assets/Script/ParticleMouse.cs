@@ -25,11 +25,20 @@ public class ParticleMouse : MonoBehaviour {
         isEating = false;
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isEating)
+        {
+            //Debug.Log("eating");
+            EatingEvent(collision.gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isEating)
         {
-            Debug.Log("eating");
+            //Debug.Log("eating");
             EatingEvent(other.gameObject);
         }
     }
@@ -50,6 +59,7 @@ public class ParticleMouse : MonoBehaviour {
 
             //spring worm layer 
             case 12:
+                beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
                 break;
 
             case 13:

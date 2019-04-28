@@ -36,7 +36,7 @@ public class EmitterHunter : Hunter
 
     public void Hunting()
     {
-        Debug.Log("enter hunting");
+        //Debug.Log("enter hunting");
         if (!isTracing && ifHasTarget)
         {
             SelectTracingTarget(emitterParticle.transform);
@@ -46,12 +46,12 @@ public class EmitterHunter : Hunter
         else if (!ifHasTarget)
         {
             
-            Debug.Log("currentTarget = null");
+            //Debug.Log("currentTarget = null");
             return;
         }
 
        
-        Debug.Log("ifHasTarget : " + ifHasTarget + " ; isTracing : " + isTracing);
+        //Debug.Log("ifHasTarget : " + ifHasTarget + " ; isTracing : " + isTracing);
         //TracingTarget();
     }
 
@@ -60,7 +60,7 @@ public class EmitterHunter : Hunter
        
         if (HuntingList.Count > 0)
         {
-            Debug.Log("select hunting target");
+            //Debug.Log("select hunting target");
             float mostCloseDistance = 0;
             GameObject mostCloseTarget = null;
             for (int i = 0; i < HuntingList.Count; i++)
@@ -87,7 +87,7 @@ public class EmitterHunter : Hunter
         else if(HuntingList.Count == 0)
         {
             currentTarget = null;
-            Debug.Log("hunting List is empty");
+            //Debug.Log("hunting List is empty");
         }
 
     }
@@ -344,7 +344,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
                 GeneratNextPosion();
             else if(motionStateNow == ParticleMotionState.Hunting)
             {
-                Debug.Log("GerridaeMoveWay hunting");
+                //Debug.Log("GerridaeMoveWay hunting");
                 m_hunter.Hunting();
 
                 if(m_hunter.isTracing)
@@ -353,21 +353,21 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
                     {
                         m_hunter.currentTarget = null;
                         motionStateNow = ParticleMotionState.Idle;
-                        Debug.Log("tracing 2");
+                        //Debug.Log("tracing 2");
                         return;
                     }
                     nextPosition = this.transform.position + (m_hunter.getCurrentTarget.transform.position - transform.position) * 3;
-                    Debug.Log("tracing 1");
+                    //Debug.Log("tracing 1");
                     //Debug.Log("reset next position in hunting : current distance " + currentDistance);
                 }
                 else
                 {
                     motionStateNow = ParticleMotionState.Idle;
-                    Debug.Log("return to idle");
+                    //Debug.Log("return to idle");
                     return;
 
                 }
-                Debug.Log("nothing happen");
+                //Debug.Log("nothing happen");
                     
             }
                 
@@ -391,7 +391,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 
         //if(m_Boundary.isPointInside())
         nextPosition = this.transform.position + new Vector3(newX, newY,0);
-        Debug.Log("reset next position in idle");
+        //Debug.Log("reset next position in idle");
     }
 
     void LerpMove(Vector3 forwardPosition, Vector3 currentPosition, float minCloseDistance)

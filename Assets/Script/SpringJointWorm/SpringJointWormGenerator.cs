@@ -40,7 +40,8 @@ public class SpringJointWormGenerator : MonoBehaviour {
     #region private attribute
     bool alreadyBuild = false;
     float index;
-    GameObject center;
+    public GameObject center;
+    public List<GameObject> cornerList;
     ScreenSpaceBoundary m_Boundary;
     #endregion
 
@@ -51,9 +52,25 @@ public class SpringJointWormGenerator : MonoBehaviour {
     {
         PositionInitialize();
         RandomBornSetting();
-
+        StartCoroutine(checkEveryCorner());
         GameObjectGenerator();
 	}
+    IEnumerator checkEveryCorner()
+    {
+        while(true)
+        {
+            for (int i = 0; i < cornerList.Count;i++)
+            {
+                if(cornerList[i].GetComponent<ParticleBase>().isBeaten)
+                {
+                    Debug.Log("start fade in ");
+                    cornerList[i].GetComponent<ParticleBase>().FadeIn();
+                }
+            }
+            yield return new WaitForSeconds(10f);
+        }
+
+    }
     void PositionInitialize()
     {
         this.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
@@ -91,13 +108,14 @@ public class SpringJointWormGenerator : MonoBehaviour {
         center = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         center.name = "Center";
         center.tag = "SpringJointWorm";
+        center.layer = 12;
 
         center.GetComponent<MeshFilter>().mesh = mesh;
         center.GetComponent<MeshRenderer>().material = material;
         center.GetComponent<SphereCollider>().enabled = false;
         center.AddComponent<Rigidbody>();
         center.AddComponent<SpinAround>();
-
+        center.AddComponent<ParticleBase>();
 
         Rigidbody rigidbody = center.GetComponent<Rigidbody>();
         rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
@@ -124,6 +142,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
 
             GameObject corner = new GameObject();
             corner.name = "corner" + i;
+            corner.layer = 12;
             corner.transform.parent = this.transform;
             corner.transform.localScale *= transform.localScale.x;
             corner.transform.position = new Vector3(x,y,transform.position.z);
@@ -134,6 +153,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
             corner.AddComponent<Rigidbody>();
             corner.AddComponent<SphereCollider>();
             corner.AddComponent<SpringJoint>();
+            corner.AddComponent<ParticleBase>();
 
             //setting stage
             material = Instantiate(material);
@@ -152,7 +172,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
             joint.autoConfigureConnectedAnchor = true;
             joint.spring = 50;
             joint.damper = 5;
-
+            cornerList.Add(corner);
             //particles.Add(corner);
         }
         alreadyBuild = true;

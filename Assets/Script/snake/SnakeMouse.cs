@@ -40,7 +40,7 @@ public class SnakeMouse : MonoBehaviour {
     {
         if (!isEating)
         {
-            Debug.Log("eating");
+            //Debug.Log("eating");
             EatingEvent(other.gameObject);
         }
     }
@@ -61,6 +61,7 @@ public class SnakeMouse : MonoBehaviour {
 
             //spring worm layer 
             case 12:
+                beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
                 break;
 
             case 13:
