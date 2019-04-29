@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 278310177}
   - component: {fileID: 278310176}
   - component: {fileID: 278310175}
-  - component: {fileID: 278310174}
   - component: {fileID: 278310173}
   - component: {fileID: 278310172}
   - component: {fileID: 278310179}
@@ -218,19 +217,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!135 &278310174
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 135475146890091934, guid: d23f16d54ffb94f9e8b84f6f0bbd1e68,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 278310169}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.000000029802322, y: 0.049515486, z: -0.05}
 --- !u!23 &278310175
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -348,7 +334,7 @@ MonoBehaviour:
   RepulsiveForce: 100
   AttrativeForce: 100
   lifeTime: 10
-  explosionTime: 0.3
+  explosionTime: 2
   attractiveTime: 10
   stepRandomMoveDistance: {x: 1, y: 2}
   maxMoveAngle: {x: 60, y: 120}
@@ -447,6 +433,7 @@ MonoBehaviour:
   EatingNumber: 0
   EatingTimeInterval: 0.5
   isEating: 0
+  MouseCollider: {fileID: 0}
   timer: 0
 --- !u!135 &378542459
 SphereCollider:
@@ -606,7 +593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1032142092030860, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
@@ -842,7 +829,7 @@ Prefab:
       objectReference: {fileID: 1076185687}
     - target: {fileID: 1702071174090514, guid: 8427b454053bf4d6da47cb8fd623293e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8427b454053bf4d6da47cb8fd623293e, type: 2}

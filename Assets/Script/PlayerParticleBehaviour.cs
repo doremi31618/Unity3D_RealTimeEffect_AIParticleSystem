@@ -86,12 +86,14 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 	void Update () {
 		
 	}
+
     private void FixedUpdate()
     {
         LifeCycleStateSelector();
     }
     public void Inititalize()
     {
+        m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
         m_collider = this.GetComponent<SphereCollider>();
         m_rigidbody = this.GetComponent<Rigidbody>();
 
@@ -128,12 +130,14 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             case ParticleMotionState.Idle:
                 IdldeEventHandler();
+                MouseControlMove();
                 break;
             case ParticleMotionState.Hunting:
                 break;
             case ParticleMotionState.Eating:
                 break;
             case ParticleMotionState.interactive:
+                MouseControlMove();
                 break;
             case ParticleMotionState.BeEaten:
                 break;
@@ -172,6 +176,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
             else
             {
                 motionStateNow = ParticleMotionState.Idle;
+
             }
             //Debug.Log(timer);
         }
@@ -228,6 +233,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                     break;
 
                 case ParticleMotionState.interactive:
+                    ForceSelector(collisionObject, ForceType.explosition);
                     break;
 
                 case ParticleMotionState.BeEaten:
@@ -266,6 +272,18 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 
         pRigidbody.AddForce(Force);
     }
+    public void MouseControlMove()
+    {
+        //Vector3 point = new Vector3();
+        Event currentEvent = Event.current;
+        //Vector2 mousePos = new Vector2();
+
+        Vector3 mousePointToPlayerLayer = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x,
+                        Input.mousePosition.y,
+                        m_Boundary.distanceToCamera));
+        m_rigidbody.MovePosition(mousePointToPlayerLayer);
+    }
 
     public bool checkIfInTargetList(LayerManager[] list, GameObject checkThisObject)
     {
@@ -284,12 +302,15 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         }
         return false;
     }
+
     private void OnMouseDown()
     {
         m_hunter.mouse.MouseCollider.isTrigger = true;
+        interaciveStateTrigger = true;
     }
     private void OnMouseUp()
     {
         m_hunter.mouse.MouseCollider.isTrigger = false;
+        interaciveStateTrigger = false;
     }
 }
