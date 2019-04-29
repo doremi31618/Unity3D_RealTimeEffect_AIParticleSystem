@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571334, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beEaten: 0
-  HuntingTargets: 09000000
+  HuntingTargets: 090000000c000000
   HuntingList: []
   snakeMouse: {fileID: 1226674731}
   _currentTarget: {fileID: 0}
@@ -400,6 +400,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 3.4
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &454757378
 Rigidbody:
@@ -5504,11 +5506,12 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 13
-    HuntingTargets: 09000000
+    HuntingTargets: 090000000c000000
     mouse: {fileID: 663462699}
     HuntingList: []
     TracingSpeed: 1
     emitterParticle: {fileID: 0}
+    currentTarget: {fileID: 0}
   rebornDelay: {x: 2, y: 5}
   endingDelay: 1.5
   stepRandomMoveDistance: {x: 5, y: 6}
@@ -5531,6 +5534,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 2
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &852935207
 MonoBehaviour:
@@ -5550,6 +5555,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   localMoveSpeed: 2
 --- !u!135 &852935208
@@ -5869,6 +5876,8 @@ MonoBehaviour:
   randomRadiusBetweenTwoConstant: {x: 2, y: 5}
   minSpinAroundBetweenTwoConstant: {x: 25, y: 50}
   maxSpinAroundBetweenTwoConstant: {x: 75, y: 250}
+  center: {fileID: 0}
+  cornerList: []
 --- !u!4 &958190976
 Transform:
   m_ObjectHideFlags: 0
@@ -5915,6 +5924,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   localMoveSpeed: 1
 --- !u!1 &993627254
@@ -6083,6 +6094,8 @@ MonoBehaviour:
   randomRadiusBetweenTwoConstant: {x: 2, y: 5}
   minSpinAroundBetweenTwoConstant: {x: 25, y: 50}
   maxSpinAroundBetweenTwoConstant: {x: 75, y: 250}
+  center: {fileID: 0}
+  cornerList: []
 --- !u!54 &993627259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6115,6 +6128,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   localMoveSpeed: 1
 --- !u!1 &1076185687
@@ -6563,11 +6578,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.9890995
+      value: -0.81311315
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.1472491
+      value: 0.5821057
       objectReference: {fileID: 0}
     - target: {fileID: 114525581661412084, guid: fe53b4a7ae6274816a2033d556481cd0,
         type: 2}
@@ -11507,7 +11522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beEaten: 0
-  HuntingTargets: 09000000
+  HuntingTargets: 090000000c000000
   HuntingList: []
   snakeMouse: {fileID: 1953661540}
   _currentTarget: {fileID: 0}
@@ -11529,6 +11544,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 3.4
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &1269244266
 Rigidbody:
@@ -11765,6 +11782,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114352587613179100, guid: 097752e57eb48489989c147c970a8aac,
+        type: 2}
+      propertyPath: HuntingTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4920290850796124, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11929,6 +11951,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114352587613179100, guid: 097752e57eb48489989c147c970a8aac,
+        type: 2}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 097752e57eb48489989c147c970a8aac, type: 2}
   m_IsPrefabParent: 0
@@ -12030,11 +12057,12 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 13
-    HuntingTargets: 09000000
+    HuntingTargets: 090000000c000000
     mouse: {fileID: 1102513191}
     HuntingList: []
     TracingSpeed: 1
     emitterParticle: {fileID: 0}
+    currentTarget: {fileID: 0}
   rebornDelay: {x: 2, y: 5}
   endingDelay: 1.5
   stepRandomMoveDistance: {x: 5, y: 6}
@@ -12080,6 +12108,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 2
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1302073111
 MonoBehaviour:
@@ -12099,6 +12129,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   localMoveSpeed: 2
 --- !u!135 &1302073112
@@ -31556,11 +31588,12 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 13
-    HuntingTargets: 09000000
+    HuntingTargets: 090000000c000000
     mouse: {fileID: 428144638}
     HuntingList: []
     TracingSpeed: 1
     emitterParticle: {fileID: 0}
+    currentTarget: {fileID: 0}
   rebornDelay: {x: 2, y: 5}
   endingDelay: 1.5
   stepRandomMoveDistance: {x: 5, y: 6}
@@ -31606,6 +31639,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 2
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &2133997357
 MonoBehaviour:
@@ -31625,6 +31660,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   localMoveSpeed: 2
 --- !u!135 &2133997358
