@@ -82,6 +82,10 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 	void Update () {
 		
 	}
+    private void FixedUpdate()
+    {
+        LifeCycleStateSelector();
+    }
     public void Inititalize()
     {
         m_collider = this.GetComponent<SphereCollider>();
@@ -97,6 +101,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         switch (stateNow)
         {
             case ParticleLifeState.Start:
+                Inititalize();
                 break;
             case ParticleLifeState.Update:
                 UpdateCycleStateSelector();
@@ -121,7 +126,10 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
         }
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        InteractiveStateSelector(other.gameObject);
+    }
     public void InteractiveStateSelector(GameObject collisionObject)
     {
         if (!checkIfInTargetList(InteractTarget, collisionObject))
@@ -138,6 +146,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 case ParticleMotionState.Idle:
                     ForceSelector(collisionObject, ForceType.attractive);
                     break;
+
                 case ParticleMotionState.Hunting:
                     break;
                 case ParticleMotionState.Eating:

@@ -6025,7 +6025,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: ddca2cbaa38a1ac4099332195fcc5158, type: 2}
   mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
   centerColor: {r: 0, g: 0, b: 0, a: 0.5019608}
-  cornerColor: {r: 0.5882353, g: 0.78431374, b: 0.9019608, a: 1}
+  cornerColor: {r: 0.40392157, g: 0.69803923, b: 0.9098039, a: 1}
   mass: 20
   drag: 1.5
   spring: 100
@@ -6579,11 +6579,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.86777484
+      value: -0.93501174
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.4969576
+      value: -0.35461682
       objectReference: {fileID: 0}
     - target: {fileID: 114525581661412084, guid: fe53b4a7ae6274816a2033d556481cd0,
         type: 2}
@@ -17267,15 +17267,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4291106969284262, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4291106969284262, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4291106969284262, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114778537510544166, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
