@@ -75,7 +75,8 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     [Header("Interactive target")]
     [Tooltip("the particle who will affected by player particle")]
     public LayerManager[] InteractTarget;
-    public LayerManager[] HuntingTarget; 
+    public LayerManager[] HuntingTarget;
+    public bool isUseMouseToControl = true; 
 
 	// Use this for initialization
 	void Start () {
@@ -130,14 +131,16 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             case ParticleMotionState.Idle:
                 IdldeEventHandler();
-                MouseControlMove();
+                if(isUseMouseToControl)MouseControlMove();
+                else {}
                 break;
             case ParticleMotionState.Hunting:
                 break;
             case ParticleMotionState.Eating:
                 break;
             case ParticleMotionState.interactive:
-                MouseControlMove();
+                if(isUseMouseToControl)MouseControlMove();
+                else{}
                 break;
             case ParticleMotionState.BeEaten:
                 break;
