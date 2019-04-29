@@ -28,7 +28,9 @@ public enum ParticleMotionState
     Eating,
     BeEaten,
     interactive,
-    grow
+    grow,
+    FirstUpdate,
+    EndOfUpdate
 }
 
 

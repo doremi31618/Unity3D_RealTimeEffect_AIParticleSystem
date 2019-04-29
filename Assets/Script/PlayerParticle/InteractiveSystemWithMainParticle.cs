@@ -18,7 +18,7 @@ public class InteractiveSystemWithMainParticle : MonoBehaviour {
     [Range(0.5f, 20f)] public float attractiveRadius = 10f;
     [Range(0.5f, 20f)] public float triggerRadius = 2f;
     [Range(0.5f, 20f)] public float explosionRadius = 5f;
-    [Range(0.5f, 20f)]public float deathRadius = 0.5f;
+    //[Range(0.5f, 20f)]public float deathRadius = 0.5f;
 
     [Header("Time Setting")]
     public float explosionTime = 0.3f;
