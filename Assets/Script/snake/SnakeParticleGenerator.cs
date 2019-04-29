@@ -62,6 +62,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
     public float SensorTriggerRadius = 1f;
     public SortingLayer HuntingTarget;
     public int HowMuchNumberForEatingToGrowUp = 5;
+    [Tooltip("the max number that you can add to snake")]
+    public int snakeAddingMaxNumber = 10;
 
     [HideInInspector] public bool ifAllStayInBoundary;
     [HideInInspector] public int direction = 1;
@@ -124,7 +126,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
                 {
                     
                     m_stage = SnakeLifeStage.Start;
-
+                    UpdateCycleStageSelector();
                 }
                 break;
 
@@ -170,9 +172,17 @@ public class SnakeParticleGenerator : MonoBehaviour {
     {
         
         eatNumber += 1;
+
+
         Debug.Log("HowMuchNumberForEatingToGrowUp" + HowMuchNumberForEatingToGrowUp + "||Eat Number" + eatNumber);
         if (eatNumber > HowMuchNumberForEatingToGrowUp)
         {
+            if (snakeAddingMaxNumber == 0)
+            {
+                m_updateStage = SnakeMotionStage.Idle;
+                return;
+            }
+            snakeAddingMaxNumber -= 1;
             eatNumber = 0;
             Debug.Log("grow");
             AddBody();
@@ -313,12 +323,13 @@ public class SnakeParticleGenerator : MonoBehaviour {
                 if(i ==0)
                 {
                     bodyList[0].transform.localPosition = Vector3.zero;
+                    bodyList[0].GetComponent<Rigidbody>().Sleep();
 
                 }
                 //body setting
                 else{
                     bodyList[i].transform.localPosition = bodyList[0].transform.localPosition;
-
+                    bodyList[i].GetComponent<Rigidbody>().Sleep();
                 }
             }
         }
@@ -405,6 +416,11 @@ public class SnakeParticleGenerator : MonoBehaviour {
             body.transform.position = bodyList[0].transform.position;
             body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
             body.layer = 13;
+            body.GetComponent<Rigidbody>().isKinematic = true;
+            if(i%3 == 0)
+            {
+                body.GetComponent<Rigidbody>().isKinematic = false;
+            }
 
             if(bodyList[i-1] == null)
             {
@@ -446,8 +462,13 @@ public class SnakeParticleGenerator : MonoBehaviour {
         float moveX = (Mathf.PerlinNoise(Time.time + index , index) - 0.1f) * 2 * speed * Time.deltaTime* direction;
         float moveY = Mathf.Sin(Time.time + index) * speed * Time.deltaTime;
         Vector3 velocity = new Vector3(moveX, moveY,0);
-        //Debug.Log(velocity);
         _head.GetComponent<Rigidbody>().MovePosition(_head.transform.position + velocity);
+        //Debug.Log(velocity);
+        //if(!m_Boundary.isPointInside(_head.transform) && timer > 5)
+        //{
+        //    _head.GetComponent<Rigidbody>().MovePosition(_head.transform.position - velocity * 2);
+        //}
+
     }
 
     void AddBody()
