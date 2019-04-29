@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 454757374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1226674732}
   - {fileID: 170694357}
@@ -577,8 +577,8 @@ MonoBehaviour:
   speed: 3
   maxMoveSpeed: 3.4
   SensorTriggerRadius: 3
-  HowMuchNumberForEatingToGrowUp: 30
-  snakeAddingMaxNumber: 10
+  HowMuchNumberForEatingToGrowUp: 45
+  snakeAddingMaxNumber: 7
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
@@ -615,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 577344863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.4, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children: []
   m_Father: {fileID: 1974908592}
   m_RootOrder: 1
@@ -1984,7 +1984,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -6178,7 +6178,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9103774, g: 0.94598085, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9292453, g: 0.9569319, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -6347,7 +6347,7 @@ Transform:
   m_GameObject: {fileID: 1096027466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.4, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_Children: []
   m_Father: {fileID: 712526598}
   m_RootOrder: 1
@@ -6579,11 +6579,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.06211598
+      value: 0.86777484
       objectReference: {fileID: 0}
     - target: {fileID: 4810211814996582, guid: fe53b4a7ae6274816a2033d556481cd0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9980689
+      value: 0.4969576
       objectReference: {fileID: 0}
     - target: {fileID: 114525581661412084, guid: fe53b4a7ae6274816a2033d556481cd0,
         type: 2}
@@ -11503,7 +11503,7 @@ Transform:
   m_GameObject: {fileID: 1269244262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 1953661541}
   - {fileID: 292483075}
@@ -11761,15 +11761,15 @@ MonoBehaviour:
   bodyPrefab: {fileID: 1096027466}
   headColor: {r: 0.5921569, g: 0.32156864, b: 0.7176471, a: 1}
   bodyColor: {r: 0.5921569, g: 0.32156864, b: 0.7176471, a: 1}
-  numberOfBody: 10
+  numberOfBody: 8
   bodyDistance: 2
   rebornDelay: {x: 2, y: 5}
   endingDelay: 3
   speed: 3
   maxMoveSpeed: 3.4
   SensorTriggerRadius: 3
-  HowMuchNumberForEatingToGrowUp: 30
-  snakeAddingMaxNumber: 10
+  HowMuchNumberForEatingToGrowUp: 50
+  snakeAddingMaxNumber: 5
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
@@ -11837,7 +11837,7 @@ Prefab:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 2}
       propertyPath: HowMuchNumberForEatingToGrowUp
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114797286061528934, guid: 097752e57eb48489989c147c970a8aac,
         type: 2}
@@ -11901,7 +11901,7 @@ Prefab:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 2}
       propertyPath: numberOfBody
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 2}
@@ -11910,27 +11910,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4547222906823890, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4547222906823890, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4547222906823890, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4146862067069900, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.85
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4146862067069900, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.85
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4146862067069900, guid: 097752e57eb48489989c147c970a8aac, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.85
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 2}
@@ -11957,6 +11957,11 @@ Prefab:
         type: 2}
       propertyPath: HuntingTargets.Array.data[1]
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 2}
+      propertyPath: snakeAddingMaxNumber
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 097752e57eb48489989c147c970a8aac, type: 2}
@@ -13614,7 +13619,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -17077,7 +17082,7 @@ Prefab:
     - target: {fileID: 114193644292568872, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
       propertyPath: maxNumber
-      value: 35
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_Name
@@ -17095,7 +17100,7 @@ Prefab:
     - target: {fileID: 114300808911545980, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
       propertyPath: lifeTime
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114300808911545980, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
@@ -17253,7 +17258,7 @@ Prefab:
     - target: {fileID: 114193644292568872, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
       propertyPath: maxNumber
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114300808911545980, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
@@ -18626,7 +18631,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -18635,8 +18640,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0.24313726}
-        key1: {r: 0.5882353, g: 0.78431374, b: 0.9019608, a: 1}
-        key2: {r: 0.5882353, g: 0.78431374, b: 0.9019608, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 1}
         key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0.19607843}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -31432,7 +31437,7 @@ Prefab:
     - target: {fileID: 114193644292568872, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
       propertyPath: maxNumber
-      value: 15
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1835380103359136, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_Name

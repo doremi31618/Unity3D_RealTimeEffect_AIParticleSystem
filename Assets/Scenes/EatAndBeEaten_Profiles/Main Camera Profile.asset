@@ -36,10 +36,10 @@ MonoBehaviour:
     overrideState: 1
     value: 20
   intensityX:
-    overrideState: 1
+    overrideState: 0
     value: 1
   intensityY:
-    overrideState: 1
+    overrideState: 0
     value: 1
   centerX:
     overrideState: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   scale:
-    overrideState: 0
+    overrideState: 1
     value: 1
 --- !u!114 &114596928573269638
 MonoBehaviour:
@@ -70,10 +70,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.44
+    value: 0.41
   size:
     overrideState: 1
-    value: 2.23
+    value: 1.73
   lumContrib:
     overrideState: 0
     value: 0.8
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -124,19 +124,19 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.24528301, g: 0.21631815, b: 0.18627624, a: 1}
+    value: {r: 0, g: 0.09443064, b: 0.23584908, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.239
+    value: 0.3
   smoothness:
     overrideState: 1
     value: 1
   roundness:
     overrideState: 1
-    value: 0.857
+    value: 0.8
   rounded:
     overrideState: 0
     value: 0
