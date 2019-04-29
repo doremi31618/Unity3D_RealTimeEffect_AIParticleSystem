@@ -95,12 +95,12 @@ public class SnakeParticleGenerator : MonoBehaviour {
         PositionInitialize();
         SnakeGenerator();
         AttributeIniate();
-        StartCoroutine(StageController());
+        //StartCoroutine(StageController());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+        LifeCycleStageSelector();
         //SnakeMove();
 	}
 
@@ -265,10 +265,12 @@ public class SnakeParticleGenerator : MonoBehaviour {
         float distanceToTarget = Vector3.Distance(m_head.transform.position, currentTarget.transform.position);
         for (int i = 0; i < bodyList.Count; i++)
             {
+            
                 if (i == 0)
                     TracingMove(bodyList[i]);
                 else
                     CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
+
 
             } 
         if(distanceToTarget < 1.39f)
@@ -447,6 +449,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     }
     void CheckDistanceWithForward(GameObject forward, GameObject current)
     {
+        current.GetComponent<Rigidbody>().Sleep();
         float _distance = Vector3.Distance(forward.transform.position, current.transform.position);
         Vector3 dir = (forward.transform.position - current.transform.position).normalized;
         float t = Time.deltaTime * _distance / bodyDistance * speed;

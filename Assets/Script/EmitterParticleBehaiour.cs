@@ -176,12 +176,12 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 	// Use this for initialization
 	void Start () {
         Initialize();
-        StartCoroutine(StateController());
+        //StartCoroutine(StateController());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        LifeCycleStateSelector();
 	}
 
     IEnumerator StateController()
