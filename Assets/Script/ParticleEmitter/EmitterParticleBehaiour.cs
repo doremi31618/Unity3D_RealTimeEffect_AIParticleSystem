@@ -148,8 +148,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     private static EmitterParticleBehaiour _instance;
     public EmitterParticleBehaiour instance{
         get{
-            if (_instance == null) _instance = new EmitterParticleBehaiour();
-            _instance = this;
+            if (_instance == null) _instance = this;
             return _instance;
         }
     }

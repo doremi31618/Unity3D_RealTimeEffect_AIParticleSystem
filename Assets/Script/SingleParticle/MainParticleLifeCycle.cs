@@ -58,7 +58,7 @@ public class MainParticleLifeCycle : ParticleBase
     }
     public new void BeEaten()
     {
-        Debug.Log("number" + index + "be eaten");
+        //Debug.Log("number" + index + "be eaten");
         //m_particleEffect.Play();
         m_stage = mainParticleStage.beEaten;
         GetComponent<MeshRenderer>().enabled = false;
@@ -288,7 +288,6 @@ public class MainParticleMove : ParticleBase
 
     public void Run()
     {
-
         direction += new Vector3(
             Mathf.Sin(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)),
             Mathf.Cos(Mathf.Rad2Deg * Random.Range(-Mathf.PI, Mathf.PI) * Mathf.PerlinNoise(Time.time + index, index)), 0);

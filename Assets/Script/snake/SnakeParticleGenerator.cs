@@ -174,7 +174,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
         eatNumber += 1;
 
 
-        Debug.Log("HowMuchNumberForEatingToGrowUp" + HowMuchNumberForEatingToGrowUp + "||Eat Number" + eatNumber);
+        //Debug.Log("HowMuchNumberForEatingToGrowUp" + HowMuchNumberForEatingToGrowUp + "||Eat Number" + eatNumber);
         if (eatNumber > HowMuchNumberForEatingToGrowUp)
         {
             if (snakeAddingMaxNumber == 0)
@@ -481,6 +481,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
         body.transform.parent = this.transform;
         body.transform.position = bodyList[bodyList.Count-1].transform.position;
         body.layer = 13;
+        body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
         bodyList.Add(body);
     }
 

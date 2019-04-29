@@ -40,7 +40,8 @@ public class ParticleBase : MonoBehaviour{
     }
     public void FadeIn()
     {
-        isBeaten = false;Debug.Log("start fade in ");
+        isBeaten = false;
+        //Debug.Log("start fade in ");
         StartCoroutine(fadein());
     }
     public IEnumerator fadein()
@@ -52,7 +53,7 @@ public class ParticleBase : MonoBehaviour{
         for (float i = 0; i < _lerpTime; i+=Time.deltaTime)
         {
             Color _c = Color.Lerp(nowTransparent,now , i / _lerpTime);
-            Debug.Log("fade in" + _c);
+            //Debug.Log("fade in" + _c);
             GetComponent<MeshRenderer>().material.SetColor("_TintColor", _c);
             yield return new WaitForFixedUpdate();
         }
