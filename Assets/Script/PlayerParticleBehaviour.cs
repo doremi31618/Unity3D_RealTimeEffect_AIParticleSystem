@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Boo.Lang;
+//using Boo.Lang;
 
 [System.Serializable]
 public class PlayerHunter : Hunter
@@ -26,6 +26,9 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 
     int index;
     float timer;
+    float timerAtIdle;
+    float timerAtEnd;
+    float timerAtFirst;
 
     /* 參考用
     public ApearenceStructure apearence;
@@ -61,6 +64,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     public float AttrativeForce = 10f;
 
     [Header("Time Setting")]
+    public float lifeTime = 20f;
     public float explosionTime = 0.3f;
     public float attractiveTime = 10f;
 
@@ -71,7 +75,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     [Header("Interactive target")]
     [Tooltip("the particle who will affected by player particle")]
     public LayerManager[] InteractTarget;
-    public LayerManager[] HuntingList; 
+    public LayerManager[] HuntingTarget; 
 
 	// Use this for initialization
 	void Start () {
@@ -91,30 +95,39 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         m_collider = this.GetComponent<SphereCollider>();
         m_rigidbody = this.GetComponent<Rigidbody>();
 
+        m_hunter.HuntingTargets = HuntingTarget;
 
+        timer = 0;
+        stateNow = ParticleLifeState.Update;
     }
 
     public override void LifeCycleStateSelector()
     {
         timer += Time.deltaTime;
-
         switch (stateNow)
         {
             case ParticleLifeState.Start:
                 Inititalize();
+                stateNow = ParticleLifeState.Update;
                 break;
             case ParticleLifeState.Update:
                 UpdateCycleStateSelector();
                 break;
             case ParticleLifeState.End:
+                stateNow = ParticleLifeState.Start;
                 break;
         }
     }
     public override void UpdateCycleStateSelector()
     {
+        EventManager();
         switch (motionStateNow)
         {
+            case ParticleMotionState.FirstUpdate:
+                FirstUpdateEventHandler();
+                break;
             case ParticleMotionState.Idle:
+                IdldeEventHandler();
                 break;
             case ParticleMotionState.Hunting:
                 break;
@@ -124,7 +137,68 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             case ParticleMotionState.BeEaten:
                 break;
+            case ParticleMotionState.EndOfUpdate:
+                EndOfUpdateEventHandler();
+                break;
         }
+    }
+    public bool interaciveStateTrigger = false; 
+    void EventManager()
+    {
+        
+        if(timerAtFirst / explosionTime < 1)
+        {
+            motionStateNow = ParticleMotionState.FirstUpdate;
+            Debug.Log("First update");
+        }
+        else if(timerAtIdle/lifeTime < 1)
+        {
+            if(interaciveStateTrigger)
+            {
+                motionStateNow = ParticleMotionState.interactive;
+            }
+            else if (m_hunter.getIsEating)
+            {
+                motionStateNow = ParticleMotionState.Eating;
+            }
+            else if(m_hunter.ifHasTarget)
+            {
+                motionStateNow = ParticleMotionState.Hunting;
+            }
+            else if(beEaten)
+            {
+                motionStateNow = ParticleMotionState.BeEaten;
+            }
+            else
+            {
+                motionStateNow = ParticleMotionState.Idle;
+            }
+            //Debug.Log(timer);
+        }
+        else
+        {
+            motionStateNow = ParticleMotionState.EndOfUpdate;
+        }
+    }
+    void FirstUpdateEventHandler()
+    {
+        timerAtFirst += Time.deltaTime;
+    }
+    void IdldeEventHandler()
+    {
+        timerAtIdle += Time.deltaTime;
+    }
+    void EndOfUpdateEventHandler()
+    {
+        timerAtEnd += Time.deltaTime;
+        if (timerAtEnd / explosionTime > 1)
+        {
+            stateNow = ParticleLifeState.End;
+            timerAtEnd = 0;
+            timerAtIdle = 0;
+            timerAtFirst = 0;
+        }
+            
     }
     private void OnTriggerStay(Collider other)
     {
@@ -149,18 +223,24 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 
                 case ParticleMotionState.Hunting:
                     break;
+
                 case ParticleMotionState.Eating:
                     break;
+
                 case ParticleMotionState.interactive:
                     break;
+
                 case ParticleMotionState.BeEaten:
                     break;
+
                 case ParticleMotionState.EndOfUpdate:
+                    ForceSelector(collisionObject, ForceType.explosition);
                     break;
             }  
         }
 
     }
+
     /// <summary>
     /// direct add force to input game object
     /// </summary>
@@ -203,5 +283,13 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
             }
         }
         return false;
+    }
+    private void OnMouseDown()
+    {
+        m_hunter.mouse.MouseCollider.isTrigger = true;
+    }
+    private void OnMouseUp()
+    {
+        m_hunter.mouse.MouseCollider.isTrigger = false;
     }
 }

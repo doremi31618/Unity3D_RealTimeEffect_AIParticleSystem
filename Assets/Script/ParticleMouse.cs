@@ -6,11 +6,12 @@ public class ParticleMouse : MonoBehaviour {
     public int EatingNumber;
     public float EatingTimeInterval = 0.5f;
     public bool isEating = false;
+    public Collider MouseCollider;
     [HideInInspector] public float timer;
     //ParticleSystem m_particleEffect;
 	// Use this for initialization
 	void Start () {
-		
+        MouseCollider = GetComponent<SphereCollider>();
 	}
 	
 	// Update is called once per frame

@@ -37,19 +37,22 @@ public enum ParticleMotionState
 public class ParticleBehaiour : MonoBehaviour {
     
 
-    public ApearenceStructure apearence;
-    public PhysicMotionSetting physicMotion;
-    public bool isUseRandomReborn;
+    //public ApearenceStructure apearence;
+
+
     //public Hunter hunter;
     [Header("State  setting")]
     public bool isHunter = false;
     public ParticleLifeState stateNow;
     public ParticleMotionState motionStateNow;
     [Header("Growing Up attribute")]
+    public bool isUseRandomReborn;
     public bool canItGrowUp = false;
     public int HowMuchNumberForEatingToGrowUp;
     [HideInInspector] public bool beEaten = false;
 
+    [Header("struct data setting")]
+    public PhysicMotionSetting physicMotion;
     //int index;
     [HideInInspector]public ScreenSpaceBoundary m_Boundary;
     [HideInInspector]public Rigidbody m_rigidbody;
