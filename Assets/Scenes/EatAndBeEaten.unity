@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientIntensity: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -32,7 +32,7 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
@@ -234,7 +234,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a05308604f3754e189cfa7ff0dc9ccc6, type: 3}
   m_Name: 
@@ -267,8 +267,8 @@ MonoBehaviour:
   mass: 0
   lifeTime: 0
   level: 1
-  direction: {x: 0.5917222, y: 0.806142, z: 0}
-  velocity: {x: 0.8049397, y: 1.0966222, z: 0}
+  direction: {x: 0.97723633, y: -0.21215358, z: 0}
+  velocity: {x: 1.6394796, y: -0.35592362, z: 0}
   maxMoveSpeed: 100
   _lerpTime: 2
   isBeaten: 0
@@ -381,7 +381,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6401974, w: -0.76821053}
+  m_LocalRotation: {x: 0, y: 0, z: -0.8530638, w: 0.5218067}
   m_LocalPosition: {x: 3.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36481a6a5a0bc468c89530882da6b58f, type: 3}
   m_Name: 
@@ -566,6 +566,16 @@ Prefab:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1076185687}
+    - target: {fileID: 114802694366930330, guid: 3714d2e5561db4adbaef748cca140dc6,
+        type: 2}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fe90cf766db401e897019275aad1c6, type: 2}
+    - target: {fileID: 114935925124091964, guid: 3714d2e5561db4adbaef748cca140dc6,
+        type: 2}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fe90cf766db401e897019275aad1c6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3714d2e5561db4adbaef748cca140dc6, type: 2}
   m_IsPrefabParent: 0
