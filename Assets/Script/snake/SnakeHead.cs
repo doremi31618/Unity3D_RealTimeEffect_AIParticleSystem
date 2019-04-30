@@ -64,6 +64,16 @@ public class SnakeHead : MonoBehaviour {
 
                 case 13:
                     break;
+                case 14:
+                    if(Vector3.Distance(transform.position,HuntingList[i].transform.position)>10)
+                    {
+                        if (_currentTarget == HuntingList[i].gameObject)
+                        {
+                            _currentTarget = null;
+                        }
+                        HuntingList.Remove(HuntingList[i].gameObject);
+                    }
+                    break;
             }
         }
     }

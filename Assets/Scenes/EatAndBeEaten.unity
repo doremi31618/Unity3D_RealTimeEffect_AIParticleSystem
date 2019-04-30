@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 278310173}
   - component: {fileID: 278310172}
   - component: {fileID: 278310179}
-  - component: {fileID: 278310171}
   - component: {fileID: 278310170}
   m_Layer: 10
   m_Name: PlayerParticle
@@ -150,31 +149,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &278310171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114779046216407560, guid: d23f16d54ffb94f9e8b84f6f0bbd1e68,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 278310169}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05308604f3754e189cfa7ff0dc9ccc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RepulsiveForce: 60
-  AttrativeForce: 100
-  ExplosionVisualizer: {fileID: 0}
-  TirggerVidsualizer: {fileID: 0}
-  ColliderObject: {fileID: 0}
-  attractiveRadius: 7.5
-  triggerRadius: 2
-  explosionRadius: 7.4
-  explosionTime: 2
-  attractiveTime: 10
-  substractNumber: 19
-  HowManyToGrow: 5
-  m_stage: 0
 --- !u!114 &278310172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +156,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3d2e0b84297c4b86a8e968b9deabf87, type: 3}
   m_Name: 
@@ -190,14 +164,14 @@ MonoBehaviour:
   mass: 0
   lifeTime: 0
   level: 1
-  direction: {x: 0.9166391, y: -0.399716, z: 0}
-  velocity: {x: 1.2794617, y: -0.557931, z: 0}
+  direction: {x: -0.9946849, y: 0.102966, z: 0}
+  velocity: {x: -0, y: 0, z: 0}
   maxMoveSpeed: 100
   _lerpTime: 2
   isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   index: 0
-  spinAroundSpeed: 7
+  spinAroundSpeed: 295
   localMoveSpeed: 0
   distance: 0
   speed: 500
@@ -291,7 +265,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_LocalRotation: {x: 0, y: 0, z: -0.44914296, w: -0.8934599}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9762145, w: -0.21680689}
   m_LocalPosition: {x: 3.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -318,7 +292,7 @@ MonoBehaviour:
   HowMuchNumberForEatingToGrowUp: 10
   beEaten: 0
   physicMotion:
-    speed: 1.5
+    speed: 1
     maxMoveSpeed: 2
   m_Boundary: {fileID: 0}
   m_rigidbody: {fileID: 0}
@@ -336,11 +310,11 @@ MonoBehaviour:
   lifeTime: 10
   explosionTime: 2
   attractiveTime: 10
-  stepRandomMoveDistance: {x: 1, y: 2}
+  stepRandomMoveDistance: {x: 0.5, y: 1}
   maxMoveAngle: {x: 90, y: 270}
   InteractTarget: 090000000c000000
-  HuntingTarget: 09000000
-  isUseMouseToControl: 1
+  HuntingTarget: 090000000e000000
+  isUseMouseToControl: 0
   MaxCorner: 18
   interaciveStateTrigger: 0
 --- !u!1 &338496181
@@ -435,6 +409,7 @@ MonoBehaviour:
   EatingNumber: 0
   EatingTimeInterval: 0.5
   isEating: 0
+  isBeEaten: 0
   MouseCollider: {fileID: 0}
   timer: 0
 --- !u!135 &378542459
@@ -573,12 +548,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114573985254315484, guid: bf7965fef4d6549528ef0719b20774bd,
-        type: 2}
-      propertyPath: cameraObject
-      value: 
-      objectReference: {fileID: 1076185687}
-    - target: {fileID: 33865169400861586, guid: bf7965fef4d6549528ef0719b20774bd,
+    - target: {fileID: 33334572012970032, guid: bf7965fef4d6549528ef0719b20774bd,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -588,16 +558,68 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 33334572012970032, guid: bf7965fef4d6549528ef0719b20774bd,
+    - target: {fileID: 33865169400861586, guid: bf7965fef4d6549528ef0719b20774bd,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1032142092030860, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 114573985254315484, guid: bf7965fef4d6549528ef0719b20774bd,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1076185687}
+    - target: {fileID: 1257660670510274, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1032202480322370, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659972925739536, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007353942703644, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237121805164730, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334542136878118, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405848472585510, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604293351574028, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865510202966518, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532101817630488, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720459564929220, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519281489554896, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114307715421007690, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+    - {fileID: 114714846737340194, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
+    - {fileID: 114415546966698672, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bf7965fef4d6549528ef0719b20774bd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1076185687
