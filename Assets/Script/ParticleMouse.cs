@@ -6,6 +6,7 @@ public class ParticleMouse : MonoBehaviour {
     public int EatingNumber;
     public float EatingTimeInterval = 0.5f;
     public bool isEating = false;
+    public bool isBeEaten = false;
     public Collider MouseCollider;
     [HideInInspector] public float timer;
     //ParticleSystem m_particleEffect;
@@ -26,22 +27,28 @@ public class ParticleMouse : MonoBehaviour {
         isEating = false;
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!isEating)
-        {
-            //Debug.Log("eating");
-            EatingEvent(collision.gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!isEating)
         {
             //Debug.Log("eating");
+
             EatingEvent(other.gameObject);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isEating)
+        {
+            //Debug.Log("eating");
+
+            EatingEvent(collision.gameObject);
+        }
+    }
+    public void BeEaten()
+    {
+        Debug.Log(" Emitter : Be eaten");
+        isBeEaten = true;
     }
 
     //call event 
@@ -51,19 +58,32 @@ public class ParticleMouse : MonoBehaviour {
         {
             case 9:
                 beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
+                isEating = true;
                 //m_particleEffect.Play();
                 break;
 
             //player layer
             case 10:
+                //isEating = true;
                 break;
+
 
             //spring worm layer 
             case 12:
                 beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
+                isEating = true;
+
                 break;
 
             case 13:
+                //isEating = true;
+                break;
+
+            case 14:
+                if (beEatenGameObject.GetComponent<ParticleMouse>() == null || beEatenGameObject.layer == gameObject.layer) return;
+                if (!beEatenGameObject.GetComponent<ParticleMouse>().isBeEaten)
+                    beEatenGameObject.GetComponent<ParticleMouse>().BeEaten();
+                else Debug.Log("Emitter has already be eaten");
                 break;
         }
 

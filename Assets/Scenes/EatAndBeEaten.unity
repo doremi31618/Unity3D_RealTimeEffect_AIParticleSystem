@@ -197,7 +197,7 @@ MonoBehaviour:
   isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   index: 0
-  spinAroundSpeed: 0
+  spinAroundSpeed: 7
   localMoveSpeed: 0
   distance: 0
   speed: 500
@@ -315,11 +315,11 @@ MonoBehaviour:
   motionStateNow: 6
   isUseRandomReborn: 0
   canItGrowUp: 0
-  HowMuchNumberForEatingToGrowUp: 0
+  HowMuchNumberForEatingToGrowUp: 10
   beEaten: 0
   physicMotion:
-    speed: 0
-    maxMoveSpeed: 0
+    speed: 1.5
+    maxMoveSpeed: 2
   m_Boundary: {fileID: 0}
   m_rigidbody: {fileID: 0}
   m_collider: {fileID: 0}
@@ -337,9 +337,11 @@ MonoBehaviour:
   explosionTime: 2
   attractiveTime: 10
   stepRandomMoveDistance: {x: 1, y: 2}
-  maxMoveAngle: {x: 60, y: 120}
+  maxMoveAngle: {x: 90, y: 270}
   InteractTarget: 090000000c000000
   HuntingTarget: 09000000
+  isUseMouseToControl: 1
+  MaxCorner: 18
   interaciveStateTrigger: 0
 --- !u!1 &338496181
 GameObject:

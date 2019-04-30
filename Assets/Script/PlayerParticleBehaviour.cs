@@ -25,6 +25,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     }
 
     int index;
+    int eatNumberCounter;
     float timer;
     float timerAtIdle;
     float timerAtEnd;
@@ -76,7 +77,8 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     [Tooltip("the particle who will affected by player particle")]
     public LayerManager[] InteractTarget;
     public LayerManager[] HuntingTarget;
-    public bool isUseMouseToControl = true; 
+    public bool isUseMouseToControl = true;
+    public int MaxCorner = 18;
 
 	// Use this for initialization
 	void Start () {
@@ -131,16 +133,16 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             case ParticleMotionState.Idle:
                 IdldeEventHandler();
-                if(isUseMouseToControl)MouseControlMove();
-                else {}
+                if (isUseMouseToControl) MouseControlMove();
+                else { IdleMove(); }
                 break;
             case ParticleMotionState.Hunting:
                 break;
             case ParticleMotionState.Eating:
                 break;
             case ParticleMotionState.interactive:
-                if(isUseMouseToControl)MouseControlMove();
-                else{}
+                if (isUseMouseToControl) MouseControlMove();
+                else { IdleMove(); }
                 break;
             case ParticleMotionState.BeEaten:
                 break;
@@ -233,10 +235,12 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                     break;
 
                 case ParticleMotionState.Eating:
+                    Grow();
                     break;
 
                 case ParticleMotionState.interactive:
                     ForceSelector(collisionObject, ForceType.explosition);
+                    if(m_hunter.getIsEating)Grow();
                     break;
 
                 case ParticleMotionState.BeEaten:
@@ -274,6 +278,17 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         }
 
         pRigidbody.AddForce(Force);
+    }
+    int direction = 1;
+    void IdleMove()
+    {
+        direction = Random.Range(0, 100) > 50 ? 1 : -1;
+        float mediumAngle = direction == 1 ? (maxMoveAngle.x + maxMoveAngle.y) * Mathf.Deg2Rad * 0.5f : (maxMoveAngle.x + maxMoveAngle.y) * Mathf.Deg2Rad * 0.5f + 180f * Mathf.Deg2Rad;
+        float moveAngle = Random.Range(maxMoveAngle.x * Mathf.Deg2Rad - mediumAngle, maxMoveAngle.y * Mathf.Deg2Rad - mediumAngle);
+        float moveDistance = Random.Range(stepRandomMoveDistance.x, stepRandomMoveDistance.y);
+        float newX = (float)(moveDistance * Mathf.Cos(moveAngle));
+        float newY = (float)(moveDistance * Mathf.Sin(moveAngle));
+        m_rigidbody.MovePosition(transform.position + new Vector3(newX, newY, 0).normalized * Time.deltaTime * physicMotion.speed);
     }
     public void MouseControlMove()
     {
@@ -316,4 +331,20 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         m_hunter.mouse.MouseCollider.isTrigger = false;
         interaciveStateTrigger = false;
     }
+    void Grow()
+    {
+        eatNumberCounter += 1;
+        m_hunter.mouse.Reset();
+        if (eatNumberCounter % HowMuchNumberForEatingToGrowUp == 0 && canItGrowUp)
+        {
+            Star m_shape = GetComponent<Star>();
+            if (m_shape.frequency < MaxCorner)
+            {
+                m_shape.frequency++;
+                m_shape.Reset();
+                eatNumberCounter = 0;
+            }
+        }
+    }
+
 }

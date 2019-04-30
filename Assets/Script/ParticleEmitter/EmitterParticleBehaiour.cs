@@ -246,6 +246,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     void StartBehaviour()
     {
         timer = 0;
+        m_hunter.mouse.isBeEaten = false;
         stateNow = ParticleLifeState.Update;
 
         direction = UnityEngine.Random.Range(0, 100) > 50 ? 1 : -1;
@@ -274,6 +275,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         {
             case ParticleMotionState.Idle:
                 //水皿移動
+
                 GerridaeMoveWay();
                 break;
             case ParticleMotionState.Hunting:
@@ -282,6 +284,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
                 break;
             case ParticleMotionState.Eating:
                 //GrowUp();
+
                 motionStateNow = ParticleMotionState.Idle;
                 break;
             case ParticleMotionState.BeEaten:
@@ -310,11 +313,20 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 
     public override void EventManagement()
     {
-        
-        if(m_hunter.ifHasTarget && !m_hunter.getIsEating)
+
+        if(m_hunter.mouse.isBeEaten)
+        {
+            motionStateNow = ParticleMotionState.BeEaten;
+        }
+        else if(m_hunter.ifHasTarget && !m_hunter.getIsEating)
         {
             motionStateNow = ParticleMotionState.Hunting;
 
+        }
+        else if (m_hunter.getIsEating)
+        {
+            motionStateNow = ParticleMotionState.Eating;
+            m_hunter.mouse.Reset();
         }
         else 
         {
@@ -385,8 +397,8 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         float moveAngle = UnityEngine.Random.Range(maxMoveAngle.x * Mathf.Deg2Rad - mediumAngle, maxMoveAngle.y * Mathf.Deg2Rad - mediumAngle);
         moveDistance = UnityEngine.Random.Range(stepRandomMoveDistance.x, stepRandomMoveDistance.y);
 
-        float newX = (float)(moveDistance * Math.Cos(moveAngle));
-        float newY = (float)(moveDistance * Math.Sin(moveAngle));
+        float newX = (float)(moveDistance * Mathf.Cos(moveAngle));
+        float newY = (float)(moveDistance * Mathf.Sin(moveAngle));
 
         //if(m_Boundary.isPointInside())
         nextPosition = this.transform.position + new Vector3(newX, newY,0);
@@ -402,6 +414,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
             m_rigidbody.MovePosition(
             Vector3.Slerp(currentPosition, forwardPosition, t));
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
