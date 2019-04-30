@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_1_9;UNITY_2018_1;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_OSX;PLATFORM_STANDALONE;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_1_9;UNITY_2018_1;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_OSX;PLATFORM_STANDALONE;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -61,65 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\asssets\CurvedLine_2016_03_11\CurvedLine\CurvedLinePoint.cs" />
-    <Compile Include="Assets\asssets\CurvedLine_2016_03_11\CurvedLine\CurvedLineRenderer.cs" />
-    <Compile Include="Assets\asssets\CurvedLine_2016_03_11\CurvedLine\LineSmoother.cs" />
-    <Compile Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\Fractal\FractalMaster.cs" />
-    <Compile Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\SDF\Master.cs" />
-    <Compile Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\SDF\Shape.cs" />
-    <Compile Include="Assets\asssets\Real-Time Procedural Cable Simple\Scripts\Cable_Procedural_Simple.cs" />
-    <Compile Include="Assets\asssets\Real-Time Procedural Cable Simple\Scripts\Cable_Procedural_Static.cs" />
-    <Compile Include="Assets\asssets\StarShapeGenerator\ColorPoint.cs" />
-    <Compile Include="Assets\asssets\StarShapeGenerator\Star.cs" />
-    <Compile Include="Assets\Script\Boundary\BoundaryBase.cs" />
-    <Compile Include="Assets\Script\Boundary\BoundaryEvent.cs" />
-    <Compile Include="Assets\Script\Boundary\CircleBoundary.cs" />
-    <Compile Include="Assets\Script\Boundary\LimitSpaceBoundary.cs" />
-    <Compile Include="Assets\Script\Boundary\ScreenSpaceBoundary.cs" />
-    <Compile Include="Assets\Script\Hunter.cs" />
-    <Compile Include="Assets\Script\Motion\StraightMove.cs" />
-    <Compile Include="Assets\Script\ParticleBase.cs" />
-    <Compile Include="Assets\Script\ParticleBehaiour.cs" />
-    <Compile Include="Assets\Script\ParticleEmitter\EmitterParticleBehaiour.cs" />
-    <Compile Include="Assets\Script\ParticleEmitter\ParticleEmitter.cs" />
-    <Compile Include="Assets\Script\ParticleMouse.cs" />
-    <Compile Include="Assets\Script\PlayerParticle\InteractiveSystemWithMainParticle.cs" />
-    <Compile Include="Assets\Script\PlayerParticle\StarCellMove.cs" />
-    <Compile Include="Assets\Script\PlayerParticleBehaviour.cs" />
-    <Compile Include="Assets\Script\post-processing manager\FocusDistanceControlWithPlayerLayer.cs" />
-    <Compile Include="Assets\Script\SingleParticle\MainParticleLifeCycle.cs" />
     <Compile Include="Assets\Script\snake\SnakeHead.cs" />
-    <Compile Include="Assets\Script\snake\SnakeMouse.cs" />
-    <Compile Include="Assets\Script\snake\SnakeParticleGenerator.cs" />
-    <Compile Include="Assets\Script\SpringJointWorm\SpinAround.cs" />
-    <Compile Include="Assets\Script\SpringJointWorm\SpingWormCornerBehaviour.cs" />
-    <Compile Include="Assets\Script\SpringJointWorm\SpringJointWormGenerator.cs" />
-    <Compile Include="Assets\Script\SpringJointWorm\SpringWormCenterBehaviour.cs" />
-    <Compile Include="Assets\Script\StarEX.cs" />
-    <Compile Include="Assets\Script\TentacleParticle\TentacleGenerator.cs" />
-    <None Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\SDF\Raymarching.compute" />
-    <None Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\Fractal\Fractal.compute" />
-    <None Include="Assets\Script\InsideVisual.shader" />
-    <None Include="Assets\asssets\StarShapeGenerator\Star.shader" />
-    <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeSimpleCable.txt" />
-    <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeStaticCable.txt" />
-    <Reference Include="Cinemachine">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2018.1.9f2/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
