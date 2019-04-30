@@ -164,8 +164,8 @@ MonoBehaviour:
   mass: 0
   lifeTime: 0
   level: 1
-  direction: {x: -0.9946849, y: 0.102966, z: 0}
-  velocity: {x: -0, y: 0, z: 0}
+  direction: {x: -0.9003895, y: -0.4350848, z: 0}
+  velocity: {x: -0, y: -0, z: 0}
   maxMoveSpeed: 100
   _lerpTime: 2
   isBeaten: 0
@@ -265,7 +265,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 278310169}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9762145, w: -0.21680689}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3234809, w: 0.9462347}
   m_LocalPosition: {x: 3.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -954,7 +954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114193644292568872, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4,
         type: 2}
