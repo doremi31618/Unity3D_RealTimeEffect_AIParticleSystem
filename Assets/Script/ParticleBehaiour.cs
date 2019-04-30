@@ -32,7 +32,14 @@ public enum ParticleMotionState
     FirstUpdate,
     EndOfUpdate
 }
-
+public enum LayerManager
+{
+    Object = 9,
+    Player = 10,
+    SpringJointWorm = 12,
+    Snake = 13,
+    EmitterParticle = 14
+}
 
 public class ParticleBehaiour : MonoBehaviour {
     

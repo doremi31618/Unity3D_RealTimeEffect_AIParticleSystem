@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public enum LayerManager
-{
-    Object = 9,
-    Player = 10,
-    SpringJointWorm = 12,
-    Snake = 13,
-}
+
 public class SnakeHead : MonoBehaviour {
 
     //public LayerManager HuntingTarget;
@@ -70,6 +64,16 @@ public class SnakeHead : MonoBehaviour {
 
                 case 13:
                     break;
+                case 14:
+                    if(Vector3.Distance(transform.position,HuntingList[i].transform.position)>10)
+                    {
+                        if (_currentTarget == HuntingList[i].gameObject)
+                        {
+                            _currentTarget = null;
+                        }
+                        HuntingList.Remove(HuntingList[i].gameObject);
+                    }
+                    break;
             }
         }
     }
@@ -100,6 +104,13 @@ public class SnakeHead : MonoBehaviour {
                         break;
 
                     case 13:
+                        break;
+
+                    case 14:
+                        if (other.GetComponent<ParticleMouse>() == null) return;
+                        if (!other.GetComponent<ParticleMouse>().isBeEaten)
+                            HuntingList.Add(other.gameObject);
+                        else Debug.Log("Emitter has already be eaten");
                         break;
                 }
 
