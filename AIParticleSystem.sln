@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio for Mac
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIParticleSystem", "Assembly-CSharp.csproj", "{209EF80D-85CB-1541-158D-01CC82D69150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{209EF80D-85CB-1541-158D-01CC82D69150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIParticleSystem", "Assembly-CSharp-Editor.csproj", "{0668DFE3-EAE9-0F45-9596-08F63434E408}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0668DFE3-EAE9-0F45-9596-08F63434E408}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -626,7 +626,7 @@ PlayerSettings:
   facebookStatus: 1
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 6
   cloudProjectId: 89ec474f-ba83-4ae3-a3ee-7a0dc3a65c41
   framebufferDepthMemorylessMode: 0
   projectName: AIParticleSystem

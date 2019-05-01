@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{51259ECC-27E7-8233-5938-95411581EF7D}</ProjectGuid>
+    <ProjectGuid>{209EF80D-85CB-1541-158D-01CC82D69150}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -114,49 +114,49 @@
     <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeSimpleCable.txt" />
     <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeStaticCable.txt" />
     <Reference Include="Cinemachine">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -366,13 +366,13 @@
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.4f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem_new2018_3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/zhanminxiang/Unity3D Project/AIParticleSystem/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.4f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
