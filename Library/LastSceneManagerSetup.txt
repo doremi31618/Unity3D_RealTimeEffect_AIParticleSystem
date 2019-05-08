@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/EatAndBeEaten.unity
+- path: Assets/Scenes/Main_alex.unity
   isLoaded: 1
   isActive: 1
