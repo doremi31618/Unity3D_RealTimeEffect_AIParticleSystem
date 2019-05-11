@@ -13,6 +13,7 @@
       _Diff("Diff", Range(0, 1)) = 0.5
       _BlurRadius ("BlurRadius", Range(1, 15)) = 5
       _TextureSize ("TextureSize", Float) = 256
+      _GlobalAlpha("Global Alpha",Range(0,1)) = 1
       [Toggle]_OutlineUseGradient("OutlineUseGradient",Float) = 1
       //_BlurRadius ("BlurRadius", Range (0.0, 1)) = .005
       [HideInInspector][MaterialToggle] PixelSnap("Pixel snap", Float) = 0
@@ -58,6 +59,7 @@
          float  _OutlineAlpha;
          float _OutlineUseGradient;
          float _GradientColor;
+         float _GlobalAlpha;
          float _Diff;
          int _BlurRadius;
          float _TextureSize;
@@ -157,6 +159,7 @@
          fixed4 MySpriteFrag(v2f IN) : SV_Target
          {
             fixed4 c = MySampleSpriteTexture(IN.texcoord);
+            fixed4 tintColorOrOutline = _RendererColor;
             if (_OutlineWidth > 0 && c.a != 0)
             {
                 // Get the neighbouring four pixels.
@@ -174,6 +177,7 @@
                 {
                     c.rgba = _OutlineColor;
                     c.a*= _OutlineAlpha;
+                    tintColorOrOutline = _OutlineColor;
                 }
 
                 if(_OutlineUseGradient == 1)
@@ -198,8 +202,8 @@
             float r = clamp(c.r + v, 0.0, 1.0);  
             float g = clamp(c.g + v, 0.0, 1.0);  
             float b = clamp(c.b + v, 0.0, 1.0);
-
-            return fixed4(r * c.a, g*c.a, b*c.a,c.a)* GaussBlur(IN.texcoord);
+            c.a *= _GlobalAlpha;
+            return fixed4(r * c.a, g*c.a, b*c.a,c.a)* GaussBlur(IN.texcoord) * tintColorOrOutline ;
                 //
                 //return c;
          }

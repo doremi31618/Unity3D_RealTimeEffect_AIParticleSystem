@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2990
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -58,29 +58,30 @@ Material:
     - _AlphaThreshold: 0
     - _Angle: 4.83
     - _Blend: 0
-    - _BlurRadius: 5
+    - _BlurRadius: 5.02
     - _BumpScale: 1
     - _ConnectedAlpha: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Diff: 0.59
+    - _Diff: 0
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
+    - _GlobalAlpha: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientColor: 0.153
+    - _GradientColor: 0.083
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline: 1
-    - _OutlineAlpha: 0
+    - _OutlineAlpha: 0.363
     - _OutlineEnabled: 1
     - _OutlineMode: 2
     - _OutlinePosition: 1
     - _OutlineShape: 1
     - _OutlineSize: 1
     - _OutlineUseGradient: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 4.8
     - _ReceiveShadows: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -93,14 +94,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.6226415, g: 0.61970454, b: 0.61970454, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _GradientOutline1: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
     - _GradientOutline2: {r: 1, g: 1, b: 1, a: 0}
     - _ImageOutline: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SolidOutline: {r: 1, g: 0.7028302, b: 0.7028302, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 1, g: 0.8820755, b: 0.8820755, a: 1}
