@@ -166,6 +166,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     public Vector2 rebornDelay = new Vector2(2, 5);
     [Tooltip("How long will it reborn after leaving boundary")]
     public float endingDelay = 1.5f;
+
     [Tooltip("(min,max)")]
     public Vector2 stepRandomMoveDistance = new Vector2(1,2);
     public Vector2 maxMoveAngle = new Vector2(60,120);
@@ -179,7 +180,8 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         LifeCycleStateSelector();
 	}
 
@@ -299,6 +301,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         {
             timerAtEnd += Time.deltaTime;
             //Debug.Log("isPointInside : " + m_Boundary.isPointInside(transform) + "; timer : " + timer + " ; timerAtEnd : " + timerAtEnd);
+
             if (timerAtEnd > endingDelay)
             {
                 timer = 0;
@@ -311,7 +314,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     }
 
 
-    public override void EventManagement()
+    public void EventManagement()
     {
 
         if(m_hunter.mouse.isBeEaten)
@@ -427,6 +430,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         }
 
     }
+
     private void OnTriggerExit(Collider other)
     {
         if(m_hunter.HuntingList.Contains(other.gameObject))

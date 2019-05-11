@@ -7,7 +7,7 @@ public class ParticleMouse : MonoBehaviour {
     public float EatingTimeInterval = 0.5f;
     public bool isEating = false;
     public bool isBeEaten = false;
-    public Collider MouseCollider;
+    [HideInInspector] public Collider MouseCollider;
     [HideInInspector] public float timer;
     //ParticleSystem m_particleEffect;
 	// Use this for initialization
@@ -45,9 +45,9 @@ public class ParticleMouse : MonoBehaviour {
             EatingEvent(collision.gameObject);
         }
     }
+
     public void BeEaten()
     {
-        Debug.Log(" Emitter : Be eaten");
         isBeEaten = true;
     }
 
@@ -59,12 +59,10 @@ public class ParticleMouse : MonoBehaviour {
             case 9:
                 beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
                 isEating = true;
-                //m_particleEffect.Play();
                 break;
 
             //player layer
             case 10:
-                //isEating = true;
                 break;
 
 
@@ -72,11 +70,9 @@ public class ParticleMouse : MonoBehaviour {
             case 12:
                 beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
                 isEating = true;
-
                 break;
 
             case 13:
-                //isEating = true;
                 break;
 
             case 14:

@@ -120,11 +120,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
         switch(m_stage)
         {
             case SnakeLifeStage.RebornDelay:
-                
-
                 if (timer > rebbornDelayTime)
                 {
-                    
                     m_stage = SnakeLifeStage.Start;
                     UpdateCycleStageSelector();
                 }
@@ -271,7 +268,6 @@ public class SnakeParticleGenerator : MonoBehaviour {
                 else
                     CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
 
-
             } 
         if(distanceToTarget < 1.39f)
         {
@@ -375,12 +371,10 @@ public class SnakeParticleGenerator : MonoBehaviour {
             //Debug.Log("exit");
         }
         return;
-
     }
 
     Vector3 RegenerateStartPosition(int direction)
     {
-        
         float newPositionX = (direction == 1? m_Boundary.minX : m_Boundary.maxX ) - 5f * direction;
         float newPositionY = (m_Boundary.maxY + m_Boundary.minY)/2 + ((m_Boundary.maxY  - m_Boundary.minY) / 4 ) * Mathf.Sin(Time.time * 0.5f);
         Vector3 newPosition = new Vector3(newPositionX ,newPositionY,0);
@@ -447,6 +441,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
             }
         }
     }
+
     void CheckDistanceWithForward(GameObject forward, GameObject current)
     {
         current.GetComponent<Rigidbody>().Sleep();
@@ -484,9 +479,6 @@ public class SnakeParticleGenerator : MonoBehaviour {
         body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
         bodyList.Add(body);
     }
-
-
-
 }
 
 public class SnakeParticleBoundaryEvent : BoundaryEvent

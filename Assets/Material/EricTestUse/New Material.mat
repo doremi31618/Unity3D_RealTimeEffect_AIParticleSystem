@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_Shader: {fileID: 4800000, guid: 9ec7bc83d6e5f4b35808e1053db7a22e, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA UNITY_UI_ALPHACLIP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -52,6 +52,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _ColorMask: 255
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
@@ -65,12 +66,19 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 302.35
+    - _StencilOp: 0
+    - _StencilReadMask: 0
+    - _StencilWriteMask: 0
     - _Surface: 0
+    - _UseUIAlphaClip: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}

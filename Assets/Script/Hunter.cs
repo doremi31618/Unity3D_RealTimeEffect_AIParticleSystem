@@ -21,6 +21,7 @@ public class Hunter
     {
 
     }
+
     public virtual void TracingTarget()
     {
 

@@ -113,6 +113,8 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         {
             case ParticleLifeState.Start:
                 Inititalize();
+                if (isUseMouseToControl) MouseControlMove();
+                else { IdleMove(); }
                 stateNow = ParticleLifeState.Update;
                 break;
             case ParticleLifeState.Update:
@@ -123,6 +125,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
         }
     }
+
     public override void UpdateCycleStateSelector()
     {
         EventManager();
@@ -151,6 +154,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
         }
     }
+
     public bool interaciveStateTrigger = false; 
     void EventManager()
     {
@@ -158,7 +162,6 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         if(timerAtFirst / explosionTime < 1)
         {
             motionStateNow = ParticleMotionState.FirstUpdate;
-            Debug.Log("First update");
         }
         else if(timerAtIdle/lifeTime < 1)
         {
@@ -181,9 +184,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
             else
             {
                 motionStateNow = ParticleMotionState.Idle;
-
             }
-            //Debug.Log(timer);
         }
         else
         {

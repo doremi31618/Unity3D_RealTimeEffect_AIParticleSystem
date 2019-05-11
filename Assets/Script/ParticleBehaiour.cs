@@ -42,16 +42,13 @@ public enum LayerManager
 }
 
 public class ParticleBehaiour : MonoBehaviour {
-    
-
-    //public ApearenceStructure apearence;
-
 
     //public Hunter hunter;
     [Header("State  setting")]
     public bool isHunter = false;
     public ParticleLifeState stateNow;
     public ParticleMotionState motionStateNow;
+
     [Header("Growing Up attribute")]
     public bool isUseRandomReborn;
     public bool canItGrowUp = false;
@@ -75,7 +72,7 @@ public class ParticleBehaiour : MonoBehaviour {
     public virtual void Initialize(){}
     public virtual void LifeCycleStateSelector(){}
     public virtual void UpdateCycleStateSelector(){}
-    public virtual void EventManagement(){}
+    //public virtual void EventManagement(){}
     public virtual void GrowUp()
     {
         if(canItGrowUp)
@@ -83,9 +80,9 @@ public class ParticleBehaiour : MonoBehaviour {
             
         }
     }
+
     public Vector3 RegenerateStartPosition(int direction)
     {
-
         float newPositionX = (direction == 1 ? m_Boundary.minX : m_Boundary.maxX) - 5f * direction;
         float newPositionY = (m_Boundary.maxY + m_Boundary.minY) / 2 + ((m_Boundary.maxY - m_Boundary.minY) / 4) * Mathf.Sin(Time.time * 0.5f);
         Vector3 newPosition = new Vector3(newPositionX, newPositionY, 0);

@@ -89,6 +89,7 @@ public class SnakeHead : MonoBehaviour {
                 {
                     //object layer
                     case 9:
+                        if (other.gameObject.GetComponent<MainParticleLifeCycle>() == false) return;
                         if(other.gameObject.GetComponent<MainParticleLifeCycle>().m_stage == mainParticleStage.update)
                         {
                             HuntingList.Add(other.gameObject);
