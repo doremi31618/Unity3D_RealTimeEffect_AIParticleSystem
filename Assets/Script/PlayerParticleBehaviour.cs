@@ -137,7 +137,6 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
             case ParticleMotionState.Idle:
                 IdldeEventHandler();
                 if (isUseMouseToControl) MouseControlMove();
-                else { IdleMove(); }
                 break;
             case ParticleMotionState.Hunting:
                 break;
@@ -145,7 +144,6 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             case ParticleMotionState.interactive:
                 if (isUseMouseToControl) MouseControlMove();
-                else { IdleMove(); }
                 break;
             case ParticleMotionState.BeEaten:
                 break;

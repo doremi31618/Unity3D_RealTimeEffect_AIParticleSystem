@@ -101,6 +101,7 @@
     <Compile Include="Assets\Script\snake\SnakeParticleGenerator.cs" />
     <Compile Include="Assets\Script\SpringJointWorm\SpinAround.cs" />
     <Compile Include="Assets\Script\SpringJointWorm\SpingWormCornerBehaviour.cs" />
+    <Compile Include="Assets\Script\SpringJointWorm\SpringJointWormBehaviour.cs" />
     <Compile Include="Assets\Script\SpringJointWorm\SpringJointWormGenerator.cs" />
     <Compile Include="Assets\Script\SpringJointWorm\SpringWormCenterBehaviour.cs" />
     <Compile Include="Assets\Script\StarEX.cs" />

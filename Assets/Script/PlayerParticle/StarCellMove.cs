@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
+
 public class StarCellMove : ParticleBase {
 
     [HideInInspector] public int index;
@@ -71,12 +71,4 @@ public class StarCellMove : ParticleBase {
         m_rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        
-    }
 }

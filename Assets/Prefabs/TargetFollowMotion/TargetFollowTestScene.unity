@@ -5269,7 +5269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &218899112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17017,8 +17017,9 @@ GameObject:
   - component: {fileID: 958190976}
   - component: {fileID: 958190975}
   - component: {fileID: 958190974}
-  - component: {fileID: 958190978}
   - component: {fileID: 958190973}
+  - component: {fileID: 958190978}
+  - component: {fileID: 958190979}
   - component: {fileID: 958190977}
   m_Layer: 0
   m_Name: Spring Joint Worm
@@ -17193,7 +17194,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &958190978
 MonoBehaviour:
@@ -17204,7 +17205,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 958190972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57be8a9bb37d243f49298089d1fc329e, type: 3}
+  m_Script: {fileID: 11500000, guid: fc2da3e66fa7d440b8f31a49d75cf518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 0
@@ -17216,7 +17217,34 @@ MonoBehaviour:
   _lerpTime: 2
   isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
-  localMoveSpeed: 1
+--- !u!114 &958190979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958190972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b18258bc121846c082fe2e12808b37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHunter: 0
+  stateNow: 0
+  motionStateNow: 0
+  isUseRandomReborn: 0
+  canItGrowUp: 0
+  HowMuchNumberForEatingToGrowUp: 0
+  beEaten: 0
+  physicMotion:
+    speed: 1
+    maxMoveSpeed: 10
+  m_Boundary: {fileID: 0}
+  m_rigidbody: {fileID: 0}
+  m_collider: {fileID: 0}
+  globalMoveSpeed: 1
+  moveSpeed: 1
+  direction: 1
 --- !u!1 &993627254
 GameObject:
   m_ObjectHideFlags: 0
@@ -17229,9 +17257,11 @@ GameObject:
   - component: {fileID: 993627255}
   - component: {fileID: 993627258}
   - component: {fileID: 993627257}
-  - component: {fileID: 993627260}
   - component: {fileID: 993627256}
+  - component: {fileID: 993627260}
+  - component: {fileID: 993627262}
   - component: {fileID: 993627259}
+  - component: {fileID: 993627261}
   m_Layer: 0
   m_Name: Spring Joint Worm (1)
   m_TagString: SpringJointWorm
@@ -17405,7 +17435,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &993627260
 MonoBehaviour:
@@ -17416,7 +17446,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 993627254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57be8a9bb37d243f49298089d1fc329e, type: 3}
+  m_Script: {fileID: 11500000, guid: fc2da3e66fa7d440b8f31a49d75cf518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 0
@@ -17428,7 +17458,74 @@ MonoBehaviour:
   _lerpTime: 2
   isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
-  localMoveSpeed: 1
+--- !u!114 &993627261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993627254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7bc0f5b5bcf4cb982da0a970bdf869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHunter: 0
+  stateNow: 0
+  motionStateNow: 0
+  isUseRandomReborn: 0
+  canItGrowUp: 0
+  HowMuchNumberForEatingToGrowUp: 0
+  beEaten: 0
+  physicMotion:
+    speed: 0
+    maxMoveSpeed: 0
+  m_Boundary: {fileID: 0}
+  m_rigidbody: {fileID: 0}
+  m_collider: {fileID: 0}
+  m_hunter:
+    m_Layer: 0
+    HuntingTargets: 
+    mouse: {fileID: 0}
+    HuntingList: []
+    mice: []
+  globalMoveSpeed: 1
+  moveSpeed: 1
+  direction: 1
+  firstColor: {r: 0, g: 0, b: 0, a: 0}
+  secondColor: {r: 0, g: 0, b: 0, a: 0}
+  shiningIntervalTime: 0.15
+  shiningTotalTime: 2
+  eatingInterval: 2
+  lerpTime: 2
+--- !u!114 &993627262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993627254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b18258bc121846c082fe2e12808b37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHunter: 0
+  stateNow: 0
+  motionStateNow: 0
+  isUseRandomReborn: 0
+  canItGrowUp: 0
+  HowMuchNumberForEatingToGrowUp: 0
+  beEaten: 0
+  physicMotion:
+    speed: 1
+    maxMoveSpeed: 10
+  m_Boundary: {fileID: 0}
+  m_rigidbody: {fileID: 0}
+  m_collider: {fileID: 0}
+  globalMoveSpeed: 1
+  moveSpeed: 1
+  direction: 1
 --- !u!1 &1057693818
 GameObject:
   m_ObjectHideFlags: 0
@@ -23208,11 +23305,9 @@ GameObject:
   - component: {fileID: 1278069937}
   - component: {fileID: 1278069936}
   - component: {fileID: 1278069935}
-  - component: {fileID: 1278069934}
   - component: {fileID: 1278069933}
   - component: {fileID: 1278069932}
   - component: {fileID: 1278069931}
-  - component: {fileID: 1278069938}
   - component: {fileID: 1278069930}
   m_Layer: 10
   m_Name: PlayerParticle (1)
@@ -23228,8 +23323,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278069928}
-  m_LocalRotation: {x: 0, y: 0, z: 0.5135193, w: -0.8580781}
-  m_LocalPosition: {x: 3.4, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5867406, w: 0.809775}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5000005, y: 1.5000005, z: 1.5}
   m_Children:
   - {fileID: 319744214}
@@ -23246,12 +23341,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278069928}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36481a6a5a0bc468c89530882da6b58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHunter: 1
+  isHunter: 0
   stateNow: 1
   motionStateNow: 6
   isUseRandomReborn: 0
@@ -23312,15 +23407,15 @@ MonoBehaviour:
   mass: 0
   lifeTime: 0
   level: 1
-  direction: {x: 0.9800428, y: 0.19878647, z: 0}
-  velocity: {x: 0.7373319, y: 0.14955634, z: 0}
+  direction: {x: 0.8572699, y: 0.51486737, z: 0}
+  velocity: {x: 0.94536954, y: 0.5677791, z: 0}
   maxMoveSpeed: 100
   _lerpTime: 2
   isBeaten: 0
   angVelocity: {x: 0, y: 0, z: 0}
   index: 0
   spinAroundSpeed: 200
-  localMoveSpeed: 30
+  localMoveSpeed: 0
   distance: 0
   speed: 500
 --- !u!54 &1278069933
@@ -23339,19 +23434,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!135 &1278069934
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278069928}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0.000000029802322, y: 0.049515486, z: -0.05}
 --- !u!23 &1278069935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23420,18 +23502,6 @@ MonoBehaviour:
   - color: {r: 0, g: 0, b: 0, a: 1}
     position: {x: -0.04841156, y: 0.49330217, z: 0.006357193}
   frequency: 12
---- !u!114 &1278069938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278069928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1282429096
 GameObject:
   m_ObjectHideFlags: 0
@@ -29262,6 +29332,7 @@ GameObject:
   - component: {fileID: 1640643271}
   - component: {fileID: 1640643270}
   - component: {fileID: 1640643269}
+  - component: {fileID: 1640643272}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: TrackingTarget
@@ -29277,7 +29348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640643267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -3.67, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159269766}
@@ -29341,6 +29412,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640643267}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1640643272
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640643267}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1642000635
 GameObject:
   m_ObjectHideFlags: 0
@@ -29416,6 +29503,7 @@ GameObject:
   - component: {fileID: 1706451321}
   - component: {fileID: 1706451320}
   - component: {fileID: 1706451319}
+  - component: {fileID: 1706451322}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: TrackingTarget
@@ -29431,7 +29519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706451317}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.6, y: 0, z: 0}
+  m_LocalPosition: {x: 9.43, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159269766}
@@ -29495,6 +29583,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706451317}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1706451322
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706451317}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1732424109
 GameObject:
   m_ObjectHideFlags: 0
@@ -44051,6 +44155,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1957137078}
   - component: {fileID: 1957137079}
+  - component: {fileID: 1957137081}
+  - component: {fileID: 1957137080}
   m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
@@ -44084,11 +44190,45 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1957137080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957137077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleAroundRadius: 2
+  trackingSpeed: 1.5
+  circcleAroundSpeed: 5
+  triggerRadius: 3
+  isUseVisualizer: 1
+  nowTargetColor: {r: 1, g: 1, b: 1, a: 1}
+  otherTargetColor: {r: 1, g: 0, b: 0, a: 1}
+  allTargets: []
+  NowTarget: {fileID: 0}
+--- !u!135 &1957137081
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957137077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1974908591
 GameObject:
   m_ObjectHideFlags: 0
