@@ -1,21 +1,7 @@
 ﻿<Properties StartupConfiguration="{209EF80D-85CB-1541-158D-01CC82D69150}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SpriteOutline/Shaders/SpriteOutline.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerParticle/TrackingTargetBehaviour.cs">
     <Files>
-      <File FileName="Assets/Script/ParticleEmitter/EmitterParticleBehaiour.cs" Line="433" Column="5" />
-      <File FileName="Assets/Script/ParticleBehaiour.cs" Line="44" Column="48" />
-      <File FileName="Assets/Script/Boundary/ScreenSpaceBoundary.cs" Line="18" Column="48" />
-      <File FileName="Assets/Script/PlayerParticleBehaviour.cs" Line="196" Column="40" />
-      <File FileName="Assets/Script/Hunter.cs" Line="18" Column="60" />
-      <File FileName="Assets/Script/snake/SnakeParticleGenerator.cs" Line="413" Column="62" />
-      <File FileName="Assets/Script/SingleParticle/MainParticleLifeCycle.cs" Line="86" Column="12" />
-      <File FileName="Assets/Material/shader/NewImageEffectShader.shader" Line="410" Column="10" />
-      <File FileName="Assets/SpriteOutline/Shaders/SpriteOutline.shader" Line="443" Column="4" />
-      <File FileName="Assets/Script/TentacleParticle/TentacleGenerator.cs" Line="78" Column="1" NotebookId="1" />
-      <File FileName="Assets/Script/Motion/StraightMove.cs" Line="23" Column="5" NotebookId="1" />
-      <File FileName="Assets/Script/WaveParticleBehaviour.cs" Line="134" Column="49" NotebookId="1" />
-      <File FileName="Assets/Script/ParticleMouse.cs" Line="15" Column="42" NotebookId="1" />
-      <File FileName="Assets/Script/snake/SnakeHead.cs" Line="92" Column="101" NotebookId="1" />
-      <File FileName="Assets/Material/shader/NewUnlitShader.shader" Line="31" Column="7" NotebookId="1" />
+      <File FileName="Assets/Script/PlayerParticle/TrackingTargetBehaviour.cs" Line="15" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

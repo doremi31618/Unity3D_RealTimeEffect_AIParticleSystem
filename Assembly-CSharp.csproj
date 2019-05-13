@@ -92,6 +92,7 @@
     <Compile Include="Assets\Script\ParticleMouse.cs" />
     <Compile Include="Assets\Script\PlayerParticle\InteractiveSystemWithMainParticle.cs" />
     <Compile Include="Assets\Script\PlayerParticle\StarCellMove.cs" />
+    <Compile Include="Assets\Script\PlayerParticle\TrackingTargetBehaviour.cs" />
     <Compile Include="Assets\Script\PlayerParticleBehaviour.cs" />
     <Compile Include="Assets\Script\post-processing manager\FocusDistanceControlWithPlayerLayer.cs" />
     <Compile Include="Assets\Script\SingleParticle\MainParticleLifeCycle.cs" />
