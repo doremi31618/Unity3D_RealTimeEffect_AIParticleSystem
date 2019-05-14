@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor.ShaderGraph;
 
 [System.Serializable]
 public class EmitterHunter : Hunter
@@ -172,11 +173,16 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     public Vector2 maxMoveAngle = new Vector2(60,120);
     private Vector3 nextPosition;
 
+    [Header("ParticleEffect")]
+    public ParticleSystem TraceEffect;
+    public ParticleSystem ExplosionEffect;
 
 	// Use this for initialization
 	void Start () {
+        saveData();
         Initialize();
-        //StartCoroutine(StateController());
+
+
 	}
 	
 	// Update is called once per frame
@@ -184,15 +190,6 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     {
         LifeCycleStateSelector();
 	}
-
-    IEnumerator StateController()
-    {
-        while(true){
-            LifeCycleStateSelector();
-            yield return new WaitForFixedUpdate();
-        }
-
-    }
 
     public override void Initialize()
     {
@@ -202,6 +199,8 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         {
             RandomReborn();
         }
+
+
     }
 
     public override void RandomReborn()
@@ -256,6 +255,10 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         PositionInitialize();
         m_hunter.HuntingList.Clear();
         m_hunter.currentTarget = null;
+        transform.localScale = scale;
+        ExplosionEffect.Stop();
+        TraceEffect.Play();
+        GetComponent<MeshRenderer>().material.SetFloat("_Alpha", 1);
     }
 
     void UpdateBehaviour()
@@ -264,8 +267,8 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     }
     void EndBehaviour()
     {
-        
-        stateNow = ParticleLifeState.RebornDelay;
+        StartCoroutine(fadeOut(0.5f));
+
     }
 
     Vector3 nextRandomPos;
@@ -276,8 +279,6 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         switch (motionStateNow)
         {
             case ParticleMotionState.Idle:
-                //水皿移動
-
                 GerridaeMoveWay();
                 break;
             case ParticleMotionState.Hunting:
@@ -285,12 +286,13 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
                 //Hunter();
                 break;
             case ParticleMotionState.Eating:
-                //GrowUp();
-
+                if (!isgrowing)
+                    StartCoroutine(growing(1f));
                 motionStateNow = ParticleMotionState.Idle;
+
                 break;
             case ParticleMotionState.BeEaten:
-                stateNow = ParticleLifeState.End;
+                StartCoroutine(scaleDown(ExplosionEffect.main.duration, ExplosionEffect));
                 break;
         }
 
@@ -329,6 +331,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         else if (m_hunter.getIsEating)
         {
             motionStateNow = ParticleMotionState.Eating;
+
             m_hunter.mouse.Reset();
         }
         else 
@@ -340,8 +343,6 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     }
     void HuntingTracingMove()
     {
-       
-   
         LerpMove(nextPosition, this.transform.position, moveDistance);
     }
 
@@ -363,14 +364,14 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
 
                 if(m_hunter.isTracing)
                 {
-                    if (Vector3.Distance(transform.position, m_hunter.currentTarget.transform.position) > 5)
+                    if (Vector3.Distance(transform.position, m_hunter.currentTarget.transform.position) > 15)
                     {
                         m_hunter.currentTarget = null;
                         motionStateNow = ParticleMotionState.Idle;
                         //Debug.Log("tracing 2");
                         return;
                     }
-                    nextPosition = this.transform.position + (m_hunter.getCurrentTarget.transform.position - transform.position) * 3;
+                    nextPosition = this.transform.position + (m_hunter.getCurrentTarget.transform.position - transform.position).normalized * 5;
                     //Debug.Log("tracing 1");
                     //Debug.Log("reset next position in hunting : current distance " + currentDistance);
                 }
@@ -425,18 +426,119 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
         {
             if(other.gameObject.layer == (int)m_hunter.HuntingTargets[i])
             {
-                m_hunter.HuntingList.Add(other.gameObject); 
+                if(!m_hunter.HuntingList.Contains(other.gameObject))
+                    m_hunter.HuntingList.Add(other.gameObject);
+                ForceSelector(100, other.gameObject, ForceType.attractive);
             }
         }
 
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        for (int i = 0; i < m_hunter.HuntingTargets.Length; i++)
+        {
+            if (other.gameObject.layer == (int)m_hunter.HuntingTargets[i])
+            {
+                if (!m_hunter.HuntingList.Contains(other.gameObject))
+                    m_hunter.HuntingList.Add(other.gameObject);
+                ForceSelector(100, other.gameObject, ForceType.attractive);
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if(m_hunter.HuntingList.Contains(other.gameObject))
         {
             m_hunter.HuntingList.Remove(other.gameObject);
+
         }
     }
 
+    public void ForceSelector(float forceMagnitude,GameObject _collisionObject, ForceType type)
+    {
+        Vector3 Force = Vector3.zero;
+        Rigidbody pRigidbody = _collisionObject.GetComponent<Rigidbody>();
+        float distance = Vector3.Distance(transform.position, _collisionObject.transform.position);
+        switch (type)
+        {
+            case ForceType.attractive:
+                Force = (this.transform.position - _collisionObject.transform.position).normalized *
+                    Mathf.Lerp(forceMagnitude, forceMagnitude / 2, distance / GetComponent<SphereCollider>().radius * transform.localScale.x);
+                break;
+
+            case ForceType.explosition:
+                Force = (_collisionObject.transform.position - this.transform.position).normalized *
+                    Mathf.Lerp(0, forceMagnitude, distance / GetComponent<SphereCollider>().radius * transform.localScale.x);
+                break;
+        }
+
+        pRigidbody.AddForce(Force);
+    }
+    Vector3 scale;
+    void saveData()
+    {
+        scale = transform.localScale;
+    }
+
+    bool checkLossyScale(Vector3 _scale)
+    {
+        return _scale.x * _scale.y * _scale.z > 0;
+    }
+
+
+    IEnumerator scaleDown(float lerpTime,ParticleSystem explosionEffect)
+    {
+        float time = 0;
+        explosionEffect.Play();
+        while(checkLossyScale(transform.localScale))
+        {
+            time += Time.deltaTime;
+            transform.localScale = Vector3.Slerp(scale, Vector3.zero, time / lerpTime);
+            yield return new WaitForEndOfFrame();
+        }
+        stateNow = ParticleLifeState.End;
+        TraceEffect.Stop();
+    }
+
+    IEnumerator fadeOut(float lerpTime)
+    {
+        float alpha = GetComponent<MeshRenderer>().material.GetFloat("_Alpha");
+        float time = 0;
+        TraceEffect.Stop();
+        while(GetComponent<MeshRenderer>().material.GetFloat("_Alpha") > 0)
+        {
+            time += Time.deltaTime;
+            float _a = Mathf.Lerp(alpha, 0, time / lerpTime);
+            GetComponent<MeshRenderer>().material.SetFloat("_Alpha", _a);
+            yield return new WaitForEndOfFrame();
+        }
+        stateNow = ParticleLifeState.RebornDelay;
+
+    }
+    bool isgrowing = false;
+    IEnumerator growing(float _timer)
+    {
+        float time = 0;
+        isgrowing = true;
+        TraceEffect.emissionRate = 120;
+        while(time/_timer < 1)
+        {
+            time += Time.deltaTime;
+            transform.localScale = Vector3.Slerp(scale, scale + Vector3.one*0.2f , time / _timer);
+            yield return new WaitForEndOfFrame();
+        }
+
+        TraceEffect.emissionRate = 8;
+        time = 0;
+        while (time / _timer < 1)
+        {
+            time += Time.deltaTime;
+            transform.localScale = Vector3.Slerp(scale +Vector3.one * 0.2f,scale, time / _timer);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.localScale = scale;
+
+        isgrowing = false;
+    }
+   
 }

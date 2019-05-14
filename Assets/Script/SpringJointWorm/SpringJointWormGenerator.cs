@@ -127,7 +127,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
         center.GetComponent<SpinAround>().minSpeed = minSpeedOfSpinAround;
         center.GetComponent<SpinAround>().maxSpeed = maxSpeedOfSpinArdoun;
         center.GetComponent<SpinAround>().direction = ((int)index % 2 == 0) ? 1:-1;
-        center.GetComponent<Renderer>().material.SetColor("_TintColor", centerColor);
+        center.GetComponent<Renderer>().material.SetColor("_Color", centerColor);
 
     }
 
@@ -157,7 +157,7 @@ public class SpringJointWormGenerator : MonoBehaviour {
 
             //setting stage
             material = Instantiate(material);
-            material.SetColor("_TintColor", cornerColor);
+            material.SetColor("_Color", cornerColor);
             corner.GetComponent<MeshFilter>().mesh = mesh;
             corner.GetComponent<MeshRenderer>().material = material;
 

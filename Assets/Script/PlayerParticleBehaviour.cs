@@ -238,7 +238,8 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                     break;
 
                 case ParticleMotionState.interactive:
-                    ForceSelector(collisionObject, ForceType.explosition);
+                    if(collisionObject.GetComponent<Rigidbody>() != null)
+                        ForceSelector(collisionObject, ForceType.explosition);
                     if(m_hunter.getIsEating)Grow();
                     break;
 

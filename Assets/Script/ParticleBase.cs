@@ -2,18 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LevelOfParticle
-{
-    level1 = 1,
-    level2,
-    level3,
-    level4
-}
 [RequireComponent(typeof(Rigidbody))]
 public class ParticleBase : MonoBehaviour{
     [HideInInspector]public float mass;
     public float lifeTime;
-    public LevelOfParticle level = LevelOfParticle.level1; 
 
     [HideInInspector]public Vector3 direction;
     //[HideInInspector]public Vector3 position;
@@ -34,7 +26,7 @@ public class ParticleBase : MonoBehaviour{
     public void BeEaten()
     {
         isBeaten = true;
-        Color now = GetComponent<Renderer>().material.GetColor("_TintColor");
+        Color now = GetComponent<MeshRenderer>().material.GetColor("_TintColor");
         GetComponent<Collider>().enabled = false;
         GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Vector4(now.r, now.g, now.b, 0));
     }

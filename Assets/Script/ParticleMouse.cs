@@ -29,20 +29,10 @@ public class ParticleMouse : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.layer);
         if (!isEating)
         {
-            //Debug.Log("eating");
-
             EatingEvent(other.gameObject);
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!isEating)
-        {
-            //Debug.Log("eating");
-
-            EatingEvent(collision.gameObject);
         }
     }
 

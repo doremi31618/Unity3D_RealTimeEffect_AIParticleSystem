@@ -37,6 +37,7 @@ public class SpringJointWormBehaviour : ParticleBehaiour
         switch (stateNow)
         {
             case ParticleLifeState.RebornDelay:
+                stateNow = ParticleLifeState.Start;
                 break;
             case ParticleLifeState.Start:
                 Initialize();
