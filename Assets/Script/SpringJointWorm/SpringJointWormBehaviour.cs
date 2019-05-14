@@ -61,7 +61,7 @@ public class SpringJointWormBehaviour : ParticleBehaiour
     }
     public void EndBehaviour()
     {
-        stateNow = ParticleLifeState.Start;
+        stateNow = ParticleLifeState.RebornDelay;
     }
     void FirstUpdateEventHandler()
     {

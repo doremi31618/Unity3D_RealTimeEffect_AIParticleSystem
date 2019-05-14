@@ -6,9 +6,9 @@
       <File FileName="Assets/Script/ParticleEmitter/EmitterParticleBehaiour.cs" Line="411" Column="5" />
       <File FileName="Assets/Script/PlayerParticleBehaviour.cs" Line="285" Column="71" />
       <File FileName="Assets/Script/PlayerParticle/StarCellMove.cs" Line="4" Column="1" />
-      <File FileName="Assets/Script/WaveParticleBehaviour.cs" Line="8" Column="1" />
+      <File FileName="Assets/Script/WaveParticleBehaviour.cs" Line="127" Column="9" />
       <File FileName="Assets/Script/Boundary/ScreenSpaceBoundary.cs" Line="18" Column="48" NotebookId="1" />
-      <File FileName="Assets/Script/SpringJointWorm/SpringJointWormBehaviour.cs" Line="6" Column="2" NotebookId="1" />
+      <File FileName="Assets/Script/SpringJointWorm/SpringJointWormBehaviour.cs" Line="29" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
