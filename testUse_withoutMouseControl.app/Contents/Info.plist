@@ -12,7 +12,7 @@
 	<key>CFBundleExecutable</key>
 	<string>testUse_withoutMouseControl</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Unity Player version 2018.1.9f2 (a6cc294b73ee). (c) 2018 Unity Technologies ApS. All rights reserved.</string>
+	<string>Unity Player version 2018.3.4f1 (1d952368ca3a). (c) 2019 Unity Technologies ApS. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
 	<string>PlayerIcon.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -38,7 +38,7 @@
 	<key>NSPrincipalClass</key>
 	<string>PlayerApplication</string>
 	<key>UnityBuildNumber</key>
-	<string>a6cc294b73ee</string>
+	<string>1d952368ca3a</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.9.0</string>
 </dict>

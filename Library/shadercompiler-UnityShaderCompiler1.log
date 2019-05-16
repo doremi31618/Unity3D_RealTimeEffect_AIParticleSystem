@@ -1,17 +1,11 @@
 Base path: /Applications/Unity/Hub/Editor/2018.3.4f1/Unity.app/Contents
 Cmd: initializeCompiler
 Cmd: disassembleShader
-  api=15 insize=1755 outsize=1755 ok=1
+  api=15 insize=1769 outsize=1769 ok=1
 Cmd: disassembleShader
-  api=15 insize=1991 outsize=1991 ok=1
+  api=15 insize=2979 outsize=2979 ok=1
 Cmd: disassembleShader
-  api=14 insize=2084 outsize=2036 ok=1
-Cmd: disassembleShader
-  api=14 insize=965 outsize=917 ok=1
-Cmd: disassembleShader
-  api=15 insize=0 outsize=57 ok=1
-Cmd: disassembleShader
-  api=14 insize=1403 outsize=1355 ok=1
+  api=14 insize=1866 outsize=1818 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
@@ -30,6 +24,12 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-Unhandled exception: Protocol error - unexpected end of data (did the Editor crash?)
-
-Quitting shader compiler process
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler

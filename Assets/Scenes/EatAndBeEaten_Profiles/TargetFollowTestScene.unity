@@ -511,7 +511,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40c24c89eb5226d4ebc0db94ce4f4984, type: 2}
+  - {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5304,7 +5304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &218899112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5803,6 +5803,13 @@ MonoBehaviour:
   SensorTriggerRadius: 3
   HowMuchNumberForEatingToGrowUp: 45
   snakeAddingMaxNumber: 5
+  isUseSnakeBodyAnimation: 0
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  animationClipTime: 0
+  animationFreshRate: 20
+  maxIntervalNumber: 3
+  animationState: 0
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
@@ -7336,6 +7343,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2519433040259357062, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7492,11 +7509,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f65d230b544944837a87c43056731a4b, type: 2}
-    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 2519433038927069440, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7506,11 +7518,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.032
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2519433039218750055, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
@@ -7611,6 +7618,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2519433040259357062, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
@@ -7717,16 +7734,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5d7235204c54432aa4e4d3248c5fccf, type: 3}
 --- !u!4 &879670693 stripped
@@ -7796,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &895326730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7853,7 +7860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &951399807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7923,7 +7930,6 @@ GameObject:
   - component: {fileID: 958190975}
   - component: {fileID: 958190974}
   - component: {fileID: 958190973}
-  - component: {fileID: 958190978}
   - component: {fileID: 958190979}
   - component: {fileID: 958190977}
   m_Layer: 0
@@ -8101,26 +8107,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!114 &958190978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958190972}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2da3e66fa7d440b8f31a49d75cf518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 0
-  lifeTime: 0
-  direction: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  maxMoveSpeed: 100
-  _lerpTime: 2
-  isBeaten: 0
-  angVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &958190979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8162,7 +8148,6 @@ GameObject:
   - component: {fileID: 993627258}
   - component: {fileID: 993627257}
   - component: {fileID: 993627256}
-  - component: {fileID: 993627260}
   - component: {fileID: 993627262}
   - component: {fileID: 993627259}
   - component: {fileID: 993627261}
@@ -8341,26 +8326,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!114 &993627260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993627254}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2da3e66fa7d440b8f31a49d75cf518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 0
-  lifeTime: 0
-  direction: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  maxMoveSpeed: 100
-  _lerpTime: 2
-  isBeaten: 0
-  angVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &993627261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,7 +8949,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1800961670254490, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1858035104691740, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
       propertyPath: m_IsActive
@@ -14252,7 +14217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d82e16f10da74894f9e7a285688a5902, type: 2}
+  - {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14551,7 +14516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1282429097
 Transform:
   m_ObjectHideFlags: 0
@@ -14641,6 +14606,13 @@ MonoBehaviour:
   SensorTriggerRadius: 3
   HowMuchNumberForEatingToGrowUp: 50
   snakeAddingMaxNumber: 5
+  isUseSnakeBodyAnimation: 0
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  animationClipTime: 0
+  animationFreshRate: 20
+  maxIntervalNumber: 3
+  animationState: 0
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
@@ -14690,7 +14662,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d82e16f10da74894f9e7a285688a5902, type: 2}
+      objectReference: {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
     - target: {fileID: 1343070500099954, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_Name
       value: Snake01
@@ -14719,7 +14691,7 @@ PrefabInstance:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: numberOfBody
-      value: 8
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
@@ -14735,6 +14707,96 @@ PrefabInstance:
         type: 3}
       propertyPath: snakeAddingMaxNumber
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color1.g
+      value: 0.55638766
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color2.r
+      value: 0.89866376
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color2.g
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color2.b
+      value: 0.08235291
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: isUseSnakeBodyAnimation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: animationClipTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: headColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: headColor.g
+      value: 0.56423336
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: headColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: bodyColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: bodyColor.g
+      value: 0.08962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: bodyColor.b
+      value: 0.08962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: animationFreshRate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: maxIntervalNumber
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4146862067069900, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_LocalScale.x
@@ -14755,7 +14817,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
     - target: {fileID: 1586084665507916, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4920290850796124, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15241,7 +15303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1425502804
 Transform:
   m_ObjectHideFlags: 0
@@ -15327,6 +15389,13 @@ MonoBehaviour:
   SensorTriggerRadius: 3
   HowMuchNumberForEatingToGrowUp: 45
   snakeAddingMaxNumber: 5
+  isUseSnakeBodyAnimation: 0
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  animationClipTime: 0
+  animationFreshRate: 20
+  maxIntervalNumber: 3
+  animationState: 0
   ifAllStayInBoundary: 0
   direction: 1
   m_stage: 0
@@ -15685,7 +15754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ddca2cbaa38a1ac4099332195fcc5158, type: 2}
+  - {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16099,7 +16168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1732424110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16417,7 +16486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882397614117272, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26166,7 +26235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_Name
@@ -26689,6 +26758,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2519433040259357062, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -26845,11 +26924,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f65d230b544944837a87c43056731a4b, type: 2}
-    - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 2519433038927069440, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26859,11 +26933,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.032
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2519433039218750055, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}

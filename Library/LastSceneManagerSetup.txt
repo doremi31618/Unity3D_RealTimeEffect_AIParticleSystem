@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Prefabs/TargetFollowMotion/TargetFollowTestScene.unity
+- path: Assets/Scenes/EatAndBeEaten_Profiles/TargetFollowTestScene.unity
   isLoaded: 1
   isActive: 1

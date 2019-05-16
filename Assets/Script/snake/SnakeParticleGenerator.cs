@@ -11,7 +11,7 @@ using UnityEngine.Experimental.UIElements;
 //[System.Serializable]
 //public struct Snake
 //{
-    
+
 //    public GameObject headPrefab;
 //    public GameObject bodyPrefab;
 
@@ -21,6 +21,7 @@ using UnityEngine.Experimental.UIElements;
 //    public List<GameObject> bodyList;
 //    public bool[] bodyStayBoundaryCheckList;
 //}
+using UnityEditor.ShaderGraph;
 public enum SnakeLifeStage
 {
     RebornDelay,
@@ -36,8 +37,9 @@ public enum SnakeMotionStage
     BeEaten
 }
 
-public class SnakeParticleGenerator : MonoBehaviour {
-    
+public class SnakeParticleGenerator : MonoBehaviour
+{
+
     [Header("Prefabs Attribute setting")]
     public GameObject headPrefab;
     public GameObject bodyPrefab;
@@ -46,8 +48,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
     public Color headColor;
     public Color bodyColor;
 
-    [Tooltip("only affect at fisrt time(start)")]public int numberOfBody = 5;
-    [Tooltip("change by realtime")]public float bodyDistance;
+    [Tooltip("only affect at fisrt time(start)")] public int numberOfBody = 5;
+    [Tooltip("change by realtime")] public float bodyDistance;
 
     [Header("Motion Related Attribbute")]
     public Vector2 rebornDelay = new Vector2(2, 5);
@@ -57,6 +59,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     public float speed = 1;
     public float maxMoveSpeed = 3.4f;
 
+
     [Header("Sensor Related Attribute")]
     [Tooltip("defalt value : o.5 so at least bigger than 0.5f")]
     public float SensorTriggerRadius = 1f;
@@ -65,6 +68,24 @@ public class SnakeParticleGenerator : MonoBehaviour {
     [Tooltip("the max number that you can add to snake")]
     public int snakeAddingMaxNumber = 10;
 
+    
+    [Header("Snake body animation")]
+    public bool isUseSnakeBodyAnimation = true;
+    public Color color1 = Color.white;
+    public Color color2 = Color.white;
+    public float animationClipTime = 1;
+    public float animationFreshRate = 20f;
+    
+    bool isUseAntiOrder=false;
+    public int maxIntervalNumber = 3;
+    [Header("state visualizer")]
+    public AnimationState animationState;
+    public enum AnimationState
+    {
+        start,
+        update,
+        end
+    }
     [HideInInspector] public bool ifAllStayInBoundary;
     [HideInInspector] public int direction = 1;
 
@@ -78,11 +99,12 @@ public class SnakeParticleGenerator : MonoBehaviour {
     public SnakeLifeStage m_stage = SnakeLifeStage.Update;
     public SnakeMotionStage m_updateStage = SnakeMotionStage.Idle;
 
-    [HideInInspector]public List<GameObject> bodyList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> bodyList = new List<GameObject>();
     ScreenSpaceBoundary m_Boundary;
     SnakeHead m_head
     {
-        get {
+        get
+        {
             return bodyList[0].GetComponent<SnakeHead>();
         }
     }
@@ -90,23 +112,25 @@ public class SnakeParticleGenerator : MonoBehaviour {
     //[Header("setting Boundary Attribute ")]
     //public bool isUseBoundarySystem;
     //public bool isUseRandomAttributeToReborn;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         PositionInitialize();
         SnakeGenerator();
         AttributeIniate();
-        //StartCoroutine(StageController());
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        StartCoroutine(SnakeColorLerpAnimation());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         LifeCycleStageSelector();
         //SnakeMove();
-	}
+    }
 
     IEnumerator StageController()
     {
-        while(true)
+        while (true)
         {
             LifeCycleStageSelector();
             yield return new WaitForEndOfFrame();
@@ -117,7 +141,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //switch
-        switch(m_stage)
+        switch (m_stage)
         {
             case SnakeLifeStage.RebornDelay:
                 if (timer > rebbornDelayTime)
@@ -167,7 +191,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     }
     void GrowUp()
     {
-        
+
         eatNumber += 1;
 
 
@@ -191,7 +215,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
     void EventManagement()
     {
         SnakeHead m_head = bodyList[0].GetComponent<SnakeHead>();
-        if(m_head.HuntingList.Count > 1 && !m_head.beEaten)
+        if (m_head.HuntingList.Count > 1 && !m_head.beEaten)
         {
             m_updateStage = SnakeMotionStage.Hunting;
         }
@@ -203,7 +227,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
         {
             m_updateStage = SnakeMotionStage.BeEaten;
         }
-        else if(m_head.getIfEating)
+        else if (m_head.getIfEating)
         {
             m_updateStage = SnakeMotionStage.Eating;
         }
@@ -250,7 +274,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
                 }
             }
         }
-        else if(m_head.HuntingList.Count == 0)
+        else if (m_head.HuntingList.Count == 0)
         {
             //Debug.Log("lost target");
             m_updateStage = SnakeMotionStage.Idle;
@@ -261,15 +285,15 @@ public class SnakeParticleGenerator : MonoBehaviour {
     {
         float distanceToTarget = Vector3.Distance(m_head.transform.position, currentTarget.transform.position);
         for (int i = 0; i < bodyList.Count; i++)
-            {
-            
-                if (i == 0)
-                    TracingMove(bodyList[i]);
-                else
-                    CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
+        {
 
-            } 
-        if(distanceToTarget < 1.39f)
+            if (i == 0)
+                TracingMove(bodyList[i]);
+            else
+                CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
+
+        }
+        if (distanceToTarget < 1.39f)
         {
             m_updateStage = SnakeMotionStage.Eating;
             GrowUp();
@@ -312,20 +336,21 @@ public class SnakeParticleGenerator : MonoBehaviour {
         direction = UnityEngine.Random.Range(0, 100) > 50 ? 1 : -1;
         transform.localPosition = RegenerateStartPosition(direction);
         PositionInitialize();
-        if(direction == 1)
+        if (direction == 1)
         {
-            
-            for (int i=0; i < bodyList.Count; i++)
+
+            for (int i = 0; i < bodyList.Count; i++)
             {
                 //head setting 
-                if(i ==0)
+                if (i == 0)
                 {
                     bodyList[0].transform.localPosition = Vector3.zero;
                     bodyList[0].GetComponent<Rigidbody>().Sleep();
 
                 }
                 //body setting
-                else{
+                else
+                {
                     bodyList[i].transform.localPosition = bodyList[0].transform.localPosition;
                     bodyList[i].GetComponent<Rigidbody>().Sleep();
                 }
@@ -344,7 +369,7 @@ public class SnakeParticleGenerator : MonoBehaviour {
                 //body setting
                 else
                 {
-                    bodyList[i].transform.localPosition = bodyList[0].transform.localPosition;;
+                    bodyList[i].transform.localPosition = bodyList[0].transform.localPosition; ;
                 }
             }
         }
@@ -354,16 +379,16 @@ public class SnakeParticleGenerator : MonoBehaviour {
     void CheckEachBodyIffStayInBoundary()
     {
         //bool[] checklist = new bool[bodyList.Count];
-        for (int i=0; i < bodyList.Count; i++)
+        for (int i = 0; i < bodyList.Count; i++)
         {
-            if(m_Boundary.isPointInside(bodyList[i].transform))
+            if (m_Boundary.isPointInside(bodyList[i].transform))
             {
                 //Debug.Log("stay");
-                return; 
+                return;
             }
         }
         timerAtEnd += Time.deltaTime;
-        if (timerAtEnd>endingDelay)
+        if (timerAtEnd > endingDelay)
         {
             timer = 0;
             timerAtEnd = 0;
@@ -375,9 +400,9 @@ public class SnakeParticleGenerator : MonoBehaviour {
 
     Vector3 RegenerateStartPosition(int direction)
     {
-        float newPositionX = (direction == 1? m_Boundary.minX : m_Boundary.maxX ) - 5f * direction;
-        float newPositionY = (m_Boundary.maxY + m_Boundary.minY)/2 + ((m_Boundary.maxY  - m_Boundary.minY) / 4 ) * Mathf.Sin(Time.time * 0.5f);
-        Vector3 newPosition = new Vector3(newPositionX ,newPositionY,0);
+        float newPositionX = (direction == 1 ? m_Boundary.minX : m_Boundary.maxX) - 5f * direction;
+        float newPositionY = (m_Boundary.maxY + m_Boundary.minY) / 2 + ((m_Boundary.maxY - m_Boundary.minY) / 4) * Mathf.Sin(Time.time * 0.5f);
+        Vector3 newPosition = new Vector3(newPositionX, newPositionY, 0);
         return newPosition;
     }
 
@@ -404,8 +429,8 @@ public class SnakeParticleGenerator : MonoBehaviour {
     }
     void BodyGenerator()
     {
-        
-        for (int i = 1; i <= numberOfBody;i++)
+
+        for (int i = 1; i <= numberOfBody; i++)
         {
             GameObject body = (Instantiate(bodyPrefab) as GameObject);
             body.transform.parent = this.transform;
@@ -413,12 +438,12 @@ public class SnakeParticleGenerator : MonoBehaviour {
             body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
             body.layer = 13;
             body.GetComponent<Rigidbody>().isKinematic = true;
-            if(i%3 == 0)
+            if (i % 3 == 0)
             {
                 body.GetComponent<Rigidbody>().isKinematic = false;
             }
 
-            if(bodyList[i-1] == null)
+            if (bodyList[i - 1] == null)
             {
                 HeadGenerator();
             }
@@ -429,14 +454,16 @@ public class SnakeParticleGenerator : MonoBehaviour {
     void SnakeMove()
     {
         //Debug.Log("StageControl");
-        for (int i = 0; i < bodyList.Count;i++)
+        for (int i = 0; i < bodyList.Count; i++)
         {
-            if(i == 0)
+            if (i == 0)
             {
                 HeadMove(bodyList[i]);
 
-            }else{
-                
+            }
+            else
+            {
+
                 CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
             }
         }
@@ -451,16 +478,16 @@ public class SnakeParticleGenerator : MonoBehaviour {
         if (t > 0.5) t = 0.5f;
         current.GetComponent<Rigidbody>().MovePosition(
                 Vector3.Slerp(current.transform.position, forward.transform.position, t));
-        
+
     }
 
     void HeadMove(GameObject _head)
     {
         _head.GetComponent<Rigidbody>().Sleep();
         if (direction == 0) direction = 1;
-        float moveX = (Mathf.PerlinNoise(Time.time + index , index) - 0.1f) * 2 * speed * Time.deltaTime* direction;
+        float moveX = (Mathf.PerlinNoise(Time.time + index, index) - 0.1f) * 2 * speed * Time.deltaTime * direction;
         float moveY = Mathf.Sin(Time.time + index) * speed * Time.deltaTime;
-        Vector3 velocity = new Vector3(moveX, moveY,0);
+        Vector3 velocity = new Vector3(moveX, moveY, 0);
         _head.GetComponent<Rigidbody>().MovePosition(_head.transform.position + velocity);
         //Debug.Log(velocity);
         //if(!m_Boundary.isPointInside(_head.transform) && timer > 5)
@@ -474,16 +501,143 @@ public class SnakeParticleGenerator : MonoBehaviour {
     {
         GameObject body = (Instantiate(bodyPrefab) as GameObject);
         body.transform.parent = this.transform;
-        body.transform.position = bodyList[bodyList.Count-1].transform.position;
+        body.transform.position = bodyList[bodyList.Count - 1].transform.position;
         body.layer = 13;
         body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
         bodyList.Add(body);
     }
-}
 
+
+    #region  bodyAnimation
+    bool isLoop = true;
+    bool[] states;
+    float animationTimer;
+
+    IEnumerator SnakeColorLerpAnimation()
+    {
+        //if(!isUseSnakeBodyAnimation)isLoop = false;
+        while (isLoop)
+        {
+            stateSelector();
+            AnimationStateSelector();
+            Debug.Log("Refresh animation");
+            yield return new WaitForSeconds(1/animationFreshRate);
+        }
+    }
+    public bool isPlaying
+    {
+        get
+        {
+            if ((int)animationTimer / animationClipTime <= 0 || (int)animationTimer / animationClipTime >= 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+    void AnimationStateSelector()
+    {
+        switch(animationState)
+        {
+            case AnimationState.start:
+                InitializeAnimation(ref states);
+                break;
+            case AnimationState.update:
+                UpdateAnimation(ref states);
+                break;
+            case AnimationState.end:
+                EndAnimation(ref states);
+                break;
+        }
+    }
+    public virtual void InitializeAnimation(ref bool[] _states)
+    {
+        states = new bool[bodyList.Count];
+        animationTimer += Time.deltaTime;
+    }
+    public virtual void UpdateAnimation(ref bool[] _states) {
+         animationTimer += Time.deltaTime; 
+         AnimatiionLogic_1(isUseAntiOrder,maxIntervalNumber,ref states);
+    }
+    public virtual void EndAnimation(ref bool[] _states)
+    {
+        animationTimer = 0;
+    }
+
+    public void stateSelector(){
+            if (animationTimer == 0)
+                animationState = AnimationState.start;
+            else if (animationTimer > 0 && animationTimer < animationClipTime)
+                animationState = AnimationState.update;
+            else if (animationTimer > animationClipTime)
+                animationState = AnimationState.end;
+        }
+    void AnimatiionLogic_1(bool _isUseAntiOrder, int maxDarkNumber, ref bool[] _states)
+    {
+        int dir = _isUseAntiOrder ? -1 : 1;
+        int timeIndex = (int)Mathf.Lerp(0, _states.Length + (maxDarkNumber), animationTimer / animationClipTime) * dir;
+        int min = (_isUseAntiOrder ? (_states.Length - 1) + maxDarkNumber : 0 - maxDarkNumber) + timeIndex;
+        int max = (_isUseAntiOrder ? min - (maxDarkNumber - 1) : min + (maxDarkNumber - 1));
+        //Debug.Log("min : " + min + " max : " + max);
+        for (int i = 0; i < _states.Length; i++)
+        {
+            float i_min = Mathf.Abs(i - min);
+            float i_max = Mathf.Abs(i - max);
+            //Debug.Log("min : " + min + " max : " + max + " i : " + i + " i-max : " + i_max + " i-min : " + i_min);
+            if (i_min + i_max < maxDarkNumber)
+            {
+                _states[i] = LogicStateSetting.State1 ;
+                //Debug.Log("Lighting up");
+            }
+            else
+            {
+                _states[i] = LogicStateSetting.State2;
+
+                //Debug.Log("Lighting off");
+            }
+        }
+        if(!isUseSnakeBodyAnimation) return;
+
+        Color[] listColor = new Color[_states.Length];
+        float center = (max + min)/2 ;
+
+        for (int i = 0; i < listColor.Length; i++)
+        {
+            //Debug.Log(_states[i]);
+            //Debug.Log("min : " + min + " max : " + max + " i : " + i + " i-max : " + i_max + " i-min : " + i_min);
+            if (_states[i])
+            {
+
+                float index = i >= center ? i - center : center - i;
+                float length = i >= center ? max - center : center - min;
+                listColor[i] = Color.Lerp(color2, color1, index / length);
+            }
+            else
+            {
+                listColor[i] = color1;
+            }
+            bodyList[i].GetComponent<MeshRenderer>().material.SetColor("_TintColor", listColor[i]);
+        }
+
+
+    }
+    #endregion
+
+}
+public static class LogicStateSetting
+{
+    //default true
+    public static bool State1 = true;
+    //default false
+    public static bool State2 = false;
+    //public bool isUseAntiLogic = false;
+}
 public class SnakeParticleBoundaryEvent : BoundaryEvent
 {
-   
+
     public override void StayBoundary()
     {
         throw new NotImplementedException();
