@@ -113,6 +113,10 @@ public class SnakeHead : MonoBehaviour {
                             HuntingList.Add(other.gameObject);
                         else Debug.Log("Emitter has already be eaten");
                         break;
+
+                    case 16:
+                        HuntingList.Add(other.gameObject);
+                        break;
                 }
 
             }

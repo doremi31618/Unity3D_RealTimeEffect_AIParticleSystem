@@ -72,6 +72,10 @@ public class SnakeMouse : MonoBehaviour {
                     beEatenGameObject.GetComponent<ParticleMouse>().BeEaten();
                 //selse Debug.Log("Emitter has already be eaten");
                 break;
+
+            case 16:
+                Destroy(beEatenGameObject);
+                break;
         }
 
     }

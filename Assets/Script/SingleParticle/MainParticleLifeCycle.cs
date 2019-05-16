@@ -17,10 +17,10 @@ public class MainParticleLifeCycle : ParticleBase
 {
     [HideInInspector] public int index;
 
-    [Range(0, 10)] public float rebornDelayTimeRange;
-    float rebornDelayTime;
+    [Range(0, 10)] public float rebornDelayTimeRange = 5f;
+    float rebornDelayTime = 5f;
 
-    [Range(0, 100)] public float localMoveSpeed = 100;
+    [Range(0, 100)] public float localMoveSpeed = 2;
 
     //private Color m_color;
 

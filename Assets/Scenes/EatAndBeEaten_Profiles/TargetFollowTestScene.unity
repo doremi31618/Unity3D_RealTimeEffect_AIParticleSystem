@@ -5304,7 +5304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &218899112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5808,6 +5808,7 @@ MonoBehaviour:
   color2: {r: 0, g: 0, b: 0, a: 0}
   animationClipTime: 0
   animationFreshRate: 20
+  AnimationSpeed: 1
   maxIntervalNumber: 3
   animationState: 0
   ifAllStayInBoundary: 0
@@ -7803,7 +7804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &895326730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7817,13 +7818,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 1076185687}
-  distanceToCamera: 12
+  distanceToCamera: 13
   debugColor: {r: 1, g: 1, b: 1, a: 1}
-  minX: -19.116709
-  maxX: 19.116709
-  minY: -5.928203
-  maxY: 7.928203
-  worldCenter: {x: 0, y: 1, z: 12}
+  minX: -20.709768
+  maxX: 20.709768
+  minY: -6.5055532
+  maxY: 8.505553
+  worldCenter: {x: 0, y: 1, z: 13}
 --- !u!4 &895326731
 Transform:
   m_ObjectHideFlags: 0
@@ -7832,7 +7833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895326729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 12}
+  m_LocalPosition: {x: 0, y: 1, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 679859343}
@@ -7860,7 +7861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &951399807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8949,7 +8950,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1800961670254490, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1858035104691740, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
       propertyPath: m_IsActive
@@ -14516,7 +14517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1282429097
 Transform:
   m_ObjectHideFlags: 0
@@ -14597,7 +14598,7 @@ MonoBehaviour:
   bodyPrefab: {fileID: 1096027466}
   headColor: {r: 0.5921569, g: 0.32156864, b: 0.7176471, a: 1}
   bodyColor: {r: 0.5921569, g: 0.32156864, b: 0.7176471, a: 1}
-  numberOfBody: 7
+  numberOfBody: 9
   bodyDistance: 1.5
   rebornDelay: {x: 2, y: 5}
   endingDelay: 3
@@ -14606,12 +14607,13 @@ MonoBehaviour:
   SensorTriggerRadius: 3
   HowMuchNumberForEatingToGrowUp: 50
   snakeAddingMaxNumber: 5
-  isUseSnakeBodyAnimation: 0
-  color1: {r: 0, g: 0, b: 0, a: 0}
-  color2: {r: 0, g: 0, b: 0, a: 0}
+  isUseSnakeBodyAnimation: 1
+  color1: {r: 0, g: 0, b: 0, a: 1}
+  color2: {r: 0.42052332, g: 0.7194059, b: 0.8490566, a: 1}
   animationClipTime: 0
   animationFreshRate: 20
-  maxIntervalNumber: 3
+  AnimationSpeed: 1
+  maxIntervalNumber: 5
   animationState: 0
   ifAllStayInBoundary: 0
   direction: 1
@@ -14711,17 +14713,17 @@ PrefabInstance:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: color1.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: color1.g
-      value: 0.55638766
+      value: 0.54046535
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: color1.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
@@ -14731,7 +14733,7 @@ PrefabInstance:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: color2.r
-      value: 0.89866376
+      value: 0.08235291
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
@@ -14741,7 +14743,7 @@ PrefabInstance:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: color2.b
-      value: 0.08235291
+      value: 0.87540245
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
@@ -14761,32 +14763,32 @@ PrefabInstance:
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: headColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
-        type: 3}
-      propertyPath: headColor.g
-      value: 0.56423336
-      objectReference: {fileID: 0}
-    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
-        type: 3}
-      propertyPath: headColor.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
-      propertyPath: bodyColor.r
+      propertyPath: headColor.g
+      value: 0.54429555
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
+      propertyPath: headColor.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
+      propertyPath: bodyColor.r
+      value: 0.09019607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
+        type: 3}
       propertyPath: bodyColor.g
-      value: 0.08962262
+      value: 0.9545153
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
       propertyPath: bodyColor.b
-      value: 0.08962262
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114775827496590450, guid: 097752e57eb48489989c147c970a8aac,
         type: 3}
@@ -14817,7 +14819,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0106d3d048bf37e4ba6ef9f8f717d1f2, type: 2}
     - target: {fileID: 1586084665507916, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920290850796124, guid: 097752e57eb48489989c147c970a8aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15303,7 +15305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1425502804
 Transform:
   m_ObjectHideFlags: 0
@@ -15380,7 +15382,7 @@ MonoBehaviour:
   bodyPrefab: {fileID: 1595689900}
   headColor: {r: 0.40392157, g: 0.69803923, b: 0.9098039, a: 1}
   bodyColor: {r: 0.40392157, g: 0.69803923, b: 0.9098039, a: 1}
-  numberOfBody: 8
+  numberOfBody: 13
   bodyDistance: 1.5
   rebornDelay: {x: 2, y: 5}
   endingDelay: 3
@@ -15389,12 +15391,13 @@ MonoBehaviour:
   SensorTriggerRadius: 3
   HowMuchNumberForEatingToGrowUp: 45
   snakeAddingMaxNumber: 5
-  isUseSnakeBodyAnimation: 0
-  color1: {r: 0, g: 0, b: 0, a: 0}
-  color2: {r: 0, g: 0, b: 0, a: 0}
+  isUseSnakeBodyAnimation: 1
+  color1: {r: 0.4669811, g: 0.538039, b: 1, a: 1}
+  color2: {r: 0.004538993, g: 0.9010934, b: 0.9622642, a: 1}
   animationClipTime: 0
   animationFreshRate: 20
-  maxIntervalNumber: 3
+  AnimationSpeed: 1
+  maxIntervalNumber: 5
   animationState: 0
   ifAllStayInBoundary: 0
   direction: 1
@@ -16168,7 +16171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1732424110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16350,6 +16353,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
+--- !u!1 &1765648118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1763114604174140, guid: 097752e57eb48489989c147c970a8aac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296599928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765648124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765648118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2da3e66fa7d440b8f31a49d75cf518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0
+  lifeTime: 0
+  direction: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  maxMoveSpeed: 100
+  _lerpTime: 2
+  isBeaten: 0
+  angVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &1772522530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4957604209366480, guid: d25be3ae41c854f05976ac76700d8506,
@@ -16486,7 +16515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4882397614117272, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26235,7 +26264,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_Name
@@ -26761,12 +26790,12 @@ PrefabInstance:
     - target: {fileID: 2519433039218750054, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2519433040259357062, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
@@ -27006,6 +27035,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce0ae981921044b63ac5aa40172dda46, type: 3}
+--- !u!1 &5649004866093544694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5652103142912296472}
+  - component: {fileID: 5762039754280543010}
+  m_Layer: 9
+  m_Name: TrashLayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5652103142912296472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649004866093544694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5762039754280543010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649004866093544694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1762a5ebdd78d4c7d892d88a21591033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObject: {fileID: 1076185687}
+  distanceToCamera: 12
+  debugColor: {r: 0.88235295, g: 1, b: 1, a: 1}
+  minX: -19.116709
+  maxX: 19.116709
+  minY: -5.928203
+  maxY: 7.928203
+  worldCenter: {x: 0, y: 1, z: 12}
 --- !u!1001 &7200134851561517230
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -76,8 +76,11 @@ public class SnakeParticleGenerator : MonoBehaviour
     public float animationClipTime = 1;
     public float animationFreshRate = 20f;
     
+    public float AnimationSpeed = 1;
     bool isUseAntiOrder=false;
     public int maxIntervalNumber = 3;
+
+    
     [Header("state visualizer")]
     public AnimationState animationState;
     public enum AnimationState
@@ -100,6 +103,7 @@ public class SnakeParticleGenerator : MonoBehaviour
     public SnakeMotionStage m_updateStage = SnakeMotionStage.Idle;
 
     [HideInInspector] public List<GameObject> bodyList = new List<GameObject>();
+    GameObject head;
     ScreenSpaceBoundary m_Boundary;
     SnakeHead m_head
     {
@@ -109,6 +113,17 @@ public class SnakeParticleGenerator : MonoBehaviour
         }
     }
 
+    bool isBeEaten
+    {
+        get{
+            foreach(GameObject body in bodyList)
+            {
+                bool _isBeEaten = body.GetComponent<ParticleBase>().isBeaten;
+                if(_isBeEaten)return true;
+            }
+            return false;
+        }
+    }
     //[Header("setting Boundary Attribute ")]
     //public bool isUseBoundarySystem;
     //public bool isUseRandomAttributeToReborn;
@@ -166,11 +181,32 @@ public class SnakeParticleGenerator : MonoBehaviour
                 break;
         }
     }
-
+    bool isTimerEnd = true;
+    IEnumerator animationSpeedUp(float _timeLength,float _speed)
+    {
+        if(!isTimerEnd)yield break;
+        isTimerEnd = false;
+        AnimationSpeed = _speed;
+        speed *=2;
+        yield return new WaitForSeconds(_timeLength);
+        AnimationSpeed = 1;
+        speed /= 2;
+        isTimerEnd = true;
+    }
+    IEnumerator animationSpeedDown(float _timeLength,float _speed)
+    {
+        if(!isTimerEnd)yield break;
+        isTimerEnd = false;
+        RemoveBody();
+        AnimationSpeed = _speed;
+        speed *= 0.5f;
+        yield return new WaitForSeconds(_timeLength);
+        AnimationSpeed = 1;
+        speed *= 2;
+        isTimerEnd = true;
+    }
     void UpdateCycleStageSelector()
     {
-
-        //Debug.Log(m_updateStage);
         EventManagement();
         switch (m_updateStage)
         {
@@ -181,20 +217,20 @@ public class SnakeParticleGenerator : MonoBehaviour
                 Hunter();
                 break;
             case SnakeMotionStage.Eating:
-                //GrowUp();
+                GrowUp();
                 m_updateStage = SnakeMotionStage.Idle;
                 break;
             case SnakeMotionStage.BeEaten:
+                StartCoroutine(animationSpeedDown(1,0.5f));
                 break;
         }
         if (timer > 5) CheckEachBodyIffStayInBoundary();
     }
     void GrowUp()
     {
-
+        StartCoroutine(animationSpeedUp(1f,3));
+        //StartCoroutine(animationSpeedDown(1,0.5f));
         eatNumber += 1;
-
-
         //Debug.Log("HowMuchNumberForEatingToGrowUp" + HowMuchNumberForEatingToGrowUp + "||Eat Number" + eatNumber);
         if (eatNumber > HowMuchNumberForEatingToGrowUp)
         {
@@ -214,7 +250,7 @@ public class SnakeParticleGenerator : MonoBehaviour
     //define what stage should be 
     void EventManagement()
     {
-        SnakeHead m_head = bodyList[0].GetComponent<SnakeHead>();
+        SnakeHead m_head = head.GetComponent<SnakeHead>();
         if (m_head.HuntingList.Count > 1 && !m_head.beEaten)
         {
             m_updateStage = SnakeMotionStage.Hunting;
@@ -341,11 +377,13 @@ public class SnakeParticleGenerator : MonoBehaviour
 
             for (int i = 0; i < bodyList.Count; i++)
             {
+                if(i>=bodyList.Count)return;
                 //head setting 
                 if (i == 0)
                 {
                     bodyList[0].transform.localPosition = Vector3.zero;
                     bodyList[0].GetComponent<Rigidbody>().Sleep();
+                    bodyList[0].GetComponent<SnakeHead>().beEaten = false;
 
                 }
                 //body setting
@@ -354,6 +392,8 @@ public class SnakeParticleGenerator : MonoBehaviour
                     bodyList[i].transform.localPosition = bodyList[0].transform.localPosition;
                     bodyList[i].GetComponent<Rigidbody>().Sleep();
                 }
+
+                //bodyList[i].GetComponent<ParticleBase>().isBeaten = false;
             }
         }
         else
@@ -361,6 +401,7 @@ public class SnakeParticleGenerator : MonoBehaviour
 
             for (int i = 0; i < bodyList.Count; i++)
             {
+                if(i>=bodyList.Count)return;
                 //head setting 
                 if (i == 0)
                 {
@@ -381,6 +422,7 @@ public class SnakeParticleGenerator : MonoBehaviour
         //bool[] checklist = new bool[bodyList.Count];
         for (int i = 0; i < bodyList.Count; i++)
         {
+            if(i>=bodyList.Count)return;
             if (m_Boundary.isPointInside(bodyList[i].transform))
             {
                 //Debug.Log("stay");
@@ -425,7 +467,7 @@ public class SnakeParticleGenerator : MonoBehaviour
         //Snake layer
         Head.layer = 13;
         bodyList.Add(Head);
-
+        head = Head;
     }
     void BodyGenerator()
     {
@@ -463,7 +505,6 @@ public class SnakeParticleGenerator : MonoBehaviour
             }
             else
             {
-
                 CheckDistanceWithForward(bodyList[i - 1], bodyList[i]);
             }
         }
@@ -506,7 +547,19 @@ public class SnakeParticleGenerator : MonoBehaviour
         body.GetComponent<Renderer>().material.SetColor("_TintColor", bodyColor);
         bodyList.Add(body);
     }
+    void RemoveBody()
+    {
+        GameObject removeTarget = bodyList[bodyList.Count - 1];
+        snakeAddingMaxNumber += 1;
+        bodyList.Remove(removeTarget);
+        removeTarget.transform.parent = GameObject.Find("TrashLayer").transform ;
+        removeTarget.tag = "LittleParticle";
+        removeTarget.layer = 16;
 
+        // removeTarget.AddComponent<MainParticleLifeCycle>().fisrtColor = color1;
+        // removeTarget.GetComponent<MainParticleLifeCycle>().finalColor = color2;
+        // removeTarget.GetComponent<MainParticleLifeCycle>().lifeTime = 60f;
+    }
 
     #region  bodyAnimation
     bool isLoop = true;
@@ -520,7 +573,7 @@ public class SnakeParticleGenerator : MonoBehaviour
         {
             stateSelector();
             AnimationStateSelector();
-            Debug.Log("Refresh animation");
+            //Debug.Log("Refresh animation");
             yield return new WaitForSeconds(1/animationFreshRate);
         }
     }
@@ -556,10 +609,10 @@ public class SnakeParticleGenerator : MonoBehaviour
     public virtual void InitializeAnimation(ref bool[] _states)
     {
         states = new bool[bodyList.Count];
-        animationTimer += Time.deltaTime;
+        animationTimer += Time.deltaTime * Mathf.Abs(AnimationSpeed);
     }
     public virtual void UpdateAnimation(ref bool[] _states) {
-         animationTimer += Time.deltaTime; 
+         animationTimer += Time.deltaTime * Mathf.Abs(AnimationSpeed); 
          AnimatiionLogic_1(isUseAntiOrder,maxIntervalNumber,ref states);
     }
     public virtual void EndAnimation(ref bool[] _states)
@@ -619,7 +672,8 @@ public class SnakeParticleGenerator : MonoBehaviour
             {
                 listColor[i] = color1;
             }
-            bodyList[i].GetComponent<MeshRenderer>().material.SetColor("_TintColor", listColor[i]);
+            if(i<bodyList.Count)
+                bodyList[i].GetComponent<MeshRenderer>().material.SetColor("_TintColor", listColor[i]);
         }
 
 

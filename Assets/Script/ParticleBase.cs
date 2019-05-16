@@ -23,17 +23,20 @@ public class ParticleBase : MonoBehaviour{
         }
     }
 
+    //spring joint worm use 
     public void BeEaten()
     {
         isBeaten = true;
-        //Color now = GetComponent<MeshRenderer>().material.GetColor("_TintColor");
-        //GetComponent<Collider>().enabled = false;
-        //GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Vector4(now.r, now.g, now.b, 0));
+        Color now = GetComponent<MeshRenderer>().material.GetColor("_TintColor");
+        GetComponent<Collider>().enabled = false;
+        GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Vector4(now.r, now.g, now.b, 0));
     }
+
+    // spring joint worm use
     public void FadeIn()
     {
         isBeaten = false;
-        //Debug.Log("start fade in ");
+        Debug.Log("start fade in ");
         StartCoroutine(fadein());
     }
     public IEnumerator fadein()

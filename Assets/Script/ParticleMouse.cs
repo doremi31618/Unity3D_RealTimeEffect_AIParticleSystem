@@ -29,7 +29,7 @@ public class ParticleMouse : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer);
+        //Debug.Log(other.gameObject.layer);
         if (!isEating)
         {
             EatingEvent(other.gameObject);
@@ -63,6 +63,8 @@ public class ParticleMouse : MonoBehaviour {
                 break;
 
             case 13:
+                // if(beEatenGameObject.GetComponent<SnakeHead>() != true)return;
+                // beEatenGameObject.GetComponent<SnakeHead>().beEaten = true;
                 break;
 
             case 14:
