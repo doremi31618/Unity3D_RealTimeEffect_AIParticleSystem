@@ -7449,7 +7449,7 @@ PrefabInstance:
     - target: {fileID: 2519433040259357059, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_hunter.HuntingTargets.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2519433040259357059, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
@@ -7535,6 +7535,21 @@ PrefabInstance:
         type: 3}
       propertyPath: eatingInterval
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433040259357059, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_hunter.m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433040259357059, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_hunter.HuntingTargets.Array.data[1]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433040259357059, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: m_hunter.HuntingTargets.Array.data[2]
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2519433038927069441, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
@@ -26925,6 +26940,31 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750057, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750057, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[0]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750057, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750057, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[2]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433039218750057, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[3]
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2519433038927069471, guid: c5d7235204c54432aa4e4d3248c5fccf,
         type: 3}
       propertyPath: m_Layer
@@ -27140,6 +27180,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069442, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069442, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[0]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069442, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069442, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[2]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519433038927069442, guid: c5d7235204c54432aa4e4d3248c5fccf,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[3]
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5d7235204c54432aa4e4d3248c5fccf, type: 3}
