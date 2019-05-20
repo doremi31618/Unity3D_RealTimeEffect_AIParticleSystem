@@ -9,6 +9,7 @@ public class SnakeMouse : MonoBehaviour {
     public bool isEating = false;
     [HideInInspector]public float timer;
     ParticleSystem m_particleEffect;
+    public LayerManager[] HuntingTargets;
 
 	// Use this for initialization
 	void Start () {
@@ -48,34 +49,52 @@ public class SnakeMouse : MonoBehaviour {
     //call event 
     void EatingEvent(GameObject beEatenGameObject)
     {
-        switch(beEatenGameObject.layer)
+        if(HuntingTargets == null)return;
+        for(int i = 0;i<HuntingTargets.Length;i++)
         {
-            case 9:
-                beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
-                m_particleEffect.Play();
-                break;
+            if(beEatenGameObject.layer == (int)HuntingTargets[i])
+            {
+                Debug.Log(beEatenGameObject.layer);
+                switch(beEatenGameObject.layer)
+                {
+                    case 9:
+                        beEatenGameObject.GetComponent<MainParticleLifeCycle>().BeEaten();
+                        isEating = true;
+                        break;
 
-            //player layer
-            case 10:
-                break;
+                    //player layer
+                    case 10:
+                        break;
 
-            //spring worm layer 
-            case 12:
-                beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
-                break;
 
-            case 13:
-                break;
-            case 14:
-                if (beEatenGameObject.GetComponent<ParticleMouse>() == null) return;
-                if (!beEatenGameObject.GetComponent<ParticleMouse>().isBeEaten)
-                    beEatenGameObject.GetComponent<ParticleMouse>().BeEaten();
-                //selse Debug.Log("Emitter has already be eaten");
-                break;
+                    //spring worm layer 
+                    case 12:
+                        beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
+                        isEating = true;
+                        break;
 
-            case 16:
-                Destroy(beEatenGameObject);
+                    case 13:
+                        if(beEatenGameObject.GetComponent<SnakeHead>() != true)return;
+                        beEatenGameObject.GetComponent<SnakeHead>().beEaten = true;
+                        isEating = true;
+                        break;
+
+                    case 14:
+                        if (beEatenGameObject.GetComponent<ParticleMouse>() == null || beEatenGameObject.layer == gameObject.layer) return;
+                        if (!beEatenGameObject.GetComponent<ParticleMouse>().isBeEaten)
+                            beEatenGameObject.GetComponent<ParticleMouse>().BeEaten();
+                        else Debug.Log("Emitter has already be eaten");
+                        isEating = true;
+                        break;
+
+                    case 16:
+                        beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
+                        //Destroy(beEatenGameObject);
+                        break;
+
+                }
                 break;
+            }
         }
 
     }

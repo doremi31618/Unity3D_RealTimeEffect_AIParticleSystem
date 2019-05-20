@@ -8,7 +8,16 @@ using System.Timers;
 [System.Serializable]
 public class WaveParticleHunter : Hunter
 {
+
     public ParticleMouse[] mice;
+    public void setHuntingTargetToMice()
+    {
+        for (int i = 0; i < mice.Length;i++)
+        {
+            mice[i].HuntingTargets = HuntingTargets;
+        }
+    }
+
     public bool getIsMiceEating {
         get {
             for (int i = 0; i < mice.Length;i++)
@@ -55,6 +64,7 @@ public class WaveParticleBehaviour : ParticleBehaiour
     float nextTimeToEatOrBeEaten;
     private void Start()
     {
+        m_hunter.setHuntingTargetToMice();
         InitializeComponent();
 
     }

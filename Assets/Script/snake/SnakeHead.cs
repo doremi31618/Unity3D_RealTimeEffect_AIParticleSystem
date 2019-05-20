@@ -21,7 +21,7 @@ public class SnakeHead : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		snakeMouse.GetComponent<SnakeMouse>().HuntingTargets = HuntingTargets;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +39,11 @@ public class SnakeHead : MonoBehaviour {
         if (HuntingList.Count == 0) return;
         for (int i = 0; i < HuntingList.Count;i++)
         {
+            if(HuntingList[i] == null)
+            {
+                HuntingList.Remove(HuntingList[i]);
+                break;
+            }
             switch (HuntingList[i].layer)
             {
                 //object layer
@@ -64,6 +69,7 @@ public class SnakeHead : MonoBehaviour {
 
                 case 13:
                     break;
+
                 case 14:
                     if(Vector3.Distance(transform.position,HuntingList[i].transform.position)>10)
                     {
@@ -71,6 +77,10 @@ public class SnakeHead : MonoBehaviour {
                         {
                             _currentTarget = null;
                         }
+                        HuntingList.Remove(HuntingList[i].gameObject);
+                    }
+                    else if(HuntingList[i].GetComponent<ParticleMouse>().isBeEaten)
+                    {
                         HuntingList.Remove(HuntingList[i].gameObject);
                     }
                     break;

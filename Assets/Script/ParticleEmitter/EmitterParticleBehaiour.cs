@@ -15,13 +15,10 @@ public class EmitterHunter : Hunter
      */
     public EmitterHunter(EmitterParticleBehaiour _emitterParticle)
     {
-        emitterParticle = _emitterParticle;
-        //if(HuntingSensor == null)
-        //{
-        //    HuntingSensor = new GameObject();
-        //    HuntingSensor.transform.parent = emitterParticle.transform;
-        //    HuntingSensor.AddComponent<SphereCollider>();
-        //}
+        if(_emitterParticle != null)
+            emitterParticle = _emitterParticle;
+        
+        
     }
 
     public float TracingSpeed;
@@ -145,7 +142,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     //SphereCollider m_collider;
     */
 
-    private static EmitterParticleBehaiour _instance;
+    private static EmitterParticleBehaiour _instance ;
     public EmitterParticleBehaiour instance{
         get{
             if (_instance == null) _instance = this;
@@ -177,6 +174,12 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     public ParticleSystem ExplosionEffect;
 
 	// Use this for initialization
+    void Awake()
+    {
+        if(instance == null){
+            Debug.Log("initialize");
+        }
+    }
 	void Start () {
         saveData();
         Initialize();

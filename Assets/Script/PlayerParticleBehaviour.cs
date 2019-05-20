@@ -7,7 +7,6 @@ using UnityEditor;
 [System.Serializable]
 public class PlayerHunter : Hunter
 {
-    
 }
 public enum ForceType
 {
@@ -101,7 +100,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         m_rigidbody = this.GetComponent<Rigidbody>();
 
         m_hunter.HuntingTargets = HuntingTarget;
-
+        m_hunter.mouse.HuntingTargets = HuntingTarget;
         timer = 0;
         stateNow = ParticleLifeState.Update;
     }

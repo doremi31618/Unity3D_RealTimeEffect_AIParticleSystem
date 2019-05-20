@@ -38,7 +38,11 @@ public enum LayerManager
     Player = 10,
     SpringJointWorm = 12,
     Snake = 13,
-    EmitterParticle = 14
+    EmitterParticle = 14,
+    Wave = 15,
+    Trash = 16
+
+
 }
 
 public class ParticleBehaiour : MonoBehaviour {

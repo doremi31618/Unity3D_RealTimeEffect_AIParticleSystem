@@ -99,6 +99,7 @@
      <Compile Include="Assets\Script\SpringJointWorm\SpringWormCenterBehaviour.cs" />
      <Compile Include="Assets\Script\StarEX.cs" />
      <Compile Include="Assets\Script\TentacleParticle\TentacleGenerator.cs" />
+     <Compile Include="Assets\Script\Trshcan.cs" />
      <Compile Include="Assets\Script\WaveParticleBehaviour.cs" />
      <None Include="Assets\Klak\Hap\Resources\Hap5.shader" />
      <None Include="Assets\Material\shader\NewImageEffectShader.shader" />

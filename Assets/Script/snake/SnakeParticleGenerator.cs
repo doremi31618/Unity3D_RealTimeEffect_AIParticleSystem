@@ -49,6 +49,7 @@ public class SnakeParticleGenerator : MonoBehaviour
     public Color bodyColor;
 
     [Tooltip("only affect at fisrt time(start)")] public int numberOfBody = 5;
+    public int minBodyNunber = 3;
     [Tooltip("change by realtime")] public float bodyDistance;
 
     [Header("Motion Related Attribbute")]
@@ -197,13 +198,15 @@ public class SnakeParticleGenerator : MonoBehaviour
     {
         if(!isTimerEnd)yield break;
         isTimerEnd = false;
-        RemoveBody();
+        if(bodyList.Count > minBodyNunber )
+            RemoveBody();
         AnimationSpeed = _speed;
         speed *= 0.5f;
         yield return new WaitForSeconds(_timeLength);
         AnimationSpeed = 1;
         speed *= 2;
         isTimerEnd = true;
+        m_head.beEaten = false;
     }
     void UpdateCycleStageSelector()
     {
@@ -221,6 +224,7 @@ public class SnakeParticleGenerator : MonoBehaviour
                 m_updateStage = SnakeMotionStage.Idle;
                 break;
             case SnakeMotionStage.BeEaten:
+                SnakeMove();
                 StartCoroutine(animationSpeedDown(1,0.5f));
                 break;
         }
@@ -554,11 +558,11 @@ public class SnakeParticleGenerator : MonoBehaviour
         bodyList.Remove(removeTarget);
         removeTarget.transform.parent = GameObject.Find("TrashLayer").transform ;
         removeTarget.tag = "LittleParticle";
-        removeTarget.layer = 16;
+        removeTarget.layer = 9;
 
-        // removeTarget.AddComponent<MainParticleLifeCycle>().fisrtColor = color1;
-        // removeTarget.GetComponent<MainParticleLifeCycle>().finalColor = color2;
-        // removeTarget.GetComponent<MainParticleLifeCycle>().lifeTime = 60f;
+        removeTarget.AddComponent<MainParticleLifeCycle>().fisrtColor = color1;
+        removeTarget.GetComponent<MainParticleLifeCycle>().finalColor = color2;
+        removeTarget.GetComponent<MainParticleLifeCycle>().lifeTime = 60f;
     }
 
     #region  bodyAnimation

@@ -39,6 +39,7 @@ public class ParticleBase : MonoBehaviour{
         Debug.Log("start fade in ");
         StartCoroutine(fadein());
     }
+    
     public IEnumerator fadein()
     {
         Color nowTransparent = GetComponent<Renderer>().material.GetColor("_TintColor");
