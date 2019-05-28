@@ -87,7 +87,7 @@ public class TrackingTargetBehaviour : MonoBehaviour
     }
     void TrackingMove()
     {
-        Debug.Log("TrackingMove");
+        //Debug.Log("TrackingMove");
         //Vector3 moveStep = (NowTarget.transform.position - transform.position).normalized;
         //m_rigidbody.MovePosition(transform.position + moveStep * trackingSpeed * Time.deltaTime);
         LerpMove(NowTarget.transform.position, transform.position, 5f);
@@ -95,7 +95,7 @@ public class TrackingTargetBehaviour : MonoBehaviour
     }
     void CircleAroundMove()
     {
-        Debug.Log("CircleAround");
+        //Debug.Log("CircleAround");
         Vector3 towardDir = Vector3.Cross(transform.position - NowTarget.transform.position, Vector3.forward).normalized;
         m_rigidbody.MovePosition(transform.position + towardDir * circcleAroundSpeed * Time.deltaTime);
     }
