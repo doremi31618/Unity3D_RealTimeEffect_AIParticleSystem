@@ -9365,6 +9365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114597423726764992, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
+    - {fileID: 114234624259970310, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe53b4a7ae6274816a2033d556481cd0, type: 3}
 --- !u!4 &1159269766 stripped
 Transform:
@@ -15609,57 +15610,6 @@ MonoBehaviour:
   bodyList: []
   ifHaveTarget: 0
   mostCloseTarget: {fileID: 0}
---- !u!1 &1432505193 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1800961670254490, guid: fe53b4a7ae6274816a2033d556481cd0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1159269765}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1432505194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432505193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b531f336dfee5f438f94ed501caefc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensorHeight: 1
-  sensorAngle: 0
-  autoHeightAngle: 0
-  computeUserMap: 3
-  computeColorMap: 1
-  computeInfraredMap: 0
-  displayUserMap: 0
-  displayColorMap: 0
-  displaySkeletonLines: 0
-  DisplayMapsWidthPercent: 20
-  useMultiSourceReader: 0
-  minUserDistance: 0.5
-  maxUserDistance: 0
-  maxLeftRightDistance: 0
-  maxTrackedUsers: 6
-  showTrackedUsersOnly: 1
-  detectClosestUser: 1
-  ignoreInferredJoints: 0
-  ignoreZCoordinates: 0
-  lateUpdateAvatars: 0
-  smoothing: 1
-  useBoneOrientationConstraints: 0
-  allowTurnArounds: 0
-  allowedHandRotations: 1
-  waitTimeBeforeRemove: 1
-  avatarControllers: []
-  playerCalibrationPose: 0
-  playerCommonGestures: 
-  minTimeBetweenGestures: 0.7
-  gestureManager: {fileID: 0}
-  gestureListeners: []
-  calibrationText: {fileID: 0}
-  gesturesDebugText: {fileID: 0}
 --- !u!1001 &1438589848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15815,7 +15765,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1159269765}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432505193}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1762a5ebdd78d4c7d892d88a21591033, type: 3}

@@ -287,7 +287,6 @@
      <Compile Include="Assets\Script\Boundary\BoundaryBase.cs" />
      <Compile Include="Assets\Script\Boundary\BoundaryEvent.cs" />
      <Compile Include="Assets\Script\Boundary\CircleBoundary.cs" />
-     <Compile Include="Assets\Script\Boundary\LimitSpaceBoundary.cs" />
      <Compile Include="Assets\Script\Boundary\ScreenSpaceBoundary.cs" />
      <Compile Include="Assets\Script\Hunter.cs" />
      <Compile Include="Assets\Script\Motion\StraightMove.cs" />
