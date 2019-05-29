@@ -51,7 +51,7 @@ public class ParticleMouse : MonoBehaviour {
         {
             if(beEatenGameObject.layer == (int)HuntingTargets[i])
             {
-                Debug.Log(beEatenGameObject.layer);
+                //Debug.Log(beEatenGameObject.layer);
                 switch(beEatenGameObject.layer)
                 {
                     case 9:
