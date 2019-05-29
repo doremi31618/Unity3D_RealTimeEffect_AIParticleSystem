@@ -5394,7 +5394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &218899112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5810,7 +5810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &465700092
 Transform:
   m_ObjectHideFlags: 0
@@ -8057,7 +8057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &895326730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8071,13 +8071,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 1076185687}
-  distanceToCamera: 12
+  distanceToCamera: 13
   debugColor: {r: 1, g: 1, b: 1, a: 1}
-  minX: -19.116709
-  maxX: 19.116709
-  minY: -5.928203
-  maxY: 7.928203
-  worldCenter: {x: 0, y: 1, z: 12}
+  minX: -20.709768
+  maxX: 20.709768
+  minY: -6.5055532
+  maxY: 8.505553
+  worldCenter: {x: 0, y: 1, z: 13}
 --- !u!4 &895326731
 Transform:
   m_ObjectHideFlags: 0
@@ -8086,7 +8086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895326729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 12}
+  m_LocalPosition: {x: 0, y: 1, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 679859343}
@@ -8114,7 +8114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &951399807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14858,7 +14858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1282429097
 Transform:
   m_ObjectHideFlags: 0
@@ -15815,7 +15815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1425502804
 Transform:
   m_ObjectHideFlags: 0
@@ -16698,7 +16698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1732424110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16744,7 +16744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_Name
@@ -17137,7 +17137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4882397614117272, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26903,7 +26903,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368496973155230, guid: 2b2e0cfa99d0b48a9b439ea922ab3bc4, type: 3}
       propertyPath: m_Name
