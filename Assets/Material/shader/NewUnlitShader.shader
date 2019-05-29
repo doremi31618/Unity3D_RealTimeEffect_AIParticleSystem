@@ -47,7 +47,7 @@
          //#pragma target 3.0
          #pragma multi_compile_instancing
          #pragma multi_compile _ PIXELSNAP_ON
-         #pragma multi_compile _ ETC1_EXTERNAL_ALPHA
+         //#pragma multi_compile _ ETC1_EXTERNAL_ALPHA
          #include "UnityCG.cginc"
          #include "UnitySprites.cginc"
          //fixed4 _Color;

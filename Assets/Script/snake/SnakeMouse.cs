@@ -74,9 +74,9 @@ public class SnakeMouse : MonoBehaviour {
                         break;
 
                     case 13:
-                        if(beEatenGameObject.GetComponent<SnakeHead>() != true)return;
-                        beEatenGameObject.GetComponent<SnakeHead>().beEaten = true;
-                        isEating = true;
+                        // if(beEatenGameObject.GetComponent<SnakeHead>() != true)return;
+                        // beEatenGameObject.GetComponent<SnakeHead>().beEaten = true;
+                        // isEating = true;
                         break;
 
                     case 14:
@@ -88,7 +88,7 @@ public class SnakeMouse : MonoBehaviour {
                         break;
 
                     case 16:
-                        beEatenGameObject.GetComponent<ParticleBase>().BeEaten();
+                        
                         //Destroy(beEatenGameObject);
                         break;
 

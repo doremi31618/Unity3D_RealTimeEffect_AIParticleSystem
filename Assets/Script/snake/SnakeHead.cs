@@ -7,7 +7,7 @@ using Cinemachine;
 public class SnakeHead : MonoBehaviour {
 
     //public LayerManager HuntingTarget;
-    [HideInInspector]public bool beEaten =  false;
+    public bool beEaten =  false;
     public LayerManager[] HuntingTargets;
     public List<GameObject> HuntingList = new List<GameObject>();
     public GameObject snakeMouse;

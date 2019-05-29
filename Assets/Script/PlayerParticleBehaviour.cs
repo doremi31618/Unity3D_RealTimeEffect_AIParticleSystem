@@ -140,6 +140,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
             case ParticleMotionState.Hunting:
                 break;
             case ParticleMotionState.Eating:
+                m_hunter.mouse.isEating = false;
                 break;
             case ParticleMotionState.interactive:
                 if (isUseMouseToControl) MouseControlMove();

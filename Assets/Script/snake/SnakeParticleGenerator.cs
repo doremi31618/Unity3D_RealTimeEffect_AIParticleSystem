@@ -74,6 +74,8 @@ public class SnakeParticleGenerator : MonoBehaviour
     public bool isUseSnakeBodyAnimation = true;
     public Color color1 = Color.white;
     public Color color2 = Color.white;
+
+    public Color beEatenColor = Color.red;
     public float animationClipTime = 1;
     public float animationFreshRate = 20f;
     
@@ -106,6 +108,8 @@ public class SnakeParticleGenerator : MonoBehaviour
     [HideInInspector] public List<GameObject> bodyList = new List<GameObject>();
     GameObject head;
     ScreenSpaceBoundary m_Boundary;
+
+    public ParticleSystem deathParticleEffect;
     SnakeHead m_head
     {
         get
@@ -197,16 +201,23 @@ public class SnakeParticleGenerator : MonoBehaviour
     IEnumerator animationSpeedDown(float _timeLength,float _speed)
     {
         if(!isTimerEnd)yield break;
+        Color temp = color2;
+        color2 = beEatenColor;
         isTimerEnd = false;
+
+        updownSpeed = 5;
         if(bodyList.Count > minBodyNunber )
             RemoveBody();
+        animationState = AnimationState.start;
         AnimationSpeed = _speed;
-        speed *= 0.5f;
+        //speed *= 0.5f;
         yield return new WaitForSeconds(_timeLength);
         AnimationSpeed = 1;
-        speed *= 2;
+        //speed *= 2;
+        updownSpeed = 1;
         isTimerEnd = true;
         m_head.beEaten = false;
+        color2 = temp;
     }
     void UpdateCycleStageSelector()
     {
@@ -368,6 +379,7 @@ public class SnakeParticleGenerator : MonoBehaviour
 
         m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
         rebbornDelayTime = UnityEngine.Random.Range(rebornDelay.x, rebornDelay.y);
+        deathParticleEffect.Stop();
     }
 
     void SnakeInitializer()
@@ -526,12 +538,13 @@ public class SnakeParticleGenerator : MonoBehaviour
 
     }
 
+    float updownSpeed = 1;
     void HeadMove(GameObject _head)
     {
         _head.GetComponent<Rigidbody>().Sleep();
         if (direction == 0) direction = 1;
         float moveX = (Mathf.PerlinNoise(Time.time + index, index) - 0.1f) * 2 * speed * Time.deltaTime * direction;
-        float moveY = Mathf.Sin(Time.time + index) * speed * Time.deltaTime;
+        float moveY = Mathf.Sin((Time.time)+ index) * 3 * Time.deltaTime *(1/updownSpeed);
         Vector3 velocity = new Vector3(moveX, moveY, 0);
         _head.GetComponent<Rigidbody>().MovePosition(_head.transform.position + velocity);
         //Debug.Log(velocity);
@@ -554,17 +567,21 @@ public class SnakeParticleGenerator : MonoBehaviour
     void RemoveBody()
     {
         GameObject removeTarget = bodyList[bodyList.Count - 1];
-        snakeAddingMaxNumber += 1;
+        snakeAddingMaxNumber ++;
         bodyList.Remove(removeTarget);
         removeTarget.transform.parent = GameObject.Find("TrashLayer").transform ;
         removeTarget.tag = "LittleParticle";
         removeTarget.layer = 9;
 
+        deathParticleEffect.transform.position = bodyList[bodyList.Count-1].transform.position;
+        deathParticleEffect.Play();
+
         removeTarget.AddComponent<MainParticleLifeCycle>().fisrtColor = color1;
         removeTarget.GetComponent<MainParticleLifeCycle>().finalColor = color2;
+        removeTarget.GetComponent<MainParticleLifeCycle>().localMoveSpeed = 0;
+        removeTarget.GetComponent<MainParticleLifeCycle>().m_stage = mainParticleStage.update;
         removeTarget.GetComponent<MainParticleLifeCycle>().lifeTime = 60f;
     }
-
     #region  bodyAnimation
     bool isLoop = true;
     bool[] states;

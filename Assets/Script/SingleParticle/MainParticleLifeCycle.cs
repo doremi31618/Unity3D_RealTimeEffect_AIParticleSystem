@@ -20,7 +20,7 @@ public class MainParticleLifeCycle : ParticleBase
     [Range(0, 10)] public float rebornDelayTimeRange = 5f;
     float rebornDelayTime = 5f;
 
-    [Range(0, 100)] public float localMoveSpeed = 2;
+    [Range(0, 20)] public float localMoveSpeed = 2;
 
     //private Color m_color;
 

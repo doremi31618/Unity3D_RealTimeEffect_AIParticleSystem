@@ -29,10 +29,18 @@ public class ParticleMouse : MonoBehaviour {
         isEating = false;
 
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.layer);
+        Debug.Log(other.gameObject.layer);
         if (!isEating)
+        {
+            EatingEvent(other.gameObject);
+        }
+    }
+    
+    private void OnTriggerStay(Collider other)
+    {
+         if (!isEating)
         {
             EatingEvent(other.gameObject);
         }
@@ -46,12 +54,14 @@ public class ParticleMouse : MonoBehaviour {
     //call event 
     void EatingEvent(GameObject beEatenGameObject)
     {
+
         if(HuntingTargets == null)return;
+        Debug.Log(beEatenGameObject.layer);
         for(int i = 0;i<HuntingTargets.Length;i++)
         {
             if(beEatenGameObject.layer == (int)HuntingTargets[i])
             {
-                //Debug.Log(beEatenGameObject.layer);
+                
                 switch(beEatenGameObject.layer)
                 {
                     case 9:
@@ -73,6 +83,7 @@ public class ParticleMouse : MonoBehaviour {
                     case 13:
                         if(beEatenGameObject.GetComponent<SnakeHead>() != true)return;
                         beEatenGameObject.GetComponent<SnakeHead>().beEaten = true;
+                        isEating = true;
                         break;
 
                     case 14:
