@@ -543,7 +543,7 @@ public class SnakeParticleGenerator : MonoBehaviour
     {
         _head.GetComponent<Rigidbody>().Sleep();
         if (direction == 0) direction = 1;
-        float moveX = (Mathf.PerlinNoise(Time.time + index, index) - 0.1f) * 2 * speed * Time.deltaTime * direction;
+        float moveX = (Mathf.PerlinNoise(Time.time + index, index) - 0.1f) * 2 * speed * Time.deltaTime * direction * updownSpeed;
         float moveY = Mathf.Sin((Time.time)+ index) * 3 * Time.deltaTime *(1/updownSpeed);
         Vector3 velocity = new Vector3(moveX, moveY, 0);
         _head.GetComponent<Rigidbody>().MovePosition(_head.transform.position + velocity);
