@@ -96,7 +96,7 @@ public class MainParticleLifeCycle : ParticleBase
     }
     public void Initialized()
     {
-        rebornDelayTime = Random.Range(0, rebornDelayTimeRange);
+        rebornDelayTime = Random.Range(rebornDelayTimeRange*0.3f, rebornDelayTimeRange);
         m_Boundary = transform.parent.GetComponent<ScreenSpaceBoundary>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
@@ -124,30 +124,7 @@ public class MainParticleLifeCycle : ParticleBase
             Random.Range(m_Boundary.minX, m_Boundary.maxX),
             Random.Range(m_Boundary.minY, m_Boundary.maxY), 0);
     }
-    /*
-    //public void CollisionBoundary()
-    //{
-
-    //    bool checkPositionX = (transform.position.x < m_Boundary.maxX && transform.position.x > m_Boundary.minX);
-    //    bool checkPositionY = (transform.position.y < m_Boundary.maxY && transform.position.y > m_Boundary.minY);
-
-    //    if (checkPositionX && checkPositionY)
-    //    {
-    //        StayBoundary();
-    //    }
-    //    else
-    //    {
-    //        ExitBoundary();
-    //    }
-    //}
-
-
-
-    //public void StayBoundary()
-    //{
-    //    Run();
-    //}
-    */
+    
     public void ExitBoundary()
     {
         //AttributeInitialze();
@@ -195,12 +172,13 @@ public class MainParticleLifeCycle : ParticleBase
                         timer += Time.deltaTime;
                         nowColor = Color.Lerp(m_color, fisrtColor, timer / lerpTime);
                         m_renderer.material.SetColor("_TintColor", nowColor);
+                        m_Boundary.CollisionBoundary(transform, ref m_event);
                         //CollisionBoundary();
-                        m_Boundary.CollisionBoundary(transform,ref m_event);
-                        if (m_stage != mainParticleStage.start)
-                        {
-                            break;
-                        }
+                        //m_Boundary.CollisionBoundary(transform,ref m_event);
+                        // if (m_stage != mainParticleStage.start)
+                        // {
+                        //     break;
+                        // }
 
                         yield return new WaitForEndOfFrame();
                     }

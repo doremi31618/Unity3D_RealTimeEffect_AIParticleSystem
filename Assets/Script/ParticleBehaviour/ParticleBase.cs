@@ -11,7 +11,7 @@ public class ParticleBase : MonoBehaviour{
     //[HideInInspector]public Vector3 position;
     [HideInInspector]public Vector3 velocity;
     [Range(0, 100)] public float maxMoveSpeed = 100;
-    public float _lerpTime = 2;
+    private float _lerpTime = 2;
     public bool isBeaten = false;
     [HideInInspector]public Vector3 angVelocity;
     //public float lerpTime = 1f;

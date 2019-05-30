@@ -31,7 +31,7 @@ public class ParticleMouse : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer);
+        //Debug.Log(other.gameObject.layer);
         if (!isEating)
         {
             EatingEvent(other.gameObject);
@@ -56,7 +56,7 @@ public class ParticleMouse : MonoBehaviour {
     {
 
         if(HuntingTargets == null)return;
-        Debug.Log(beEatenGameObject.layer);
+        //Debug.Log(beEatenGameObject.layer);
         for(int i = 0;i<HuntingTargets.Length;i++)
         {
             if(beEatenGameObject.layer == (int)HuntingTargets[i])
