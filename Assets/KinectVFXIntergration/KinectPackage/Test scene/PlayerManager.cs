@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
         PlayerList[userIndex].GetComponent<PlayerData>().userID = userId;
         PlayerList[userIndex].GetComponent<PlayerData>().userIndex = userIndex;
+        PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
     }
     public void UserLost(long userId, int userIndex){
         Debug.Log("user lost");

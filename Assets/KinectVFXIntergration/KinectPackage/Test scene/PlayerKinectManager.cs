@@ -32,6 +32,7 @@ public class PlayerKinectManager : MonoBehaviour
 
 	void Update () 
 	{
+		
 		if(manager == null)
 		{
 			manager = KinectManager.Instance;
@@ -60,8 +61,8 @@ public class PlayerKinectManager : MonoBehaviour
 				
 				long userId1P = manager.GetUserIdByIndex(playerIndex);
 				if(isUseUserID)userId1P = transform.parent.GetComponent<PlayerData>().userID;
-                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandLeft, leftHandOverlay, backgroundRect);
-                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandRight, rightHandOverlay, backgroundRect);
+                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandLeft, leftHandOverlay);
+                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandRight, rightHandOverlay);
             }
 			
 		}
@@ -75,7 +76,7 @@ public class PlayerKinectManager : MonoBehaviour
     }
 
 
-	private void OverlayJoint(long userId, int jointIndex, Transform overlayObj, Rect backgroundRect)
+	public void OverlayJoint(long userId, int jointIndex, Transform overlayObj)
 	{
 		if(manager.IsJointTracked(userId, jointIndex))
 		{

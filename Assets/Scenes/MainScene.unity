@@ -1071,6 +1071,7 @@ MonoBehaviour:
   userID: 0
   userIndex: 1
   playerHand: {fileID: 1498969696}
+  playerParticle: {fileID: 1732647849}
 --- !u!1 &507120216
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,6 +5171,7 @@ MonoBehaviour:
   userID: 0
   userIndex: 3
   playerHand: {fileID: 151194809}
+  playerParticle: {fileID: 507120216}
 --- !u!4 &1141348363
 Transform:
   m_ObjectHideFlags: 0
@@ -7107,6 +7109,7 @@ MonoBehaviour:
   userID: 0
   userIndex: 0
   playerHand: {fileID: 1302139041}
+  playerParticle: {fileID: 2044249954}
 --- !u!4 &1772522530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4957604209366480, guid: d25be3ae41c854f05976ac76700d8506,
@@ -7445,6 +7448,7 @@ MonoBehaviour:
   userID: 0
   userIndex: 2
   playerHand: {fileID: 1906125726}
+  playerParticle: {fileID: 1501851630}
 --- !u!4 &1924676410
 Transform:
   m_ObjectHideFlags: 0
@@ -8965,7 +8969,7 @@ MonoBehaviour:
   - {fileID: 1926294956}
   - {fileID: 330216076}
   - {fileID: 913368898}
-  usersSaved: 4
+  usersSaved: 0
 --- !u!4 &7886559933658241304
 Transform:
   m_ObjectHideFlags: 0
