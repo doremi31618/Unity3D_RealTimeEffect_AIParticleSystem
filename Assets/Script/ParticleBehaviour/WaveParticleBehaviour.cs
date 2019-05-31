@@ -104,6 +104,7 @@ public class WaveParticleBehaviour : ParticleBehaiour
         stateNow = ParticleLifeState.Update;
         timer = 0;
     }
+    
     public void EndBehaviour()
     {
         stateNow = ParticleLifeState.Start;
