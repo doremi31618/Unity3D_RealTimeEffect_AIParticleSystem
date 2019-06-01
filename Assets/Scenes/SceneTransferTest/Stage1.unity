@@ -2721,6 +2721,36 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3901244706457242766, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901244707174248383, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901244707587191378, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901244706561725806, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901244707090528652, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901244707629246106, guid: b4af100532021d844aefae111af39695,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4af100532021d844aefae111af39695, type: 3}
 --- !u!4 &1702391625 stripped
