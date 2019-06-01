@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/TestUseScene_noKinect.unity
+- path: Assets/Scenes/SceneTransferTest/Stage1.unity
   isLoaded: 1
   isActive: 1

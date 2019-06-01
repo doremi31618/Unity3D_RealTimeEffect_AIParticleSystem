@@ -12,12 +12,12 @@ public class PlayerKinectManager : MonoBehaviour
 	[Tooltip("Camera that will be used to overlay the 3D-objects over the background.")]
 	public Camera foregroundCamera;
 	
+	public bool isUseUserID = false;
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
+
 	
 	[Tooltip("Game object used to overlay the left hand.")]
-
-    public List<GameObject> PlayerGameObject;
     
 	public Transform leftHandOverlay;
 
@@ -32,6 +32,7 @@ public class PlayerKinectManager : MonoBehaviour
 
 	void Update () 
 	{
+		
 		if(manager == null)
 		{
 			manager = KinectManager.Instance;
@@ -57,16 +58,11 @@ public class PlayerKinectManager : MonoBehaviour
 			// overlay the joints
 			if(manager.IsUserDetected())
 			{
+				
 				long userId1P = manager.GetUserIdByIndex(playerIndex);
-                long userId2P = manager.GetUserIdByIndex(1);
-
-
-                //1P
-                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandLeft, leftHandOverlay, backgroundRect);
-                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandRight, rightHandOverlay, backgroundRect);
-                
-
-
+				if(isUseUserID)userId1P = transform.parent.GetComponent<PlayerData>().userID;
+                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandLeft, leftHandOverlay);
+                OverlayJoint(userId1P, (int)KinectInterop.JointType.HandRight, rightHandOverlay);
             }
 			
 		}
@@ -80,7 +76,7 @@ public class PlayerKinectManager : MonoBehaviour
     }
 
 
-	private void OverlayJoint(long userId, int jointIndex, Transform overlayObj, Rect backgroundRect)
+	public void OverlayJoint(long userId, int jointIndex, Transform overlayObj)
 	{
 		if(manager.IsJointTracked(userId, jointIndex))
 		{

@@ -120,10 +120,10 @@ public class KinectSkeletonTracker : MonoBehaviour
                     {
                         trackedId = trackedIds[PlayerIndex];
                     }
-                    else
-                    {
-                        trackedId = trackedIds[PlayerIndex];
-                    }
+                    // else
+                    // {
+                    //     trackedId = trackedIds[0];
+                    // }
                 }
 
                 foreach (var body in bodies)

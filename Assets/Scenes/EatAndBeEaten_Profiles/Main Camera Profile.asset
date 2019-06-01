@@ -152,17 +152,17 @@ MonoBehaviour:
     overrideState: 1
     value: {r: 0, g: 0.07302116, b: 0.26415092, a: 1}
   center:
-    overrideState: 0
+    overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.3
+    value: 0.295
   smoothness:
     overrideState: 1
     value: 1
   roundness:
     overrideState: 1
-    value: 0.912
+    value: 0.925
   rounded:
     overrideState: 1
     value: 0

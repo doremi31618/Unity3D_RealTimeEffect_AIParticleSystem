@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public long userID;
+    public int userIndex;
+    public GameObject playerHand;
+    public GameObject playerParticle;
 
-    // Update is called once per frame
-    void Update()
+    private KinectManager manager;
+    
+    
+    public void ResetPalayerParticlePosition()
     {
-        
+        if(manager == null)
+		{
+			manager = KinectManager.Instance;
+		}
+        if(manager && manager.IsInitialized())
+		{
+            playerHand.GetComponent<PlayerKinectManager>().OverlayJoint(
+                userID,
+                (int)KinectInterop.JointType.Head,
+                playerParticle.transform);
+            
+        }
     }
 }
