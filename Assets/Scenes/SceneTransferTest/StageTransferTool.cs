@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class StageTransferTool : MonoBehaviour
 {
+    [Header("Full screen tool")]
+    public Vector2 Resolution;
+    public bool isFullScreen;
+
     [Header("Game Object setting")]
     public Camera MainCamera;
     public PostProcessVolume postProcessing;
@@ -46,6 +50,7 @@ public class StageTransferTool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(isFullScreen) Screen.fullScreen = true;
         SwitchPlayerControll();
         attributeInitate();
         StartCoroutine( GameStageManager());

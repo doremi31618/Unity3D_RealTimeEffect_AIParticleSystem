@@ -86,8 +86,7 @@ namespace KinectVfx
 
                             if (tempPositionTexture == null)
                             {
-                                //tempPositionTexture = new RenderTexture(depthFrameWidth, depthFrameHeight, 0, RenderTextureFormat.ARGBHalf);
-                                tempPositionTexture = new RenderTexture(1490, 512, 0, RenderTextureFormat.ARGBHalf);
+                                tempPositionTexture = new RenderTexture(depthFrameWidth, depthFrameHeight, 0, RenderTextureFormat.ARGBHalf);
                                 tempPositionTexture.enableRandomWrite = true;
                                 tempPositionTexture.Create();
                             }
