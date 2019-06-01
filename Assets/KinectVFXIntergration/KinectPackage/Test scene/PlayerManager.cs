@@ -61,8 +61,8 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         {
              PlayerList[userIndex].SetActive(true);
         }
-        //PlayerParticleEffect[userIndex].enabled = (true);
-        //PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
+        PlayerParticleEffect[userIndex].enabled = (true);
+        PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
         PlayerList[userIndex].GetComponent<PlayerData>().userID = userId;
         PlayerList[userIndex].GetComponent<PlayerData>().userIndex = userIndex;
         PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
