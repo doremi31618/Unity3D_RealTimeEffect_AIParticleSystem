@@ -46,8 +46,10 @@ public class StageTransferTool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SwitchPlayerControll();
         attributeInitate();
         StartCoroutine( GameStageManager());
+        
     }
 
     // Update is called once per frame
@@ -80,14 +82,42 @@ public class StageTransferTool : MonoBehaviour
 
     public void SwitchPlayerControll()
     {
-        if(isUseKinect)
+        isUseKinect = !isUseKinect;
+        if(!isUseKinect)
         {
             //switch to mouse
-            //MainCamera = kinectPlayer
+            noKinectPLayer.SetActive(true);
+            kinectPlayer.SetActive(false);
+            MainCamera = noKinectPLayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
         }
         else
         {
             //switch to kinect
+            noKinectPLayer.SetActive(false);
+            kinectPlayer.SetActive(true);
+            MainCamera = kinectPlayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
+        }
+        ChangeBoundaryLayerCamera();
+    }
+
+    public void ChangeBoundaryLayerCamera()
+    {
+        switch(gameStageNow)
+        {
+            case gameStage.Stage1:
+                foreach(ScreenSpaceBoundary layerBoundary in Stage1.GetComponentsInChildren<ScreenSpaceBoundary>())
+                {
+                    layerBoundary.cameraObject = MainCamera.gameObject;
+                }
+                break;
+            case gameStage.Stage2:
+             foreach(ScreenSpaceBoundary layerBoundary in Stage2.GetComponentsInChildren<ScreenSpaceBoundary>())
+                {
+                    layerBoundary.cameraObject = MainCamera.gameObject;
+                }
+                break;
 
         }
     }

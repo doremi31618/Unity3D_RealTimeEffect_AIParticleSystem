@@ -314,6 +314,7 @@
      <Compile Include="Assets\Script\ParticleBehaviour\TentacleParticle\TentacleGenerator.cs" />
      <Compile Include="Assets\Script\ParticleBehaviour\Trshcan.cs" />
      <Compile Include="Assets\Script\ParticleBehaviour\WaveParticleBehaviour.cs" />
+     <Compile Include="Assets\Script\PlayerObjectManager.cs" />
      <Compile Include="Assets\Script\post-processing manager\FocusDistanceControlWithPlayerLayer.cs" />
      <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\BlurShader.shader" />
      <None Include="Assets\Klak\Hap\Resources\Hap5.shader" />
