@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/SceneTransferTest/Stage1.unity
     guid: 07797272baa8f4f3d91169b370670aa0
+  - enabled: 1
+    path: Assets/Scenes/SceneTransferTest/Stage2.unity
+    guid: f1cd7847ded9340629a761c2d531a03d
   m_configObjects: {}

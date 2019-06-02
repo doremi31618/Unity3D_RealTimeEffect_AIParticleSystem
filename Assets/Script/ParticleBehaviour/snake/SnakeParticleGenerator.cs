@@ -256,7 +256,7 @@ public class SnakeParticleGenerator : MonoBehaviour
             }
             snakeAddingMaxNumber -= 1;
             eatNumber = 0;
-            //Debug.Log("grow");
+            Debug.Log("grow");
             AddBody();
         }
         m_updateStage = SnakeMotionStage.Idle;

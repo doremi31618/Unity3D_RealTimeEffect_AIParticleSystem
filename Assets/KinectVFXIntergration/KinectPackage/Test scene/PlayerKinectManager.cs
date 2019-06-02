@@ -13,7 +13,6 @@ public class PlayerKinectManager : MonoBehaviour
 	public Camera foregroundCamera;
 	
 	public bool isUseUserID = false;
-	public GameObject PlayerData;
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
 
@@ -47,22 +46,21 @@ public class PlayerKinectManager : MonoBehaviour
 				backgroundImage.texture = manager.GetUsersClrTex();
 			}
 
-			// // get the background rectangle (use the portrait background, if available)
-			// Rect backgroundRect = foregroundCamera.pixelRect;
-			// PortraitBackground portraitBack = PortraitBackground.Instance;
+			// get the background rectangle (use the portrait background, if available)
+			Rect backgroundRect = foregroundCamera.pixelRect;
+			PortraitBackground portraitBack = PortraitBackground.Instance;
 
-			// if(portraitBack && portraitBack.enabled)
-			// {
-			// 	backgroundRect = portraitBack.GetBackgroundRect();
-			// }
+			if(portraitBack && portraitBack.enabled)
+			{
+				backgroundRect = portraitBack.GetBackgroundRect();
+			}
 
 			// overlay the joints
 			if(manager.IsUserDetected())
 			{
-				if(playerIndex > manager.GetUsersCount()-1)return;
-				long userId1P = manager.GetUserIdByIndex(playerIndex);
-				if(isUseUserID)userId1P =  PlayerData.GetComponent<PlayerData>().userID;
 				
+				long userId1P = manager.GetUserIdByIndex(playerIndex);
+				if(isUseUserID)userId1P = transform.parent.GetComponent<PlayerData>().userID;
                 OverlayJoint(userId1P, (int)KinectInterop.JointType.HandLeft, leftHandOverlay);
                 OverlayJoint(userId1P, (int)KinectInterop.JointType.HandRight, rightHandOverlay);
             }
