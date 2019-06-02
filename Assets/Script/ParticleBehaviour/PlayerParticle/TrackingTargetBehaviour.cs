@@ -82,7 +82,7 @@ public class TrackingTargetBehaviour : MonoBehaviour
     }
     void IdleMove()
     {
-        //Debug.Log("Idle Move");
+        Debug.Log("Idle Move");
 
     }
     void TrackingMove()
