@@ -35,7 +35,8 @@ public class MainParticleLifeCycle : ParticleBase
     public float lerpTime = 1f;
     #endregion
     public mainParticleStage m_stage = mainParticleStage.rebornDelay;
-    [HideInInspector]public MainParticleMove m_move = new MainParticleMove();
+    //[HideInInspector]public MainParticleMove m_move = new MainParticleMove();
+    [HideInInspector]public MainParticleMove m_move;
     public BoundaryEvent m_event;
     //ParticleSystem m_particleEffect;
     private void Start()
@@ -101,8 +102,8 @@ public class MainParticleLifeCycle : ParticleBase
         m_rigidbody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
         m_event = new MainParticleBoundaryEvent(GetComponent<MainParticleLifeCycle>());
-        m_move = new MainParticleMove();
-
+        //m_move = new MainParticleMove();
+        m_move = gameObject.AddComponent<MainParticleMove>();
 
         //m_color = fisrtColor ;
         m_renderer.material.SetColor("_TintColor", new Color(fisrtColor.a,fisrtColor.g,fisrtColor.b,0));

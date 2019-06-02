@@ -57,11 +57,6 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     
     public void UserDetected(long userId, int userIndex){
         Debug.Log("User detect");
-        // if(userIndex != 0)
-        // {
-        //      PlayerList[userIndex].SetActive(true);
-        // }
-        
         PlayerParticleEffect[userIndex].enabled = (true);
         PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
         
