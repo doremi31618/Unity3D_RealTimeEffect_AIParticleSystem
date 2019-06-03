@@ -9,7 +9,7 @@ public class KinectSkeletonTracker : MonoBehaviour
 {
     [SerializeField]
     private VisualEffect visualEffect;
-
+    public Color m_Color;
     private KinectSensor sensor;
     private BodyFrameReader bodyFrameReader;
     private Body[] bodies;
@@ -90,6 +90,7 @@ public class KinectSkeletonTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (bodyFrameReader != null)
         {
             var frame = bodyFrameReader.AcquireLatestFrame();
@@ -100,7 +101,7 @@ public class KinectSkeletonTracker : MonoBehaviour
                 {
                     bodies = new Body[frame.BodyCount];
                 }
-
+                visualEffect.SetVector4("Color",m_Color );
                 frame.GetAndRefreshBodyData(bodies);
                 frame.Dispose();
                 frame = null;

@@ -80,6 +80,9 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     public int MaxCorner = 18;
     public float stage1Scale = 2.8f;
     public float stage2Scale = 5;
+
+    public float stage1ColliderTrigger = 5;
+    public float stage2ColliderTrigger = 1;
     
 
     [Header("Audio Sound Effect")]
@@ -95,6 +98,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 	// Use this for initialization
 	void Start () {
 		stage2 = GameObject.Find("Stage2");
+         GetComponent<SphereCollider>().radius = stage1ColliderTrigger;
 	}
 	
 	// Update is called once per frame
@@ -107,10 +111,21 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 		if(stage2.activeSelf && transform.localScale.x != stage2Scale)
         {
             transform.localScale = Vector3.one * stage2Scale;
+            
         }
         else if(!stage2.activeSelf && transform.localScale.x != stage1Scale)
         {
             transform.localScale = Vector3.one * stage1Scale;
+           
+        }
+
+        if(!stage2.activeSelf && GetComponent<SphereCollider>().radius != stage1ColliderTrigger)
+        {
+             GetComponent<SphereCollider>().radius = stage1ColliderTrigger;
+        }
+        else if(stage2.activeSelf && GetComponent<SphereCollider>().radius != stage2ColliderTrigger)
+        {
+            GetComponent<SphereCollider>().radius = stage2ColliderTrigger;
         }
 	}
 

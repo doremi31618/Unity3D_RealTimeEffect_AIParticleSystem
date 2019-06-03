@@ -39,6 +39,8 @@ public class StageTransferTool : MonoBehaviour
     public float cameraMotionTimeLength = 2f;
     public AnimationCurve cameraMotionTime1 = AnimationCurve.EaseInOut(0,0.5f,1,-0.1f);
     public AnimationCurve cameraMotionTime2 = AnimationCurve.EaseInOut(0,1.1f,1,0.5f);
+
+    public GameObject EndingCanvas;
     
     public enum gameStage{
         Stage1,
@@ -68,6 +70,10 @@ public class StageTransferTool : MonoBehaviour
         yield return new WaitForSeconds(gameStageTimeLength);
         if(gameStageNow == gameStage.Stage1)
             TransferEffect();
+        yield return new WaitForSeconds(gameStageTimeLength);
+        EndingCanvas.SetActive(true);
+        yield return new WaitForSeconds(30f);
+        SceneManager.LoadSceneAsync(0);
     }
     void attributeInitate()
     {
@@ -135,6 +141,10 @@ public class StageTransferTool : MonoBehaviour
     {
         gameStageNow = gameStage.Stage2;
         StartCoroutine(camerMotion());
+    }
+    public void TimeMachine()
+    {
+        Time.timeScale = 10;
     }
 
     void stageObjectManager()
