@@ -57,7 +57,10 @@ public class WaveParticleBehaviour : ParticleBehaiour
     public float eatingInterval = 2f;
     public float lerpTime = 2f;
 
-
+    [Header("Animation speed")]
+    public float defaultAnimationSpeed = 1;
+    public float EatingAnimationSpeed = 3;
+    public float BeEatenAnimationSpeed = 5;
     private int index;
     private float timer;
     private float timerAtFirst;
@@ -119,7 +122,7 @@ public class WaveParticleBehaviour : ParticleBehaiour
                 FirstUpdateEventHandler();
                 break;
             case ParticleMotionState.Idle:
-                GetComponent<Animator>().speed = 1;
+                GetComponent<Animator>().speed = defaultAnimationSpeed;
                 IdldeEventHandler();
                 break;
             case ParticleMotionState.Eating:
@@ -145,7 +148,7 @@ public class WaveParticleBehaviour : ParticleBehaiour
                 motionStateNow != ParticleMotionState.BeEaten)
         {
             
-            GetComponent<Animator>().speed = 5f;
+            GetComponent<Animator>().speed = BeEatenAnimationSpeed;
             StartCoroutine(ColorShining(firstColor, secondColor, shiningTotalTime, shiningIntervalTime));
             motionStateNow = ParticleMotionState.BeEaten;
         }
@@ -154,7 +157,7 @@ public class WaveParticleBehaviour : ParticleBehaiour
                  m_hunter.getIsMiceEating &&
                  motionStateNow != ParticleMotionState.Eating)
         {
-            GetComponent<Animator>().speed = 3f;
+            GetComponent<Animator>().speed = EatingAnimationSpeed;
             StartCoroutine(ColorLerpChanging(firstColor, secondColor, lerpTime));
             motionStateNow = ParticleMotionState.Eating;
         }

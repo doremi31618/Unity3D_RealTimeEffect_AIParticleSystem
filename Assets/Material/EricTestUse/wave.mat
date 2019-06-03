@@ -58,7 +58,7 @@ Material:
     - _AlphaThreshold: 0
     - _Angle: 4.83
     - _Blend: 0
-    - _BlurRadius: 5.02
+    - _BlurRadius: 1
     - _BumpScale: 1
     - _ConnectedAlpha: 0
     - _Cull: 2
@@ -70,18 +70,18 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientColor: 0.083
+    - _GradientColor: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline: 1
-    - _OutlineAlpha: 0.363
+    - _OutlineAlpha: 0
     - _OutlineEnabled: 1
     - _OutlineMode: 2
     - _OutlinePosition: 1
     - _OutlineShape: 1
     - _OutlineSize: 1
     - _OutlineUseGradient: 0
-    - _OutlineWidth: 4.8
+    - _OutlineWidth: 0
     - _ReceiveShadows: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

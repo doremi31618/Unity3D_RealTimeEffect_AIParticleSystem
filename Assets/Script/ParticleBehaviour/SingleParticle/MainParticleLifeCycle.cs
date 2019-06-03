@@ -149,11 +149,12 @@ public class MainParticleLifeCycle : ParticleBase
                     //GetComponent<Rigidbody>().
                     GetComponent<MeshRenderer>().enabled = true;
                     GetComponent<Collider>().enabled = false;
+
                     m_renderer.material.SetColor("_TintColor", lerpColor);
                     while (timer / rebornDelayTime < 1)
                     {
                         timer += Time.deltaTime;
-
+                        //Debug.Log("Timer"+timer);
                         if(m_stage != mainParticleStage.rebornDelay)
                         {
                             break;

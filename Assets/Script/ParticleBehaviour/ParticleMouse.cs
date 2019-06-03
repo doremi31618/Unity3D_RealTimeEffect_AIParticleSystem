@@ -21,7 +21,10 @@ public class ParticleMouse : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    public void setHunigTarget(LayerManager[] _HuntingTargets)
+    {
+        HuntingTargets = _HuntingTargets;
+    }
     public void Reset()
     {
         EatingNumber = 0;
@@ -40,7 +43,7 @@ public class ParticleMouse : MonoBehaviour {
     
     private void OnTriggerStay(Collider other)
     {
-         if (!isEating)
+        if (!isEating)
         {
             EatingEvent(other.gameObject);
         }
