@@ -68,6 +68,7 @@ public class EmitterHunter : Hunter
             }
             for (int i = 0; i < HuntingList.Count; i++)
             {
+                if(HuntingList[i] == null)continue;
                 float distanceToTarget = Vector3.Distance(m_transform.position, HuntingList[i].transform.position);
                 if(distanceToTarget > 10)
                 {

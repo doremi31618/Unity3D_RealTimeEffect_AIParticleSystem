@@ -16,6 +16,8 @@ public class KinectSkeletonTracker : MonoBehaviour
     private ulong trackedId = 0;
     public int PlayerIndex;
 
+    KinectManager manager;
+
     private Dictionary<JointType, JointType> boneMap = new Dictionary<JointType, JointType>() {
 
         {JointType.FootLeft, JointType.AnkleLeft },
@@ -73,7 +75,7 @@ public class KinectSkeletonTracker : MonoBehaviour
     void Start()
     {
         sensor = KinectSensor.GetDefault();
-
+        manager = KinectManager.Instance;
         if (sensor != null)
         {
             bodyFrameReader = sensor.BodyFrameSource.OpenReader();
@@ -118,12 +120,8 @@ public class KinectSkeletonTracker : MonoBehaviour
                 {
                     if (trackedIds.Count > 0)
                     {
-                        trackedId = trackedIds[PlayerIndex];
+                        trackedId = (ulong)manager.GetUserIdByIndex(PlayerIndex);
                     }
-                    // else
-                    // {
-                    //     trackedId = trackedIds[0];
-                    // }
                 }
 
                 foreach (var body in bodies)
