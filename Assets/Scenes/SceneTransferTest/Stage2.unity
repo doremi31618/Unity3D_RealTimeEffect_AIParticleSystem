@@ -1299,29 +1299,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.0028686523
       value: 0.5032959
-      inSlope: 5.635903
-      outSlope: 5.635903
+      inSlope: 0.11969082
+      outSlope: 0.11969082
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.111399665
+      outWeight: 0.15332124
     - serializedVersion: 3
-      time: 0.0064932406
-      value: 0.5153808
-      inSlope: 2.4531822
-      outSlope: 2.4531822
+      time: 0.7015182
+      value: 0.8700997
+      inSlope: 1.5287714
+      outSlope: 1.5287714
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.15761548
-      outWeight: 0.33333334
+      outWeight: 0.24498576
     - serializedVersion: 3
-      time: 1.0133511
-      value: 1.5244771
-      inSlope: 0.06084644
-      outSlope: 0.06084644
+      time: 0.9972448
+      value: 1.5905248
+      inSlope: 3.4537885
+      outSlope: 3.4537885
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33211863
+      inWeight: 0.12301719
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1332,29 +1332,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.0054130554
       value: -0.5041199
-      inSlope: 4.977796
-      outSlope: 4.977796
+      inSlope: 4.7529244
+      outSlope: 4.7529244
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.30275515
+      outWeight: 0.120129205
     - serializedVersion: 3
-      time: 0.17385688
-      value: 0.043012798
-      inSlope: 1.9592451
-      outSlope: 1.9592451
+      time: 0.19982891
+      value: 0.10176349
+      inSlope: 1.559245
+      outSlope: 1.559245
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.34486818
+      inWeight: 0.32023963
+      outWeight: 0.09849264
     - serializedVersion: 3
       time: 0.99865115
       value: 0.5011976
-      inSlope: 0.03325385
-      outSlope: 0.03325385
+      inSlope: 0.0046005193
+      outSlope: 0.0046005193
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.1571665
+      inWeight: 0.15056805
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -11372,7 +11372,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: c7a60608130aa7b4e9fd2d6cdd29c7c4, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
