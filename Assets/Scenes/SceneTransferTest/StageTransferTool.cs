@@ -28,6 +28,7 @@ public class StageTransferTool : MonoBehaviour
 
     [Header("[Start]Vignette Animation setting (Blink)")]
     public Color vignetteColor = new Color(0,19,67,255);
+    public Color vignetteColor2 = new Color(0,19,67,255);
     public AnimationCurve vignetteIntensity = AnimationCurve.EaseInOut(0,0.5f,1,0.3f);
     public AnimationCurve vignetteRoundness = AnimationCurve.EaseInOut(0,1f,1,0.9f);
 
@@ -157,12 +158,13 @@ public class StageTransferTool : MonoBehaviour
         ColorGrading colorGrading = null;
         postProcessing.profile.TryGetSettings(out vignette);
         postProcessing.profile.TryGetSettings(out colorGrading);
+        vignette.Color.value = vignetteColor;
         stageObjectManager();
         for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
         {
             vignette.intensity.value = vignetteIntensity.Evaluate(i/fadeInTime);
             vignette.roundness.value = vignetteRoundness.Evaluate(i/fadeInTime);
-
+            
             colorGrading.colorFilter.value = new Color(
                 ColorGrading_ColorFilter_Intensity.Evaluate(i/fadeInTime),
                 ColorGrading_ColorFilter_Intensity.Evaluate(i/fadeInTime),
@@ -179,19 +181,21 @@ public class StageTransferTool : MonoBehaviour
         Vignette vignette = null;
         postProcessing.profile.TryGetSettings(out vignette);
         fadeInTime = 0.15f;
-        for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
-        {
-            vignette.intensity.value = vignetteIntensity.Evaluate(1 - i/fadeInTime);
-            vignette.roundness.value = vignetteRoundness.Evaluate(1- i/fadeInTime);
-            yield return new WaitForEndOfFrame();
-        }
-        vignette.rounded.value = true;
+        // for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
+        // {
+        //     vignette.intensity.value = vignetteIntensity.Evaluate(1 - i/fadeInTime);
+        //     vignette.roundness.value = vignetteRoundness.Evaluate(1- i/fadeInTime);
+        //     yield return new WaitForEndOfFrame();
+        // }
+        // vignette.rounded.value = true;
+        
         for (float i = 0; i <cameraMotionTimeLength; i+=Time.deltaTime)
         {
             float x =  cameraMotionTime1.Evaluate(i/cameraMotionTimeLength);
             vignette.center.value =new Vector2(x,vignette.center.value.y);
             yield return new WaitForEndOfFrame();
         }
+
         stageObjectManager();
         for (float i = 0; i < cameraMotionTimeLength; i+=Time.deltaTime)
         {
@@ -199,13 +203,13 @@ public class StageTransferTool : MonoBehaviour
             vignette.center.value =new Vector2(x,vignette.center.value.y);
             yield return new WaitForEndOfFrame();
         }
-        vignette.rounded.value = false;
-        for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
-        {
-            vignette.intensity.value = vignetteIntensity.Evaluate(i/fadeInTime);
-            vignette.roundness.value = vignetteRoundness.Evaluate(i/fadeInTime);
-            yield return new WaitForEndOfFrame();
-        }
+        // vignette.rounded.value = false;
+        // for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
+        // {
+        //     vignette.intensity.value = vignetteIntensity.Evaluate(i/fadeInTime);
+        //     vignette.roundness.value = vignetteRoundness.Evaluate(i/fadeInTime);
+        //     yield return new WaitForEndOfFrame();
+        // }
     }
 
 }
