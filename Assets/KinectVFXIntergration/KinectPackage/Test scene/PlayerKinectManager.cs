@@ -101,7 +101,7 @@ public class PlayerKinectManager : MonoBehaviour
 					if(overlayObj && foregroundCamera)
 					{
 						float distanceToCamera = overlayObj.position.z - foregroundCamera.transform.position.z;
-						posJoint = foregroundCamera.ViewportToWorldPoint(new Vector3(xNorm, yNorm, distanceToCamera));
+						posJoint = foregroundCamera.ViewportToWorldPoint(new Vector3(xNorm, yNorm, distanceToCamera)) + transform.localPosition;
 
 						overlayObj.position = posJoint;
 					}
