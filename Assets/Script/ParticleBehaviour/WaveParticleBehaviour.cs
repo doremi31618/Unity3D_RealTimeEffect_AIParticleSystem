@@ -65,6 +65,9 @@ public class WaveParticleBehaviour : ParticleBehaiour
     private float timer;
     private float timerAtFirst;
     float nextTimeToEatOrBeEaten;
+
+    public AudioClip waveOST;
+    public AudioSource m_audioPlayer;
     private void Start()
     {
         m_hunter.setHuntingTargetToMice();
@@ -231,7 +234,8 @@ public class WaveParticleBehaviour : ParticleBehaiour
             _firstColor = _finalColor;
             _finalColor = temp;
         }
-
+        m_audioPlayer.clip = waveOST;
+        m_audioPlayer.Play();
         while (Time.time < endingTime)
         {
             nowColor = Color.Lerp(_finalColor, _firstColor, (endingTime - Time.time) / _lerpTotalTime);

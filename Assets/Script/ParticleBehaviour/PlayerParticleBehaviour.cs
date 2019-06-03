@@ -292,6 +292,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
                 break;
             //snake
             case 13:
+                if(beEatenGameObject.GetComponent<SnakeHead>() == null)return;
                 m_audioPlayer.clip = EatingSnakeOST;
                 m_audioPlayer.Play();
                 break;
