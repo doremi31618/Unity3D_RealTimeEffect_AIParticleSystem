@@ -18,7 +18,7 @@ public class EmitterHunter : Hunter
     {
         if(_emitterParticle != null)
             emitterParticle = _emitterParticle;
-        
+
         
         
     }
@@ -178,7 +178,7 @@ public class EmitterParticleBehaiour : ParticleBehaiour{
     [Header("ParticleEffect")]
     public ParticleSystem TraceEffect;
     public ParticleSystem ExplosionEffect;
-
+    
 	// Use this for initialization
     void Awake()
     {

@@ -1092,7 +1092,7 @@ MonoBehaviour:
   isBeEaten: 0
   MouseCollider: {fileID: 0}
   timer: 0
-  HuntingTargets: 
+  HuntingTargets: 090000000c000000
 --- !u!135 &459069516
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2548,6 +2548,51 @@ PrefabInstance:
       propertyPath: HuntingTargets.Array.data[1]
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1637169697095451625, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169697095451625, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169697095451625, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169696152388842, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169696152388842, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169696152388842, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169697625569075, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169697625569075, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[0]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637169697625569075, guid: 1916f5286bb0cb44ea5b5bc758f12d71,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[1]
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916f5286bb0cb44ea5b5bc758f12d71, type: 3}
 --- !u!1001 &935584928
@@ -3513,6 +3558,16 @@ PrefabInstance:
       propertyPath: maxMoveSpeed
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8577394244003273018, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: speed
+      value: 5.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577394244003273018, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: SensorTriggerRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8543017553208058266, guid: bd320fb9f041b9e419236aa6e3400499,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3633,6 +3688,16 @@ PrefabInstance:
       propertyPath: bodyDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5368424082069701977, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: speed
+      value: 5.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082069701977, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: SensorTriggerRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5368424082074487385, guid: bd320fb9f041b9e419236aa6e3400499,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3712,6 +3777,16 @@ PrefabInstance:
         type: 3}
       propertyPath: bodyDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424081154150666, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: speed
+      value: 5.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424081154150666, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: SensorTriggerRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5368424081258438849, guid: bd320fb9f041b9e419236aa6e3400499,
         type: 3}
@@ -3793,6 +3868,16 @@ PrefabInstance:
       propertyPath: bodyDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5368424080743576561, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: speed
+      value: 5.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424080743576561, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: SensorTriggerRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5368424082317735786, guid: bd320fb9f041b9e419236aa6e3400499,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3822,6 +3907,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082074488230, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082074488230, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[2]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082074488230, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[3]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082317735787, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: HuntingTargets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368424082317735787, guid: bd320fb9f041b9e419236aa6e3400499,
+        type: 3}
+      propertyPath: HuntingTargets.Array.data[3]
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd320fb9f041b9e419236aa6e3400499, type: 3}
@@ -4173,7 +4283,7 @@ MonoBehaviour:
   isBeEaten: 0
   MouseCollider: {fileID: 0}
   timer: 0
-  HuntingTargets: 
+  HuntingTargets: 0c00000009000000
 --- !u!135 &1373050241
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7151,7 +7261,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 10
-    HuntingTargets: 0e00000009000000
+    HuntingTargets: 0e000000090000000d00000010000000
     mouse: {fileID: 3901244706685419896}
     HuntingList: []
   attractiveRadius: 7.5
@@ -8097,7 +8207,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 10
-    HuntingTargets: 0e00000009000000
+    HuntingTargets: 0e00000009000000100000000d000000
     mouse: {fileID: 3901244707154935457}
     HuntingList: []
   attractiveRadius: 7.5
@@ -8860,7 +8970,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 10
-    HuntingTargets: 0e00000009000000
+    HuntingTargets: 0e000000090000000d00000010000000
     mouse: {fileID: 3901244708321080248}
     HuntingList: []
   attractiveRadius: 7.5
@@ -9347,7 +9457,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_hunter:
     m_Layer: 10
-    HuntingTargets: 0e00000009000000
+    HuntingTargets: 0e000000090000000d00000010000000
     mouse: {fileID: 3901244706948767614}
     HuntingList: []
   attractiveRadius: 7.5
