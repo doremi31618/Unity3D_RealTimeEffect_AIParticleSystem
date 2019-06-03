@@ -78,6 +78,9 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     public LayerManager[] HuntingTarget;
     public bool isUseMouseToControl = true;
     public int MaxCorner = 18;
+    public float stage1Scale = 2.8f;
+    public float stage2Scale = 5;
+    
 
     [Header("Audio Sound Effect")]
     public AudioClip EatingSnakeOST;
@@ -87,14 +90,28 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 
     public AudioSource m_audioPlayer;
 
+    private GameObject stage2;
+
 	// Use this for initialization
 	void Start () {
-		
+		stage2 = GameObject.Find("Stage2");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if(stage2 == null)
+        { 
+            stage2 = GameObject.Find("Stage2");
+            return;
+        }
+		if(stage2.activeSelf && transform.localScale.x != stage2Scale)
+        {
+            transform.localScale = Vector3.one * stage2Scale;
+        }
+        else if(!stage2.activeSelf && transform.localScale.x != stage1Scale)
+        {
+            transform.localScale = Vector3.one * stage1Scale;
+        }
 	}
 
     private void FixedUpdate()

@@ -158,7 +158,7 @@ public class StageTransferTool : MonoBehaviour
         ColorGrading colorGrading = null;
         postProcessing.profile.TryGetSettings(out vignette);
         postProcessing.profile.TryGetSettings(out colorGrading);
-        vignette.Color.value = vignetteColor;
+        vignette.color.value = vignetteColor;
         stageObjectManager();
         for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
         {
@@ -188,7 +188,7 @@ public class StageTransferTool : MonoBehaviour
         //     yield return new WaitForEndOfFrame();
         // }
         // vignette.rounded.value = true;
-        
+         vignette.color.value = vignetteColor2;
         for (float i = 0; i <cameraMotionTimeLength; i+=Time.deltaTime)
         {
             float x =  cameraMotionTime1.Evaluate(i/cameraMotionTimeLength);
