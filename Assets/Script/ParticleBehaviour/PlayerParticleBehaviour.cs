@@ -79,6 +79,14 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     public bool isUseMouseToControl = true;
     public int MaxCorner = 18;
 
+    [Header("Audio Sound Effect")]
+    public AudioClip EatingSnakeOST;
+    public AudioClip EatingLittleParticleOST;
+    public AudioClip EatingEmitterParticleOST;
+    public AudioClip EatingWaveOST;
+
+    public AudioSource m_audioPlayer;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -213,6 +221,10 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
     {
         InteractiveStateSelector(other.gameObject);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        EatingEvent(other.gameObject);
+    }
     public void InteractiveStateSelector(GameObject collisionObject)
     {
         if (!checkIfInTargetList(InteractTarget, collisionObject))
@@ -253,7 +265,34 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         }
 
     }
+     void EatingEvent(GameObject beEatenGameObject)
+    {
+        switch (beEatenGameObject.layer)
+        {
+            //object
+            case 9:
 
+                break;
+            //snake
+            case 13:
+                m_audioPlayer.clip = EatingSnakeOST;
+                m_audioPlayer.Play();
+                break;
+            //emitter partcle
+            case 14:
+                m_audioPlayer.clip = EatingEmitterParticleOST;
+                m_audioPlayer.Play();
+                break;
+
+            //wave
+            case 16:
+                m_audioPlayer.clip = EatingWaveOST;
+                m_audioPlayer.Play();
+                break;
+        }
+        
+
+    }
     /// <summary>
     /// direct add force to input game object
     /// </summary>
