@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 public class TrackingTargetBehaviour : MonoBehaviour
 {
     [Header("Motion setting")]
-    public float circleAroundRadius = 5;
+    public float circleAroundRadius=5;
     public float trackingSpeed = 1;
     public float circcleAroundSpeed = 1;
 
@@ -96,8 +96,7 @@ public class TrackingTargetBehaviour : MonoBehaviour
     void CircleAroundMove()
     {
         //Debug.Log("CircleAround");
-        //+ new Vector3((Mathf.PerlinNoise(Time.time * circcleAroundSpeed,1)-0.5f)*2,(Mathf.PerlinNoise(Time.time* circcleAroundSpeed,1)-0.5f)*2)
-        Vector3 towardDir = (Vector3.Cross(transform.position - NowTarget.transform.position, Vector3.forward) .normalized);
+        Vector3 towardDir = Vector3.Cross(transform.position - NowTarget.transform.position, Vector3.forward).normalized;
         m_rigidbody.MovePosition(transform.position + towardDir * circcleAroundSpeed * Time.deltaTime);
     }
 

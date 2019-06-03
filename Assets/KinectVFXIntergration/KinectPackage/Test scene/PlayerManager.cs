@@ -11,42 +11,42 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     void Update()
     {
         if(manager == null)manager = KinectManager.Instance;
-        switch( manager.GetUsersCount())
-        {
-            case 0:
-                // for(int i = 1;i<PlayerList.Count;i++)
-                // {
-                //     PlayerList[i].SetActive(false);
-                //     //PlayerParticleEffect[i].enabled = false;
-                // }
-                break;
-            case 1:
-                // for(int i = 1;i<PlayerList.Count;i++)
-                // {
-                //     PlayerList[i].SetActive(false);
-                //     //PlayerParticleEffect[i].enabled = false;
-                // }
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-        // if(manager && manager.IsInitialized())
+        // switch( manager.GetUsersCount())
         // {
-        //     int usersNow = manager.GetUsersCount();
-
-        //     if(usersNow > usersSaved)
-        //     {
-        //         OndetectUser();
-        //     }
-        //     if(usersNow < usersSaved)
-        //     {
-        //         OnLostUser();
-        //     }
-
-        //     usersSaved = usersNow;
+        //     case 0:
+        //         for(int i = 1;i<PlayerList.Count;i++)
+        //         {
+        //             PlayerList[i].SetActive(false);
+        //             //PlayerParticleEffect[i].enabled = false;
+        //         }
+        //         break;
+        //     case 1:
+        //         for(int i = 1;i<PlayerList.Count;i++)
+        //         {
+        //             PlayerList[i].SetActive(false);
+        //             //PlayerParticleEffect[i].enabled = false;
+        //         }
+        //         break;
+        //     case 2:
+        //         break;
+        //     case 3:
+        //         break;
         // }
+        if(manager && manager.IsInitialized())
+        {
+            int usersNow = manager.GetUsersCount();
+
+            if(usersNow > usersSaved)
+            {
+                OndetectUser();
+            }
+            if(usersNow < usersSaved)
+            {
+                OnLostUser();
+            }
+
+            usersSaved = usersNow;
+        }
     }
     void OndetectUser(){
         
@@ -57,12 +57,10 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     
     public void UserDetected(long userId, int userIndex){
         Debug.Log("User detect");
-        if(userIndex != 0)
-        {
-             PlayerList[userIndex].SetActive(true);
-        }
         PlayerParticleEffect[userIndex].enabled = (true);
         PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
+        
+        PlayerList[userIndex].SetActive(true);
         PlayerList[userIndex].GetComponent<PlayerData>().userID = userId;
         PlayerList[userIndex].GetComponent<PlayerData>().userIndex = userIndex;
         PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();

@@ -3,17 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class StageTransferTool : MonoBehaviour
 {
+
+    [Header("Game Object setting")]
     public Camera MainCamera;
     public PostProcessVolume postProcessing;
 
-    public string nextSceneName;
+    public Text TimerText;
+    public GameObject Stage1;
+    public GameObject Stage2;
+
+    public bool isUseKinect;
+    public GameObject noKinectPLayer;
+    public GameObject kinectPlayer;
+    private float timer;
 
     [Header("Time setting")]
     public float fadeInTime = 0.3f;
     public float fadeOutTime = 1f;
     public float gameStageTimeLength = 60;
+    public gameStage gameStageNow = gameStage.Stage1;
 
     [Header("[Start]Vignette Animation setting (Blink)")]
     public Color vignetteColor = new Color(0,19,67,255);
@@ -22,31 +33,40 @@ public class StageTransferTool : MonoBehaviour
 
     [Header("[Start]Color grading Attribte setting (Blink)")]
     public AnimationCurve ColorGrading_ColorFilter_Intensity = AnimationCurve.EaseInOut(0,0,1,1);
-    public gameStage gameStageNow = gameStage.Stage1;
+
+    [Header("[Transfer]Vignette Animation setting")]
+    public float cameraMotionTimeLength = 2f;
+    public AnimationCurve cameraMotionTime1 = AnimationCurve.EaseInOut(0,0.5f,1,-0.1f);
+    public AnimationCurve cameraMotionTime2 = AnimationCurve.EaseInOut(0,1.1f,1,0.5f);
+    
     public enum gameStage{
         Stage1,
         Stage2
     }
-    public EndingScreenEffectAnimationKey EndingAnimationState = EndingScreenEffectAnimationKey.Start;
-    public enum EndingScreenEffectAnimationKey
-    {
-        Start,
-        Key1,
-        Key2,
-        End
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
+        //if(isFullScreen) Screen.fullScreen = true;
+        SwitchPlayerControll();
         attributeInitate();
-        BlinkEffect();
+        StartCoroutine( GameStageManager());
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        TimerText.text = "Time : " + (int)timer;
+    }
+
+    IEnumerator GameStageManager()
+    {
+        BlinkEffect();
+        yield return new WaitForSeconds(gameStageTimeLength);
+        if(gameStageNow == gameStage.Stage1)
+            TransferEffect();
     }
     void attributeInitate()
     {
@@ -60,26 +80,84 @@ public class StageTransferTool : MonoBehaviour
             postProcessing = MainCamera.GetComponent<PostProcessVolume>();
         }
 
-
+        timer = 0;
     }
 
-    public void SwitchScene()
+    public void SwitchPlayerControll()
     {
-        SceneManager.LoadScene(nextSceneName);
+        isUseKinect = !isUseKinect;
+        if(!isUseKinect)
+        {
+            //switch to mouse
+            noKinectPLayer.SetActive(true);
+            kinectPlayer.SetActive(false);
+            MainCamera = noKinectPLayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
+        }
+        else
+        {
+            //switch to kinect
+            noKinectPLayer.SetActive(false);
+            kinectPlayer.SetActive(true);
+            MainCamera = kinectPlayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
+        }
+        ChangeBoundaryLayerCamera();
     }
-    
+
+    public void ChangeBoundaryLayerCamera()
+    {
+        switch(gameStageNow)
+        {
+            case gameStage.Stage1:
+                foreach(ScreenSpaceBoundary layerBoundary in Stage1.GetComponentsInChildren<ScreenSpaceBoundary>())
+                {
+                    layerBoundary.cameraObject = MainCamera.gameObject;
+                }
+                break;
+            case gameStage.Stage2:
+             foreach(ScreenSpaceBoundary layerBoundary in Stage2.GetComponentsInChildren<ScreenSpaceBoundary>())
+                {
+                    layerBoundary.cameraObject = MainCamera.gameObject;
+                }
+                break;
+
+        }
+    }
     public void BlinkEffect()
     {
+        gameStageNow = gameStage.Stage1;
         StartCoroutine(Blink());
+        
+    }
+    public void TransferEffect()
+    {
+        gameStageNow = gameStage.Stage2;
+        StartCoroutine(camerMotion());
     }
 
+    void stageObjectManager()
+    {
+        switch(gameStageNow)
+        {
+            case gameStage.Stage1:
+                Stage1.SetActive(true);
+                Stage2.SetActive(false);
+                break;
+
+            case gameStage.Stage2:
+                Stage1.SetActive(false);
+                Stage2.SetActive(true);
+                break;
+        }
+    }
     IEnumerator Blink()
     {
         Vignette vignette = null;
         ColorGrading colorGrading = null;
         postProcessing.profile.TryGetSettings(out vignette);
         postProcessing.profile.TryGetSettings(out colorGrading);
-
+        stageObjectManager();
         for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
         {
             vignette.intensity.value = vignetteIntensity.Evaluate(i/fadeInTime);
@@ -93,51 +171,41 @@ public class StageTransferTool : MonoBehaviour
         }
 
     }
+
+
     
-    IEnumerator EndingAnimation()
-    {
-        Vignette vignette = null;
-        ColorGrading colorGrading = null;
-        postProcessing.profile.TryGetSettings(out vignette);
-        postProcessing.profile.TryGetSettings(out colorGrading);
-
-        for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
-        {
-            vignette.intensity.value = vignetteIntensity.Evaluate(1 - i/fadeInTime);
-            vignette.roundness.value = vignetteRoundness.Evaluate(1- i/fadeInTime);
-
-            colorGrading.colorFilter.value = new Color(
-                ColorGrading_ColorFilter_Intensity.Evaluate(1 - i/fadeInTime),
-                ColorGrading_ColorFilter_Intensity.Evaluate(1 - i/fadeInTime),
-                ColorGrading_ColorFilter_Intensity.Evaluate(1 - i/fadeInTime),0);
-            yield return new WaitForEndOfFrame();
-        }
-
-        
-
-    }
-
-    float cameraMotionTime = 2f;
     IEnumerator camerMotion()
     {
         Vignette vignette = null;
         postProcessing.profile.TryGetSettings(out vignette);
-        //vignette.center.value = 
-        for (float i = 0; i < cameraMotionTime; i+=Time.deltaTime)
+        fadeInTime = 0.15f;
+        for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
         {
-            float x =  Mathf.Lerp(0.5f,-0.5f,i/cameraMotionTime);
+            vignette.intensity.value = vignetteIntensity.Evaluate(1 - i/fadeInTime);
+            vignette.roundness.value = vignetteRoundness.Evaluate(1- i/fadeInTime);
+            yield return new WaitForEndOfFrame();
+        }
+        vignette.rounded.value = true;
+        for (float i = 0; i <cameraMotionTimeLength; i+=Time.deltaTime)
+        {
+            float x =  cameraMotionTime1.Evaluate(i/cameraMotionTimeLength);
             vignette.center.value =new Vector2(x,vignette.center.value.y);
             yield return new WaitForEndOfFrame();
         }
-        for (float i = 0; i < cameraMotionTime; i+=Time.deltaTime)
+        stageObjectManager();
+        for (float i = 0; i < cameraMotionTimeLength; i+=Time.deltaTime)
         {
-            float x =  Mathf.Lerp(1.5f,0.5f,i/cameraMotionTime);
+            float x =  cameraMotionTime2.Evaluate(i/cameraMotionTimeLength);
             vignette.center.value =new Vector2(x,vignette.center.value.y);
             yield return new WaitForEndOfFrame();
         }
-        // yield return new WaitForEndOfFrame();
-        // yield return new WaitForEndOfFrame();
-        // yield return new WaitForEndOfFrame();
+        vignette.rounded.value = false;
+        for (float i = 0; i < fadeInTime; i+=Time.deltaTime)
+        {
+            vignette.intensity.value = vignetteIntensity.Evaluate(i/fadeInTime);
+            vignette.roundness.value = vignetteRoundness.Evaluate(i/fadeInTime);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
 }

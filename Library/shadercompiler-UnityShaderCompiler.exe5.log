@@ -1,49 +1,27 @@
 Base path: C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=14563 outsize=95061 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=14563 outsize=42677 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=14563 outsize=58441 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=14563 outsize=36081 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=14563 outsize=68793 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=27467 outsize=15773 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=1372 outsize=677 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=19561 outsize=14377 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=35447 outsize=33693 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=35447 outsize=32769 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=8512 outsize=2077 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16724 outsize=7029 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=14244 outsize=2265 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10127 outsize=2481 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=6505 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=7321 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=9673 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=7261 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=6685 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=8077 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=9941 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=17177 outsize=10245 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler

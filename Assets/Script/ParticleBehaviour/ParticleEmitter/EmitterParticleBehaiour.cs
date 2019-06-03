@@ -13,10 +13,12 @@ public class EmitterHunter : Hunter
      * [HideInInspector] public bool ifHasTarget;
      * [HideInInspector] public List<GameObject> HuntingList;
      */
+     
     public EmitterHunter(EmitterParticleBehaiour _emitterParticle)
     {
         if(_emitterParticle != null)
             emitterParticle = _emitterParticle;
+        
         
         
     }
@@ -60,6 +62,10 @@ public class EmitterHunter : Hunter
             //Debug.Log("select hunting target");
             float mostCloseDistance = 0;
             GameObject mostCloseTarget = null;
+            if(mouse.HuntingTargets.Length == 0){
+                mouse.setHunigTarget(HuntingTargets);
+                Debug.Log("Hunting Targets" + mouse.HuntingTargets[0]);
+            }
             for (int i = 0; i < HuntingList.Count; i++)
             {
                 float distanceToTarget = Vector3.Distance(m_transform.position, HuntingList[i].transform.position);
