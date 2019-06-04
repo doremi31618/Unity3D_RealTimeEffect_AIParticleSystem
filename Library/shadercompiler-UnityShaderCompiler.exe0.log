@@ -1,23 +1,84 @@
 Base path: C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data
 Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=22511 outsize=22513 ok=1
+Cmd: preprocessCompute
+  insize=9666 outsize=9668 ok=1
+Cmd: preprocess
+  insize=10313 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=22553 outsize=22555 ok=1
+Cmd: preprocessCompute
+  insize=9781 outsize=9783 ok=1
+Cmd: preprocess
+  insize=10405 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22553 outsize=22555 ok=1
+Cmd: preprocessCompute
+  insize=8787 outsize=8789 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=8789 outsize=4685 ok=1
+Cmd: preprocess
+  insize=10405 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22553 outsize=22555 ok=1
+Cmd: preprocessCompute
+  insize=8787 outsize=8789 ok=1
+Cmd: preprocess
+  insize=10405 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22553 outsize=22555 ok=1
+Cmd: preprocessCompute
+  insize=8787 outsize=8789 ok=1
+Cmd: preprocess
+  insize=10405 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22511 outsize=22513 ok=1
+Cmd: preprocessCompute
+  insize=8722 outsize=8724 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=8724 outsize=4293 ok=1
+Cmd: preprocess
+  insize=10313 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
 Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=22553 outsize=22555 ok=1
+Cmd: preprocessCompute
+  insize=8787 outsize=8789 ok=1
+Cmd: preprocess
+  insize=10405 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22511 outsize=22513 ok=1
+Cmd: preprocessCompute
+  insize=8722 outsize=8724 ok=1
+Cmd: preprocess
+  insize=10313 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
+Cmd: preprocessCompute
+  insize=22511 outsize=22513 ok=1
+Cmd: preprocessCompute
+  insize=8722 outsize=8724 ok=1
+Cmd: preprocess
+  insize=10313 outsize=429 ok=1
+Cmd: preprocessCompute
+  insize=1562 outsize=1564 ok=1
