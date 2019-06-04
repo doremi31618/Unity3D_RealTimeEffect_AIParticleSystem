@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Stage2 - Copy.unity
+- path: Assets/Scenes/SceneTransferTest/Stage2.unity
   isLoaded: 1
   isActive: 1
