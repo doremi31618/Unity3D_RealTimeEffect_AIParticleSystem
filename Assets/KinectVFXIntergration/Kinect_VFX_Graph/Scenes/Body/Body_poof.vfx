@@ -619,7 +619,7 @@ VisualEffectResource:
       \           float tmp_oh = min(tmp_og, (float)1);\n            float tmp_oi
       = (float)1 - tmp_oh;\n            SetAttribute_E89EAA93( /*inout */lifetime,
       tmp_oi);\n        }\n        {\n            SetAttribute_3278B22F( /*inout */size,
-      (float)0.02);\n        }\n        {\n            SetAttribute_FDD06EC7( /*inout
+      (float)0.025);\n        }\n        {\n            SetAttribute_FDD06EC7( /*inout
       */color, float3(1,1,1));\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
       \       if (alive)\n        {\n\t\t\tuint deadIndex = deadListIn.DecrementCounter();\n
       \           uint index = deadListIn[deadIndex];\n            attributeBuffer.Store3((index
@@ -1998,7 +1998,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 162
           m_Value: 0.1
         - m_ExpressionIndex: 164
-          m_Value: 0.02
+          m_Value: 0.025
         - m_ExpressionIndex: 166
           m_Value: 1.5
       m_Vector2f:
@@ -18508,7 +18508,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615904}
   - {fileID: 8926484042661615911}
   - {fileID: 8926484042661615914}
-  m_UIPosition: {x: 1201, y: -47}
+  m_UIPosition: {x: 1195, y: -50}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -18985,7 +18985,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615941}
   - {fileID: 8926484042661615973}
   - {fileID: 8926484042661616219}
-  m_UIPosition: {x: 1196, y: 688}
+  m_UIPosition: {x: 1193, y: 705}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -20230,7 +20230,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.02
+      m_SerializableObject: 0.025
     m_Space: 2147483647
   m_Property:
     name: Size
