@@ -23,7 +23,9 @@ public class StageTransferTool : MonoBehaviour
     [Header("Time setting")]
     public float fadeInTime = 0.3f;
     public float fadeOutTime = 1f;
-    public float gameStageTimeLength = 60;
+    public float Stage1TimeLength = 60;
+    public float Stage2TimeLength = 60;
+    public float EndingStageTimeLength = 30;
     public gameStage gameStageNow = gameStage.Stage1;
 
     [Header("[Start]Vignette Animation setting (Blink)")]
@@ -67,12 +69,16 @@ public class StageTransferTool : MonoBehaviour
     IEnumerator GameStageManager()
     {
         BlinkEffect();
-        yield return new WaitForSeconds(gameStageTimeLength);
+        yield return new WaitForSeconds(Stage1TimeLength);
         if(gameStageNow == gameStage.Stage1)
             TransferEffect();
-        yield return new WaitForSeconds(gameStageTimeLength);
+        yield return new WaitForSeconds(Stage2TimeLength);
         EndingCanvas.SetActive(true);
-        yield return new WaitForSeconds(30f);
+        Stage1.SetActive(false);
+        Stage2.SetActive(false);
+        yield return new WaitForSeconds(EndingStageTimeLength);
+        
+       
         SceneManager.LoadSceneAsync(0);
     }
     void attributeInitate()

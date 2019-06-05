@@ -5,6 +5,15 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterface
 {
     KinectManager manager;
+    private static ModelGestureListener instance = null;
+
+    public static ModelGestureListener Instance
+	{
+		get
+		{
+			return instance;
+		}
+	}
     public List<GameObject> PlayerList;
     public List<KinectSkeletonTracker> PlayerParticleEffect;
     public int usersSaved = 0;
@@ -59,11 +68,16 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         Debug.Log("User detect");
         PlayerParticleEffect[userIndex].enabled = (true);
         PlayerParticleEffect[userIndex].PlayerIndex = userIndex;
+        PlayerParticleEffect[userIndex].Idle = false;
+        StartCoroutine(PlayerParticleEffect[userIndex].Timer());
         
         PlayerList[userIndex].SetActive(true);
         PlayerList[userIndex].GetComponent<PlayerData>().userID = userId;
         PlayerList[userIndex].GetComponent<PlayerData>().userIndex = userIndex;
         PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
+
+        manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
+		manager.DetectGesture(userId,KinectGestures.Gestures.Tpose);
     }
     public void UserLost(long userId, int userIndex){
         Debug.Log("user lost");
@@ -104,7 +118,22 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     public bool GestureCompleted(long userId, int userIndex, KinectGestures.Gestures gesture,
                                   KinectInterop.JointType joint, Vector3 screenPos)
     {
-        return true;
+        
+        if(gesture == KinectGestures.Gestures.Tpose || 
+           gesture == KinectGestures.Gestures.Jump)
+		{
+            
+            KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
+            Color m_color = vfx.m_Color;
+            Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
+            vfx.changeColor(_color);
+            vfx.Idle = false;
+            StartCoroutine(vfx.Timer());
+            Debug.Log("Get complete gesture id : " + userId);
+            return true;
+        }
+        return false;
+        
     }
     public bool GestureCancelled(long userId, int userIndex, KinectGestures.Gestures gesture,
                                   KinectInterop.JointType joint)
