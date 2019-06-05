@@ -13,10 +13,14 @@ public class KinectSkeletonTracker : MonoBehaviour
     private KinectSensor sensor;
     private BodyFrameReader bodyFrameReader;
     private Body[] bodies;
-    private ulong trackedId = 0;
+    public ulong trackedId = 0;
     public int PlayerIndex;
-
+    
     KinectManager manager;
+
+    public bool Idle = true;
+	public float howLongToTransparent = 30;
+	public float transparentLerpTime = 2f;
 
     private Dictionary<JointType, JointType> boneMap = new Dictionary<JointType, JointType>() {
 
@@ -44,7 +48,46 @@ public class KinectSkeletonTracker : MonoBehaviour
         {JointType.SpineMid,JointType.SpineShoulder },
         {JointType.SpineShoulder,JointType.Head }
     };
+    public IEnumerator TransparentTimer()
+	{
+        Debug.Log("transparent [id] : " + trackedId);
+		for(float i = 0;i<transparentLerpTime;i+=Time.deltaTime)
+		{
 
+			if(Idle)
+			{
+				m_Color = Color.Lerp(new Color(m_Color.r,m_Color.g,m_Color.b,1),
+									  new Color(m_Color.r,m_Color.g,m_Color.b,0),
+									  i/transparentLerpTime);
+                //Debug.Log("i : "+ m_Color);
+                 
+			}
+			else
+			{
+				m_Color = new Color(m_Color.r,m_Color.g,m_Color.b,1);
+                Debug.Log("Break");
+				break;
+			}
+           
+            yield return new WaitForEndOfFrame();
+		}
+		
+	}
+    public IEnumerator Timer()
+	{
+        
+		//Debug.Log("start transparent timer[id] : " + trackedId);
+		yield return new WaitForSeconds(howLongToTransparent);
+		Idle = true;
+        StartCoroutine(TransparentTimer());
+
+		
+	}
+    public void changeColor(Color _color)
+    {
+        m_Color = _color;
+        visualEffect.SetVector4("Color",m_Color );
+    }
     private Dictionary<string, JointType> jointMap = new Dictionary<string, JointType>()
     {
         { "Spine Base", JointType.SpineBase },
@@ -85,12 +128,14 @@ public class KinectSkeletonTracker : MonoBehaviour
                 sensor.Open();
             }
         }
+        visualEffect.SetVector4("Color",m_Color );
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        visualEffect.SetVector4("Color",m_Color );
         if (bodyFrameReader != null)
         {
             var frame = bodyFrameReader.AcquireLatestFrame();
@@ -101,7 +146,7 @@ public class KinectSkeletonTracker : MonoBehaviour
                 {
                     bodies = new Body[frame.BodyCount];
                 }
-                visualEffect.SetVector4("Color",m_Color );
+                
                 frame.GetAndRefreshBodyData(bodies);
                 frame.Dispose();
                 frame = null;
@@ -153,10 +198,5 @@ public class KinectSkeletonTracker : MonoBehaviour
             bodyFrameReader.Dispose();
             bodyFrameReader = null;
         }
-
-        //if (sensor != null)
-        //{
-
-        //}
     }
 }

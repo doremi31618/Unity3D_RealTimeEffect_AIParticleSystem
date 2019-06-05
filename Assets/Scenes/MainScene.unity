@@ -144,7 +144,7 @@ RectTransform:
   m_Children:
   - {fileID: 1245096993}
   m_Father: {fileID: 981248306}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &32055637
 Transform:
   m_ObjectHideFlags: 0
@@ -313,12 +313,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35691720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 981248306}
-  m_RootOrder: 3
+  m_Father: {fileID: 1508662225}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1217,8 +1217,8 @@ MonoBehaviour:
   fadeInTime: 2
   fadeOutTime: 1
   Stage1TimeLength: 60
-  Stage2TimeLength: 60
-  EndingStageTimeLength: 30
+  Stage2TimeLength: 70
+  EndingStageTimeLength: 25
   gameStageNow: 0
   vignetteColor: {r: 0, g: 0, b: 0, a: 255}
   vignetteColor2: {r: 0, g: 0, b: 0, a: 255}
@@ -1390,7 +1390,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.9
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3086,51 +3086,6 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 881356248}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &882957930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 882957932}
-  - component: {fileID: 882957931}
-  m_Layer: 0
-  m_Name: Spout Sender
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &882957931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882957930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sourceTexture: {fileID: 8400000, guid: c7a60608130aa7b4e9fd2d6cdd29c7c4, type: 2}
-  _alphaSupport: 0
---- !u!4 &882957932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882957930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.217676, y: 3.8869147, z: 12.215862}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 921537563}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &914185906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2387117213746418875, guid: 160fab8f40afcb3478071065db609779,
@@ -3167,7 +3122,6 @@ Transform:
   m_Children:
   - {fileID: 1458050876696899083}
   - {fileID: 6581642646760530647}
-  - {fileID: 882957932}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4298,7 +4252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &981248303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4373,7 +4327,6 @@ RectTransform:
   - {fileID: 1454199429}
   - {fileID: 784260200}
   - {fileID: 163799123}
-  - {fileID: 35691721}
   - {fileID: 27795006}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -8689,6 +8642,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 684566218}
+  - {fileID: 35691721}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11270,8 +11224,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 1458050876341464846}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  trackedId: 0
   PlayerIndex: 0
+  Idle: 1
+  howLongToTransparent: 30
+  transparentLerpTime: 2
 --- !u!2083052967 &1458050876341464846
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -11472,7 +11430,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: c7a60608130aa7b4e9fd2d6cdd29c7c4, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11682,8 +11640,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 1458050877534293437}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 1}
+  trackedId: 0
   PlayerIndex: 3
+  Idle: 1
+  howLongToTransparent: 30
+  transparentLerpTime: 2
 --- !u!73398921 &1458050877534293436
 VFXRenderer:
   m_ObjectHideFlags: 2
@@ -11825,8 +11787,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 1458050877672035894}
-  m_Color: {r: 0.054901958, g: 0.9137255, b: 0.32701278, a: 1}
+  m_Color: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 1}
+  trackedId: 0
   PlayerIndex: 1
+  Idle: 1
+  howLongToTransparent: 30
+  transparentLerpTime: 2
 --- !u!2083052967 &1458050877672035894
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -11968,8 +11934,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 1458050878110865527}
-  m_Color: {r: 0, g: 0.7771648, b: 0.990566, a: 1}
+  m_Color: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 1}
+  trackedId: 0
   PlayerIndex: 2
+  Idle: 1
+  howLongToTransparent: 30
+  transparentLerpTime: 2
 --- !u!73398921 &1458050878110865526
 VFXRenderer:
   m_ObjectHideFlags: 2
@@ -12762,7 +12732,7 @@ MonoBehaviour:
   DisplayMapsWidthPercent: 20
   useMultiSourceReader: 0
   minUserDistance: 0.5
-  maxUserDistance: 0
+  maxUserDistance: 3
   maxLeftRightDistance: 0
   maxTrackedUsers: 4
   showTrackedUsersOnly: 1
@@ -12777,9 +12747,9 @@ MonoBehaviour:
   waitTimeBeforeRemove: 1
   avatarControllers: []
   playerCalibrationPose: 0
-  playerCommonGestures: 
+  playerCommonGestures: 040000000e000000
   minTimeBetweenGestures: 0.7
-  gestureManager: {fileID: 0}
+  gestureManager: {fileID: 6575337272417640500}
   gestureListeners: []
   calibrationText: {fileID: 0}
   gesturesDebugText: {fileID: 0}
@@ -12984,6 +12954,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   foregroundCamera: {fileID: 1458050876696899082}
   isUseUserID: 1
+  isUseIDtoTrack: 0
   PlayerData: {fileID: 3901244708016989126}
   playerIndex: 3
   leftHandOverlay: {fileID: 3901244706550834130}
@@ -13788,6 +13759,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   foregroundCamera: {fileID: 1458050876696899082}
   isUseUserID: 1
+  isUseIDtoTrack: 0
   PlayerData: {fileID: 3901244707787112695}
   playerIndex: 2
   leftHandOverlay: {fileID: 3901244707172140145}
@@ -13807,6 +13779,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   foregroundCamera: {fileID: 1458050876696899082}
   isUseUserID: 1
+  isUseIDtoTrack: 0
   PlayerData: {fileID: 3901244707419009309}
   playerIndex: 0
   leftHandOverlay: {fileID: 3901244706814934971}
@@ -14014,6 +13987,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   foregroundCamera: {fileID: 1458050876696899082}
   isUseUserID: 1
+  isUseIDtoTrack: 0
   PlayerData: {fileID: 3901244707105348890}
   playerIndex: 1
   leftHandOverlay: {fileID: 3901244707046165661}
@@ -14997,7 +14971,6 @@ GameObject:
   - component: {fileID: 1458050877672035894}
   - component: {fileID: 1458050877672035895}
   - component: {fileID: 1458050877672035889}
-  - component: {fileID: 6557514141221986092}
   m_Layer: 0
   m_Name: '[2P]Kinect VFX  '
   m_TagString: Untagged
@@ -15005,21 +14978,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6557514141221986092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557514141221986091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings: []
-  m_VisualEffect: {fileID: 1458050877672035894}
 --- !u!1 &6557514141585982624
 GameObject:
   m_ObjectHideFlags: 0
@@ -15033,7 +14991,6 @@ GameObject:
   - component: {fileID: 1458050877534293437}
   - component: {fileID: 1458050877534293436}
   - component: {fileID: 1458050877534293434}
-  - component: {fileID: 6557514141585982625}
   m_Layer: 0
   m_Name: '[4P]Kinect VFX'
   m_TagString: Untagged
@@ -15041,21 +14998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6557514141585982625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557514141585982624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings: []
-  m_VisualEffect: {fileID: 1458050877534293437}
 --- !u!1 &6557514142193488234
 GameObject:
   m_ObjectHideFlags: 0
@@ -15069,7 +15011,6 @@ GameObject:
   - component: {fileID: 1458050878110865527}
   - component: {fileID: 1458050878110865526}
   - component: {fileID: 1458050878110865520}
-  - component: {fileID: 6557514142193488235}
   m_Layer: 0
   m_Name: '[3P]Kinect VFX'
   m_TagString: Untagged
@@ -15077,21 +15018,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6557514142193488235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557514142193488234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings: []
-  m_VisualEffect: {fileID: 1458050878110865527}
 --- !u!114 &6575337272417640498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15126,6 +15052,7 @@ GameObject:
   - component: {fileID: 6581642646760530647}
   - component: {fileID: 6543958916535252317}
   - component: {fileID: 3901244706578379196}
+  - component: {fileID: 6575337272417640500}
   - component: {fileID: 6575337272417640498}
   m_Layer: 10
   m_Name: '[KinectManager]PlayerLayer'
@@ -15134,6 +15061,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6575337272417640500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575337272417640499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b976a1901bb5d478901026c07729cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6581642646760530647
 Transform:
   m_ObjectHideFlags: 0

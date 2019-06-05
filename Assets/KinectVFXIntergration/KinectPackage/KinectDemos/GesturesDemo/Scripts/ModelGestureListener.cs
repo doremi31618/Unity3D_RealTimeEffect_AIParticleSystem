@@ -243,6 +243,7 @@ public class ModelGestureListener : MonoBehaviour, KinectGestures.GestureListene
 		else if(gesture == KinectGestures.Gestures.RaiseRightHand)
 			raiseHand = true;
 
+		Debug.Log("gesture : "+ gesture);
 		return true;
 	}
 

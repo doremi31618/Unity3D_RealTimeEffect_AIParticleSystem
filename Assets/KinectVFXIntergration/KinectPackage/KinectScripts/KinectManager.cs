@@ -2368,6 +2368,7 @@ public class KinectManager : MonoBehaviour
 				
 				// Check for complete gestures
 				List<KinectGestures.GestureData> gesturesData = playerGesturesData[userId];
+				
 				int userIndex = GetUserIndexById(userId);
 				
 				foreach(KinectGestures.GestureData gestureData in gesturesData)

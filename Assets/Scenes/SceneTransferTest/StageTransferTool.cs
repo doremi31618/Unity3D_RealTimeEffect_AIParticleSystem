@@ -77,6 +77,8 @@ public class StageTransferTool : MonoBehaviour
         Stage1.SetActive(false);
         Stage2.SetActive(false);
         yield return new WaitForSeconds(EndingStageTimeLength);
+        
+       
         SceneManager.LoadSceneAsync(0);
     }
     void attributeInitate()
