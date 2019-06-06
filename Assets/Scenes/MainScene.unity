@@ -8892,8 +8892,8 @@ Canvas:
   m_GameObject: {fileID: 1508662221}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1458050876696899082}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11274,7 +11274,7 @@ MonoBehaviour:
   trackedId: 0
   PlayerIndex: 0
   Idle: 1
-  howLongToTransparent: 25
+  howLongToTransparent: 60
   transparentLerpTime: 5
 --- !u!2083052967 &1458050876341464846
 VisualEffect:
@@ -11690,7 +11690,7 @@ MonoBehaviour:
   trackedId: 0
   PlayerIndex: 3
   Idle: 1
-  howLongToTransparent: 25
+  howLongToTransparent: 60
   transparentLerpTime: 5
 --- !u!73398921 &1458050877534293436
 VFXRenderer:
@@ -11837,7 +11837,7 @@ MonoBehaviour:
   trackedId: 0
   PlayerIndex: 1
   Idle: 1
-  howLongToTransparent: 25
+  howLongToTransparent: 60
   transparentLerpTime: 5
 --- !u!2083052967 &1458050877672035894
 VisualEffect:
@@ -11984,7 +11984,7 @@ MonoBehaviour:
   trackedId: 0
   PlayerIndex: 2
   Idle: 1
-  howLongToTransparent: 25
+  howLongToTransparent: 60
   transparentLerpTime: 5
 --- !u!73398921 &1458050878110865526
 VFXRenderer:
@@ -12122,7 +12122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8574293195142364008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: -1.35}
+  m_LocalPosition: {x: 0, y: -0.4, z: -1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5573545710633703736}
@@ -12275,7 +12275,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244706335453537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12724,7 +12724,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244706550834131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12778,9 +12778,9 @@ MonoBehaviour:
   DisplayMapsWidthPercent: 20
   useMultiSourceReader: 0
   minUserDistance: 0.5
-  maxUserDistance: 3.5
+  maxUserDistance: 3
   maxLeftRightDistance: 0
-  maxTrackedUsers: 4
+  maxTrackedUsers: 2
   showTrackedUsersOnly: 1
   detectClosestUser: 1
   ignoreInferredJoints: 0
@@ -12892,7 +12892,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244706814934972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13063,7 +13063,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3901244707040407957
 MonoBehaviour:
@@ -13077,10 +13077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleAroundRadius: 6
+  circleAroundRadius: 1
   trackingSpeed: 5
   circcleAroundSpeed: 3
-  triggerRadius: 4
+  triggerRadius: 6
   isUseVisualizer: 1
   nowTargetColor: {r: 1, g: 1, b: 1, a: 1}
   otherTargetColor: {r: 1, g: 0, b: 0, a: 1}
@@ -13135,7 +13135,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244707046165662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13292,7 +13292,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244707172140146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13400,7 +13400,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244707330555187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13569,7 +13569,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3901244707433881700
 MonoBehaviour:
@@ -13583,10 +13583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleAroundRadius: 6
+  circleAroundRadius: 1
   trackingSpeed: 5
   circcleAroundSpeed: 3
-  triggerRadius: 3
+  triggerRadius: 6
   isUseVisualizer: 1
   nowTargetColor: {r: 1, g: 1, b: 1, a: 1}
   otherTargetColor: {r: 1, g: 0, b: 0, a: 1}
@@ -13667,10 +13667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleAroundRadius: 6
+  circleAroundRadius: 1
   trackingSpeed: 5
   circcleAroundSpeed: 3
-  triggerRadius: 5
+  triggerRadius: 6
   isUseVisualizer: 1
   nowTargetColor: {r: 1, g: 1, b: 1, a: 1}
   otherTargetColor: {r: 1, g: 0, b: 0, a: 1}
@@ -13925,7 +13925,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244708162050120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14130,7 +14130,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3901244708209972287
 MonoBehaviour:
@@ -14144,10 +14144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2283576c06f472b9724eca2c44532d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleAroundRadius: 6
+  circleAroundRadius: 1
   trackingSpeed: 5
   circcleAroundSpeed: 3
-  triggerRadius: 3
+  triggerRadius: 6
   isUseVisualizer: 1
   nowTargetColor: {r: 1, g: 1, b: 1, a: 1}
   otherTargetColor: {r: 1, g: 0, b: 0, a: 1}
@@ -14168,7 +14168,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901244708215638386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
