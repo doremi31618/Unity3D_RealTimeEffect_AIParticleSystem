@@ -65,7 +65,10 @@ public class StageTransferTool : MonoBehaviour
         timer += Time.deltaTime;
         TimerText.text = "Time : " + (int)timer;
 
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
 
     IEnumerator GameStageManager()
