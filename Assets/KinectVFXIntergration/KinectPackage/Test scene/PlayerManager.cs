@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     public List<GameObject> PlayerList;
     public List<KinectSkeletonTracker> PlayerParticleEffect;
     public int usersSaved = 0;
+    public GameObject flashLight ;
     void Update()
     {
         if(manager == null)manager = KinectManager.Instance;
@@ -41,20 +42,24 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         //     case 3:
         //         break;
         // }
-        if(manager && manager.IsInitialized())
+        // if(manager && manager.IsInitialized())
+        // {
+        //     int usersNow = manager.GetUsersCount();
+
+        //     if(usersNow > usersSaved)
+        //     {
+        //         OndetectUser();
+        //     }
+        //     if(usersNow < usersSaved)
+        //     {
+        //         OnLostUser();
+        //     }
+
+        //     usersSaved = usersNow;
+        // }
+        if(manager.GetUsersCount() == 0 && flashLight.activeSelf != true)
         {
-            int usersNow = manager.GetUsersCount();
-
-            if(usersNow > usersSaved)
-            {
-                OndetectUser();
-            }
-            if(usersNow < usersSaved)
-            {
-                OnLostUser();
-            }
-
-            usersSaved = usersNow;
+            flashLight.SetActive(true);
         }
     }
     void OndetectUser(){
