@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
     private KinectManager manager;
     
     
-    public void ResetPalayerParticlePosition()
+    public void ResetPalayerParticlePosition(KinectInterop.JointType jointType)
     {
         if(manager == null)
 		{
