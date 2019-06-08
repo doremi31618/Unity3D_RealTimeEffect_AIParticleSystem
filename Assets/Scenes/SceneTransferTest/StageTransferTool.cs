@@ -64,6 +64,8 @@ public class StageTransferTool : MonoBehaviour
     {
         timer += Time.deltaTime;
         TimerText.text = "Time : " + (int)timer;
+
+        
     }
 
     IEnumerator GameStageManager()
