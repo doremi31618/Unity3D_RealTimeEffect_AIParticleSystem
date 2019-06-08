@@ -78,6 +78,9 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
 
         manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
 		manager.DetectGesture(userId,KinectGestures.Gestures.Tpose);
+        manager.DetectGesture(userId,KinectGestures.Gestures.SwipeRight);
+        manager.DetectGesture(userId,KinectGestures.Gestures.SwipeLeft);
+
     }
     public void UserLost(long userId, int userIndex){
         Debug.Log("user lost");
@@ -114,13 +117,14 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     }
     public void PlayerGestureDetect(int userIndex, KinectGestures.Gestures gesture){}
     public void GestureInProgress(long userId, int userIndex, KinectGestures.Gestures gesture,
-                                  float progress, KinectInterop.JointType joint, Vector3 screenPos){}
-    public bool GestureCompleted(long userId, int userIndex, KinectGestures.Gestures gesture,
-                                  KinectInterop.JointType joint, Vector3 screenPos)
-    {
-        
-        if(gesture == KinectGestures.Gestures.Tpose || 
-           gesture == KinectGestures.Gestures.Jump)
+                                  float progress, KinectInterop.JointType joint, Vector3 screenPos){
+
+           if(progress >0.5f &&(gesture == KinectGestures.Gestures.Tpose || 
+              gesture == KinectGestures.Gestures.Jump
+           ||gesture == KinectGestures.Gestures.SwipeRight ||
+           gesture == KinectGestures.Gestures.SwipeLeft ||
+           gesture == KinectGestures.Gestures.RaiseRightHand
+         ))
 		{
             
             KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
@@ -129,7 +133,31 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
             vfx.changeColor(_color);
             vfx.Idle = false;
             StartCoroutine(vfx.Timer());
+             PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
             Debug.Log("Get complete gesture id : " + userId);
+            return;
+        }
+                                  }
+    public bool GestureCompleted(long userId, int userIndex, KinectGestures.Gestures gesture,
+                                  KinectInterop.JointType joint, Vector3 screenPos)
+    {
+        
+       if((gesture == KinectGestures.Gestures.Tpose || 
+              gesture == KinectGestures.Gestures.Jump
+           ||gesture == KinectGestures.Gestures.SwipeRight ||
+           gesture == KinectGestures.Gestures.SwipeLeft ||
+           gesture == KinectGestures.Gestures.RaiseRightHand
+         ))
+		{
+            
+            KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
+            Color m_color = vfx.m_Color;
+            Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
+            vfx.changeColor(_color);
+            vfx.Idle = false;
+            StartCoroutine(vfx.Timer());
+            Debug.Log("Get complete gesture id : " + userId);   
+             PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
             return true;
         }
         return false;

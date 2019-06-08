@@ -99,6 +99,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
 	void Start () {
 		stage2 = GameObject.Find("Stage2");
          GetComponent<SphereCollider>().radius = stage1ColliderTrigger;
+         HowMuchNumberForEatingToGrowUp = 15;
 	}
 	
 	// Update is called once per frame
@@ -403,6 +404,7 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         m_hunter.mouse.MouseCollider.isTrigger = false;
         interaciveStateTrigger = false;
     }
+    float timerToEat;
     void Grow()
     {
         eatNumberCounter += 1;
@@ -410,8 +412,10 @@ public class PlayerParticleBehaviour : ParticleBehaiour{
         if (eatNumberCounter % HowMuchNumberForEatingToGrowUp == 0 && canItGrowUp)
         {
             Star m_shape = GetComponent<Star>();
-            if (m_shape.frequency < MaxCorner)
+            if (m_shape.frequency < MaxCorner &&  Time.time >  timerToEat)
             {
+                timerToEat = Time.time + 6f;
+                transform.localScale *=1.1f;
                 m_shape.frequency++;
                 m_shape.Reset();
                 eatNumberCounter = 0;
