@@ -61,6 +61,10 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         {
             flashLight.SetActive(true);
         }
+        else if(manager.GetUsersCount() != 0 && flashLight.activeSelf != false)
+        {
+            flashLight.SetActive(false);
+        }
     }
     void OndetectUser(){
         
@@ -149,9 +153,7 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         
        if((gesture == KinectGestures.Gestures.Tpose || 
               gesture == KinectGestures.Gestures.Jump
-           ||gesture == KinectGestures.Gestures.SwipeRight ||
-           gesture == KinectGestures.Gestures.SwipeLeft ||
-           gesture == KinectGestures.Gestures.RaiseRightHand
+           ||gesture == KinectGestures.Gestures.SwipeRight 
          ))
 		{
             
@@ -162,8 +164,16 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
             vfx.Idle = false;
             StartCoroutine(vfx.Timer());
             Debug.Log("Get complete gesture id : " + userId);   
-             PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
+            PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
             return true;
+        }
+        else if(gesture == KinectGestures.Gestures.SwipeLeft)
+        {
+            
+        }
+        else if( gesture == KinectGestures.Gestures.RaiseRightHand)
+        {
+
         }
         return false;
         
