@@ -66,12 +66,16 @@ public class StageTransferTool : MonoBehaviour
         TimerText.text = "Time : " + (int)timer;
 <<<<<<< HEAD
 
+<<<<<<< HEAD
         if(Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadSceneAsync(0);
         }
 =======
 >>>>>>> parent of 1c5d5b50... update
+=======
+        
+>>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
     }
 
     IEnumerator GameStageManager()
