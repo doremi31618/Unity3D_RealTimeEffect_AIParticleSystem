@@ -83,7 +83,7 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
         PlayerList[userIndex].SetActive(true);
         PlayerList[userIndex].GetComponent<PlayerData>().userID = userId;
         PlayerList[userIndex].GetComponent<PlayerData>().userIndex = userIndex;
-        PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition(KinectInterop.JointType.HandRight);
+        PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
 
         manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
 		manager.DetectGesture(userId,KinectGestures.Gestures.Tpose);
@@ -128,45 +128,10 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
     public void GestureInProgress(long userId, int userIndex, KinectGestures.Gestures gesture,
                                   float progress, KinectInterop.JointType joint, Vector3 screenPos){
 
-           if(progress >0.5f )
-           {
-               if((gesture == KinectGestures.Gestures.SwipeRight ||
-                   gesture == KinectGestures.Gestures.RaiseRightHand))
-		        {
-            
-                    KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
-                    Color m_color = vfx.m_Color;
-                    Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
-                    vfx.changeColor(_color);
-                    vfx.Idle = false;
-                    StartCoroutine(vfx.Timer());
-                    PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition(KinectInterop.JointType.HandRight);
-                    Debug.Log("Get complete gesture id : " + userId);
-                    return;
-                }  
-                else if(gesture == KinectGestures.Gestures.SwipeLeft ||
-                        gesture == KinectGestures.Gestures.RaiseLeftHand)
-                {
-                    KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
-                    Color m_color = vfx.m_Color;
-                    Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
-                    vfx.changeColor(_color);
-                    vfx.Idle = false;
-                    StartCoroutine(vfx.Timer());
-                    PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition(KinectInterop.JointType.HandLeft);
-                    Debug.Log("Get complete gesture id : " + userId);
-                    return;
-                }
-           }
-            //gesture == KinectGestures.Gestures.SwipeLeft ||
-    }
-    public bool GestureCompleted(long userId, int userIndex, KinectGestures.Gestures gesture,
-                                  KinectInterop.JointType joint, Vector3 screenPos)
-    {
-        
-       if((gesture == KinectGestures.Gestures.Tpose || 
+           if(progress >0.5f &&(gesture == KinectGestures.Gestures.Tpose || 
               gesture == KinectGestures.Gestures.Jump
            ||gesture == KinectGestures.Gestures.SwipeRight ||
+           gesture == KinectGestures.Gestures.SwipeLeft ||
            gesture == KinectGestures.Gestures.RaiseRightHand
          ))
 		{
@@ -177,21 +142,38 @@ public class PlayerManager : MonoBehaviour, KinectGestures.GestureListenerInterf
             vfx.changeColor(_color);
             vfx.Idle = false;
             StartCoroutine(vfx.Timer());
+             PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
+            Debug.Log("Get complete gesture id : " + userId);
+            return;
+        }
+                                  }
+    public bool GestureCompleted(long userId, int userIndex, KinectGestures.Gestures gesture,
+                                  KinectInterop.JointType joint, Vector3 screenPos)
+    {
+        
+       if((gesture == KinectGestures.Gestures.Tpose || 
+              gesture == KinectGestures.Gestures.Jump
+           ||gesture == KinectGestures.Gestures.SwipeRight 
+         ))
+		{
+            
+            KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
+            Color m_color = vfx.m_Color;
+            Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
+            vfx.changeColor(_color);
+            vfx.Idle = false;
+            StartCoroutine(vfx.Timer());
             Debug.Log("Get complete gesture id : " + userId);   
-            PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition(KinectInterop.JointType.HandRight);
+            PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition();
             return true;
         }
-        else if( gesture == KinectGestures.Gestures.RaiseLeftHand ||gesture == KinectGestures.Gestures.SwipeLeft)
+        else if(gesture == KinectGestures.Gestures.SwipeLeft)
         {
-            KinectSkeletonTracker vfx = PlayerParticleEffect[userIndex];
-                    Color m_color = vfx.m_Color;
-                    Color _color = new Color(m_color.r, m_color.g, m_color.b, 1);
-                    vfx.changeColor(_color);
-                    vfx.Idle = false;
-                    StartCoroutine(vfx.Timer());
-                    PlayerList[userIndex].GetComponent<PlayerData>().ResetPalayerParticlePosition(KinectInterop.JointType.HandLeft);
-                    Debug.Log("Get complete gesture id : " + userId);
-                    return true;
+            
+        }
+        else if( gesture == KinectGestures.Gestures.RaiseRightHand)
+        {
+
         }
         return false;
         
