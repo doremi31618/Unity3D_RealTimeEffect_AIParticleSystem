@@ -64,11 +64,14 @@ public class StageTransferTool : MonoBehaviour
     {
         timer += Time.deltaTime;
         TimerText.text = "Time : " + (int)timer;
+<<<<<<< HEAD
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadSceneAsync(0);
         }
+=======
+>>>>>>> parent of 1c5d5b50... update
     }
 
     IEnumerator GameStageManager()
