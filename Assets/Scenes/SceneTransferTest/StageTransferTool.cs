@@ -66,6 +66,7 @@ public class StageTransferTool : MonoBehaviour
         TimerText.text = "Time : " + (int)timer;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         if(Input.GetKeyDown(KeyCode.Space))
@@ -79,6 +80,8 @@ public class StageTransferTool : MonoBehaviour
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
 =======
 >>>>>>> parent of 1c5d5b50... update
+=======
+>>>>>>> parent of 7127eb91... update
     }
 
     IEnumerator GameStageManager()

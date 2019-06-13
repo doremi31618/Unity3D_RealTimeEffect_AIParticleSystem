@@ -48,6 +48,7 @@ MonoBehaviour:
     width: 1536
     height: 778
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 524}
 =======
   m_MinSize: {x: 950, y: 300}
@@ -61,6 +62,9 @@ MonoBehaviour:
 >>>>>>> parent of 1c5d5b50... update
   m_MinSize: {x: 950, y: 300}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 7127eb91... update
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -131,6 +135,7 @@ MonoBehaviour:
     width: 1536
     height: 728
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 811, y: 474}
   m_MaxSize: {x: 22006, y: 14024}
   vertical: 0
@@ -157,6 +162,12 @@ MonoBehaviour:
   vertical: 0
   controlID: 50
 >>>>>>> parent of 1c5d5b50... update
+=======
+  m_MinSize: {x: 817, y: 498}
+  m_MaxSize: {x: 22012, y: 14048}
+  vertical: 0
+  controlID: 50
+>>>>>>> parent of 7127eb91... update
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,6 +195,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 65
 =======
   controlID: 51
@@ -194,6 +206,9 @@ MonoBehaviour:
 =======
   controlID: 51
 >>>>>>> parent of 1c5d5b50... update
+=======
+  controlID: 51
+>>>>>>> parent of 7127eb91... update
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,6 +259,7 @@ MonoBehaviour:
     width: 520
     height: 474
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 =======
@@ -262,6 +278,10 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
+>>>>>>> parent of 7127eb91... update
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -291,6 +311,7 @@ MonoBehaviour:
     width: 284
     height: 728
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 234, y: 474}
   m_MaxSize: {x: 10004, y: 14024}
 =======
@@ -307,6 +328,10 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 234, y: 498}
+  m_MaxSize: {x: 10004, y: 14048}
+>>>>>>> parent of 7127eb91... update
   vertical: 1
   controlID: 95
 --- !u!114 &10
@@ -331,6 +356,7 @@ MonoBehaviour:
     width: 284
     height: 370
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 =======
@@ -347,6 +373,10 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 224}
   m_MaxSize: {x: 4004, y: 4024}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
+>>>>>>> parent of 7127eb91... update
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -400,6 +430,7 @@ MonoBehaviour:
     width: 333
     height: 728
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
 =======
@@ -416,6 +447,10 @@ MonoBehaviour:
   m_MinSize: {x: 104, y: 124}
   m_MaxSize: {x: 4004, y: 4024}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 104, y: 124}
+  m_MaxSize: {x: 4004, y: 4024}
+>>>>>>> parent of 7127eb91... update
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -443,6 +478,7 @@ MonoBehaviour:
     width: 399
     height: 728
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
 =======
@@ -459,6 +495,10 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 74}
   m_MaxSize: {x: 4002, y: 4024}
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
+=======
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
+>>>>>>> parent of 7127eb91... update
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -800,6 +840,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 8a360000
       m_LastClickedID: 13962
       m_ExpandedIDs: d4fbffff
@@ -818,6 +859,11 @@ MonoBehaviour:
       m_LastClickedID: 26380
       m_ExpandedIDs: b8e6ffff0664000076640000aa670000
 >>>>>>> parent of 1c5d5b50... update
+=======
+      m_SelectedIDs: 0c670000
+      m_LastClickedID: 26380
+      m_ExpandedIDs: b8e6ffff0664000076640000aa670000
+>>>>>>> parent of 7127eb91... update
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -892,6 +938,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 767}
     m_SelectedIDs: 14330000
     m_LastClickedID: 13076
@@ -899,10 +946,13 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 1c5d5b50... update
+=======
+>>>>>>> parent of 7127eb91... update
     scrollPos: {x: 0, y: 319}
     m_SelectedIDs: 5a570000
     m_LastClickedID: 22362
     m_ExpandedIDs: 00000000404c0000824d0000a04f0000bc510000da510000f651000048520000dc5300008a540000565600008e560000585700006a570000de5700001e5800007e590000ea5900001a5a0000c65c0000885e0000d45e0000305f00003e5f0000945f00000c6000001e600000a0600000
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 1c5d5b50... update
 =======
@@ -913,6 +963,8 @@ MonoBehaviour:
 >>>>>>> parent of f69532e1... Merge branch 'master' of https://github.com/doremi31618/AIParticleSystem
 =======
 >>>>>>> parent of 1c5d5b50... update
+=======
+>>>>>>> parent of 7127eb91... update
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
