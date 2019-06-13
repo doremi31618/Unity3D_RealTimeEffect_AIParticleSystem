@@ -55,20 +55,20 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Diff: 1
+    - _Diff: 0.31
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
     - _GlobalAlpha: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientColor: 0.071
+    - _GradientColor: 0.0403
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline: 1
     - _OutlineAlpha: 0
     - _OutlineUseGradient: 1
-    - _OutlineWidth: 5.7
+    - _OutlineWidth: 4.8
     - _ReceiveShadows: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -81,7 +81,7 @@ Material:
     - _Color: {r: 0.49056596, g: 0.48362404, b: 0.48362404, a: 0.60784316}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.07787465, g: 0.4158152, b: 0.6603774, a: 0.5019608}
+    - _OutlineColor: {r: 0.65882355, g: 0.07843135, b: 0.56266147, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}

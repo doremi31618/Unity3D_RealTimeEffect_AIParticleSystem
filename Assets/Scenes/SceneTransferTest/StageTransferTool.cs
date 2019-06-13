@@ -53,7 +53,23 @@ public class StageTransferTool : MonoBehaviour
     void Start()
     {
         //if(isFullScreen) Screen.fullScreen = true;
-        SwitchPlayerControll();
+        if (!isUseKinect)
+        {
+            //switch to mouse
+            noKinectPLayer.SetActive(true);
+            kinectPlayer.SetActive(false);
+            MainCamera = noKinectPLayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
+        }
+        else
+        {
+            //switch to kinect
+            noKinectPLayer.SetActive(false);
+            kinectPlayer.SetActive(true);
+            MainCamera = kinectPlayer.GetComponent<PlayerObjectManager>().MainCamera;
+            postProcessing = MainCamera.GetComponent<PostProcessVolume>();
+        }
+        ChangeBoundaryLayerCamera();
         attributeInitate();
         StartCoroutine( GameStageManager());
         

@@ -38,10 +38,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 2.34
   threshold:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.69
   softKnee:
     overrideState: 1
     value: 0.02
@@ -56,9 +56,9 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 2, g: 2, b: 2, a: 1}
   fastMode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   dirtTexture:
     overrideState: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.521
+    value: 0.218
   size:
     overrideState: 1
     value: 2.56
@@ -150,16 +150,16 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.03604485, g: 0.06907854, b: 0.09433961, a: 1}
+    value: {r: 0, g: 0.21698111, b: 0.014795549, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.488
+    value: 0.529
   smoothness:
     overrideState: 1
-    value: 0.559
+    value: 1
   roundness:
     overrideState: 1
     value: 0.81
@@ -232,7 +232,7 @@ MonoBehaviour:
     value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 0.86720645, g: 0.86720645, b: 0.86720645, a: 1}
   hueShift:
     overrideState: 0
     value: 0
