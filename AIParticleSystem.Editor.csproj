@@ -1,0 +1,1336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B962646-4C86-EED5-6E36-1A83994E23B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Editor:5</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2018.3.14f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_14;UNITY_2018_3;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_14;UNITY_2018_3;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.BaselibModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.BaselibModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.FileSystemHttpModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.FileSystemHttpModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTrackingModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpatialTrackingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TimelineModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TimelineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>Library\UnityAssemblies\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Locator">
+      <HintPath>Library\UnityAssemblies\Unity.Locator.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions.Editor">
+      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>Library\UnityAssemblies\UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>Library\UnityAssemblies\UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>Library\UnityAssemblies\Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>Library\UnityAssemblies\Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>Library\UnityAssemblies\Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>Library\UnityAssemblies\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>Library\UnityAssemblies\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>Library\UnityAssemblies\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>Library\UnityAssemblies\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>Library\UnityAssemblies\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>Library\UnityAssemblies\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>Library\UnityAssemblies\System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>Library\UnityAssemblies\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>Library\UnityAssemblies\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>Library\UnityAssemblies\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Library\UnityAssemblies\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>Library\UnityAssemblies\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>Library\UnityAssemblies\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>Library\UnityAssemblies\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>Library\UnityAssemblies\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>Library\UnityAssemblies\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>Library\UnityAssemblies\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>Library\UnityAssemblies\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>Library\UnityAssemblies\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>Library\UnityAssemblies\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>Library\UnityAssemblies\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>Library\UnityAssemblies\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>Library\UnityAssemblies\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>Library\UnityAssemblies\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>Library\UnityAssemblies\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>Library\UnityAssemblies\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>Library\UnityAssemblies\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>Library\UnityAssemblies\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>Library\UnityAssemblies\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>Library\UnityAssemblies\System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>Library\UnityAssemblies\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>Library\UnityAssemblies\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>Library\UnityAssemblies\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>Library\UnityAssemblies\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>Library\UnityAssemblies\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>Library\UnityAssemblies\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>Library\UnityAssemblies\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>Library\UnityAssemblies\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>Library\UnityAssemblies\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>Library\UnityAssemblies\System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>Library\UnityAssemblies\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>Library\UnityAssemblies\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>Library\UnityAssemblies\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>Library\UnityAssemblies\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>Library\UnityAssemblies\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Rtc">
+      <HintPath>Library\UnityAssemblies\System.Net.Http.Rtc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>Library\UnityAssemblies\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>Library\UnityAssemblies\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>Library\UnityAssemblies\System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>Library\UnityAssemblies\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>Library\UnityAssemblies\System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>Library\UnityAssemblies\System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>Library\UnityAssemblies\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>Library\UnityAssemblies\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>Library\UnityAssemblies\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>Library\UnityAssemblies\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>Library\UnityAssemblies\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>Library\UnityAssemblies\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>Library\UnityAssemblies\System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>Library\UnityAssemblies\System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>Library\UnityAssemblies\System.Reflection.Emit.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>Library\UnityAssemblies\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>Library\UnityAssemblies\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>Library\UnityAssemblies\System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>Library\UnityAssemblies\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>Library\UnityAssemblies\System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>Library\UnityAssemblies\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>Library\UnityAssemblies\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>Library\UnityAssemblies\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>Library\UnityAssemblies\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>Library\UnityAssemblies\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>Library\UnityAssemblies\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>Library\UnityAssemblies\System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>Library\UnityAssemblies\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>Library\UnityAssemblies\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>Library\UnityAssemblies\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>Library\UnityAssemblies\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>Library\UnityAssemblies\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>Library\UnityAssemblies\System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>Library\UnityAssemblies\System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex">
+      <HintPath>Library\UnityAssemblies\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>Library\UnityAssemblies\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp">
+      <HintPath>Library\UnityAssemblies\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>Library\UnityAssemblies\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security">
+      <HintPath>Library\UnityAssemblies\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>Library\UnityAssemblies\System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>Library\UnityAssemblies\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>Library\UnityAssemblies\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>Library\UnityAssemblies\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>Library\UnityAssemblies\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>Library\UnityAssemblies\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>Library\UnityAssemblies\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>Library\UnityAssemblies\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>Library\UnityAssemblies\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>Library\UnityAssemblies\System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>Library\UnityAssemblies\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>Library\UnityAssemblies\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>Library\UnityAssemblies\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>Library\UnityAssemblies\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>Library\UnityAssemblies\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>Library\UnityAssemblies\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>Library\UnityAssemblies\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript">
+      <HintPath>Library\UnityAssemblies\UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>Library\UnityAssemblies\UnityScript.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>Library\UnityAssemblies\Boo.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\KinectVFXIntergration\KinectPackage\KinectScripts\SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="AIParticleSystem.csproj">
+      <Project>{A755DF2A-DD77-B461-2F83-31356B6DD40A}</Project>
+      <Name>AIParticleSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\AssemblyInfo.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Bootstrap.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\CollabAnalytics.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\CollabHistoryWindow.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\CollabToolbarButton.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\CollabToolbarWindow.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Presenters\CollabHistoryPresenter.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\BuildStatusButton.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\CollabHistoryDropDown.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\CollabHistoryDropDownItem.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\CollabHistoryItem.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\CollabHistoryItemFactory.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\CollabHistoryRevisionLine.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\HistoryProgressSpinner.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\ICollabHistoryItemFactory.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\PagedListView.cs" />
+    <Compile Include="Packages\com.unity.collab-proxy\Editor\Collab\Views\StatusView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\KinectDemos\RecorderDemo\Resources\PlayerGrammar.grxml.txt" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\BlurShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\BlurShader2.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\BlurShader3.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\BodyShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\Color2BodyShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\Color2DepthShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\Depth2ColorShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\DepthShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\Dilate.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\Erode.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\FlippedColorBodyShader.shader" />
+    <None Include="Assets\KinectVFXIntergration\KinectPackage\Resources\SpeechGrammar.grxml.txt" />
+    <None Include="Assets\KinectVFXIntergration\Kinect_VFX_Graph\Kinect VFX\Core\PointCloudBaker.compute" />
+    <None Include="Assets\KinectVFXIntergration\Kinect_VFX_Graph\Kinect VFX\Core\PointCloudBakerMapped.compute" />
+    <None Include="Assets\Klak\Hap\Resources\Hap1.shader" />
+    <None Include="Assets\Klak\Hap\Resources\Hap5.shader" />
+    <None Include="Assets\Klak\Hap\Resources\HapY.shader" />
+    <None Include="Assets\Klak\Spout\Resources\Blit.shader" />
+    <None Include="Assets\Material\shader\NewImageEffectShader.shader" />
+    <None Include="Assets\Material\shader\NewUnlitShader.shader" />
+    <None Include="Assets\Script\InsideVisual.shader" />
+    <None Include="Assets\SpriteOutline\Shaders\SpriteOutline.shader" />
+    <None Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\Fractal\Fractal.compute" />
+    <None Include="Assets\asssets\Ray-Marching-master\ray marching\Scripts\SDF\Raymarching.compute" />
+    <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeSimpleCable.txt" />
+    <None Include="Assets\asssets\Real-Time Procedural Cable Simple\ReadmeStaticCable.txt" />
+    <None Include="Assets\asssets\StarShapeGenerator\Star.shader" />
+    <None Include="Packages\com.unity.cinemachine\Editor\Resources\CMWaveform.compute" />
+    <None Include="Packages\com.unity.cinemachine\Editor\Resources\CMWaveform.shader" />
+    <None Include="Packages\com.unity.cinemachine\Editor\Resources\StdLib.hlsl" />
+    <None Include="Packages\com.unity.cinemachine\license.txt" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryLight.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageAddFromUrlField.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageDetails.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageGroup.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageItem.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageList.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerToolbar.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerWindow.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageSearchToolbar.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageStatusBar.uxml" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\ACES.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\D3D11.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\D3D12.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\D3D9.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\Metal.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\OpenGL.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\PSP2.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\PSSL.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\Switch.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\Vulkan.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\API\XboxOne.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Bloom.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Copy.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\CopyStd.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\FinalPass.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Fog.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Builtins\Uber.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Colors.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Histogram.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Histogram.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\LightMeter.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Overlays.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Vectorscope.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Vectorscope.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Waveform.compute" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Debug\Waveform.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Editor\ConvertToLog.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Editor\CurveGrid.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Editor\Trackball.shader" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\Sampling.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\StdLib.hlsl" />
+    <None Include="Packages\com.unity.postprocessing\PostProcessing\Shaders\xRLib.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\D3D11.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\GLCore.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\GLES2.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\GLES3.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\Metal.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\PSSL.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\Switch.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\Validate.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\Vulkan.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\API\XBoxOne.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\AreaLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\BC6H.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\BSDF.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Color.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Common.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\CommonLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\CommonMaterial.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\CommonShadow.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Debug.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\EntityLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Filtering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\GeometricTools.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\ImageBasedLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Macros.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\NormalSurfaceGradient.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Packing.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\PerPixelDisplacement.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Random.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Refraction.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\Fibonacci.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\Hammersley.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\SampleUVMapping.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\SampleUVMappingInternal.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\SampleUVMappingNormalInternal.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Sampling\Sampling.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Shadow\ShadowSamplingTent.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\SpaceFillingCurves.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\SpaceTransforms.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Tessellation.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\UnityInstancing.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\VolumeRendering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.core\ShaderLibrary\Wind.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Core\Gizmo\UnlitGizmo.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Core\TextureCombiner\TextureCombiner.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Lighting\Reflection\reflectionprobespreview.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\DiffusionProfile\DrawDiffusionProfile.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\DiffusionProfile\DrawTransmittanceGraph.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\Fabric\ShaderGraph\FabricPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\Lit\ShaderGraph\HDLitPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\PBR\ShaderGraph\HDPBRPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\StackLit\ShaderGraph\StackLitPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\Material\Unlit\ShaderGraph\HDUnlitPassForward.template" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\ShaderGraph\Resources\DiffusionProfileSlotControlView.uss" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\ShaderGraph\SharedCode.template.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Editor\ShaderGraph\VertexAnimation.template.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Core\CoreResources\BlitCubeTextureFace.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Core\CoreResources\CubeToPano.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Core\CoreResources\EncodeBC6H.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Core\CoreResources\GPUCopy.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Core\Utilities\GeometryUtils.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\ColorPickerDebug.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugColorPicker.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugDisplay.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugDisplay.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugDisplayLatlong.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugFullScreen.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugLightVolumes.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugLightVolumes.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugViewMaterialGBuffer.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\DebugViewTiles.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\LightingDebug.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\MaterialDebug.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Debug\MipMapDebug.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\AtmosphericScattering\AtmosphericScattering.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\AtmosphericScattering\AtmosphericScattering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\AtmosphericScattering\OpaqueAtmosphericScattering.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\AtmosphericScattering\ShaderVariablesAtmosphericScattering.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\AtmosphericScattering\ShaderVariablesAtmosphericScattering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Deferred.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Forward.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightDefinition.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightEvaluation.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\ClusteredUtils.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\Deferred.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\HDShadow.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\LightCullUtils.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\LightLoop.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\LightLoop.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\LightLoopDef.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\LightingConvexHullUtils.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\ShaderBase.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\ShaderVariablesLightLoop.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\ShaderVariablesLightLoop.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\SortingComputeUtils.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\builddispatchindirect.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\cleardispatchindirect.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\lightlistbuild-bigtile.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\lightlistbuild-clustered.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\lightlistbuild.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\materialflags.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\LightLoop\scrbound.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Lighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Reflection\VolumeProjection.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\ScreenSpaceLighting\ScreenSpaceLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\ScreenSpaceLighting\ScreenSpaceReflections.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\ScreenSpaceLighting\ScreenSpaceTracing.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\ScreenSpaceLighting\ShaderVariablesScreenSpaceLighting.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\ScreenSpaceLighting\ShaderVariablesScreenSpaceLighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\DebugDisplayHDShadowMap.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\HDPCSS.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\HDShadowAlgorithms.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\HDShadowContext.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\HDShadowManager.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\HDShadowSampling.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\PCSS.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\ScreenSpaceShadow.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\ShadowBlurMoments.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\ShadowClear.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\Shadow\ShadowMoments.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\SurfaceShading.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\VolumetricLighting\VBuffer.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\VolumetricLighting\VolumeVoxelization.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\VolumetricLighting\VolumetricLighting.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Lighting\VolumetricLighting\VolumetricLighting.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxF.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxF.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxF.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxFData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxFLTCAreaLight\AxFLTCAreaLight.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxFPreIntegratedFGD.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\AxFProperties.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\PreIntegratedFGD_CookTorrance.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\PreIntegratedFGD_Ward.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\ShaderPass\AxFDepthPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\ShaderPass\AxFDistortionPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\AxF\ShaderPass\AxFSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Builtin\BuiltinData.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Builtin\BuiltinData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\BuiltinUtilities.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\Decal.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\Decal.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\Decal.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\DecalData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\DecalNormalBuffer.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\DecalProperties.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\DecalUtilities.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\ShaderPass\DecalSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\ShaderVariablesDecal.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Decal\ShaderVariablesDecal.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\DiffusionProfile\DiffusionProfile.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\DiffusionProfile\DiffusionProfileSettings.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\CharlieConvolve.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\Fabric.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\Fabric.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\Fabric.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\FabricData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\FabricProperties.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\FabricReference.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\ShaderPass\FabricDepthPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Fabric\ShaderPass\FabricSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\GGXConvolution\BuildProbabilityTables.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\GGXConvolution\ComputeGgxIblSampleData.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\GGXConvolution\GGXConvolution.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\GGXConvolution\GGXConvolve.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\LTCAreaLight\LTCAreaLight.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\LayeredLit\LayeredLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\LayeredLit\LayeredLitData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\LayeredLit\LayeredLitDataDisplacement.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\LayeredLit\LayeredLitTessellation.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\Lit.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\Lit.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\Lit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitBuiltinData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitDataDisplacement.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitDataIndividualLayer.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitDataMeshModification.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitDecalData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitProperties.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitReference.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\LitTessellation.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\ShaderPass\LitDepthPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\ShaderPass\LitDistortionPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\ShaderPass\LitSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\ShaderPass\LitVelocityPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Lit\SimpleLit.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Material.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\MaterialEvaluation.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\MaterialGBufferMacros.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\MaterialUtilities.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\NormalBuffer.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\PreIntegratedFGD\PreIntegratedFGD.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\PreIntegratedFGD\PreIntegratedFGD.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\PreIntegratedFGD\preIntegratedFGD_CharlieFabricLambert.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\PreIntegratedFGD\preIntegratedFGD_GGXDisneyDiffuse.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SphericalCapPivot\SPTDistribution.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\StackLit\StackLit.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\StackLit\StackLit.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\StackLit\StackLitDecalData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SubsurfaceScattering\CombineLighting.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SubsurfaceScattering\ShaderVariablesSubsurfaceScattering.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SubsurfaceScattering\ShaderVariablesSubsurfaceScattering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SubsurfaceScattering\SubsurfaceScattering.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\SubsurfaceScattering\SubsurfaceScattering.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLitData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLitDataMeshModification.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLitData_Basemap.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLitSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLitSplatCommon.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLit_Basemap.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\TerrainLit\TerrainLit_Basemap_Gen.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\ShaderPass\UnlitDepthPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\ShaderPass\UnlitDistortionPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\ShaderPass\UnlitSharePass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\Unlit.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\Unlit.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\Unlit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\UnlitData.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Material\Unlit\UnlitProperties.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\ColorPyramid.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\DepthPyramid.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\Distortion\ApplyDistorsion.compute" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\MSAA\AoResolve.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\MSAA\ColorResolve.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\MSAA\DepthValues.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\RenderPass\MotionVectors\CameraMotionVectors.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\FragInputs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPass.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassDBuffer.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassDepthOnly.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassDistortion.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassForward.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassForwardUnlit.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassGBuffer.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassLightTransport.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\ShaderPassVelocity.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\TessellationShare.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\VaryingMesh.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\RenderPipeline\ShaderPass\VertMesh.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\Blit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\CopyDepthBuffer.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\CopyStencilBuffer.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderConfig.cs.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderGraphFunctions.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderVariables.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderVariablesFunctions.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderVariablesMatrixDefsHDCamera.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ShaderVariablesMatrixDefsLegacyUnity.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Sky\BlitCubemap.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Sky\GradientSky\GradientSky.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Sky\HDRISky\HDRISky.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Sky\HDRISky\IntegrateHDRISky.shader" />
+    <None Include="Packages\com.unity.render-pipelines.high-definition\Runtime\Sky\ProceduralSky\ProceduralSky.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Editor\ShaderGraph\lightweightPBRExtraPasses.template" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Editor\ShaderGraph\lightweightPBRForwardPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Editor\ShaderGraph\lightweightSubshaderFastBlinn.template" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Editor\ShaderGraph\lightweightUnlitExtraPasses.template" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Editor\ShaderGraph\lightweightUnlitPass.template" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\Core.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\Input.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\Lighting.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\MetaInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\Particles.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\ShaderGraphFunctions.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\Shadows.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\SurfaceInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\ShaderLibrary\UnityInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\DepthOnlyPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Lit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\LitForwardPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\LitInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\LitMetaPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Particles\ParticlesLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Particles\ParticlesLitInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Particles\ParticlesSimpleLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Particles\ParticlesUnlit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\ShadowCasterPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\SimpleLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\SimpleLitForwardPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\SimpleLitInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\SimpleLitMetaPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainDetailLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainLit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainLitAdd.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainLitBase.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainLitInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\TerrainLitPasses.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\WavingGrass.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\WavingGrassBillboard.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\WavingGrassInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Terrain\WavingGrassPasses.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Unlit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\UnlitInput.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\UnlitMetaPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Utils\Blit.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Utils\CopyDepth.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Utils\CopyDepthPass.hlsl" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Utils\Sampling.shader" />
+    <None Include="Packages\com.unity.render-pipelines.lightweight\Shaders\Utils\ScreenSpaceShadows.shader" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Shaders\BlitNoAlpha.shader" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Shaders\Checkerboard.shader" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Blackboard.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\BooleanSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ChannelEnumControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ChannelEnumMaskControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ChannelMixerControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ColorControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ColorRGBASlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ColorRGBSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\CubemapSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\DielectricSpecularControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\EnumControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\EnumConversionControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\GradientControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\GradientSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\IntegerControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\MultiFloatControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\MultiFloatSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\PopupControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ScreenPositionSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\SliderControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\Texture3DSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\TextureArraySlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\TextureSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\ToggleControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\Controls\UVSlotControlView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\GraphEditorView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\MasterPreviewView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\MaterialGraph.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\MaterialGraphView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\MaterialNodeView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\NodeSettings.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\PixelCacheProfiler.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\PortInputView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\PropertyNameReferenceField.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\PropertyRow.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\PropertySheet.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\ShaderGraphBlackboard.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\ShaderPort.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\Styles\ShaderPropertyView.uss" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\GraphView\Blackboard.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\GraphView\BlackboardField.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\GraphView\BlackboardRow.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\GraphView\BlackboardSection.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\NodeSettings.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Resources\UXML\PixelCacheProfiler.uxml" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Templates\shader.template" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Templates\subshader.template" />
+    <None Include="Packages\com.unity.shadergraph\Editor\Templates\tesselationSubshader.template" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\Functions.hlsl" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\GeometricTools.hlsl" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\ShaderConfig.cs.hlsl" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\ShaderVariables.hlsl" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\ShaderVariablesFunctions.hlsl" />
+    <None Include="Packages\com.unity.shadergraph\ShaderGraphLibrary\ShaderVariablesMatrixDefsLegacyUnity.hlsl" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\Element3DGridShader.shader" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\GradientBorder.shader" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\GradientDashedBorder.shader" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\PropertyRM.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\PropertyRMDark.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\PropertyRMLight.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\Resizable.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\Selectable.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\StickyNote.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXBlackboard.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXBlock.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXComponentBoard.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXContext.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXControls.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXControlsDark.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXControlsLight.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXDataAnchor.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXFlow.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXFlowEdge.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXNode.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXNodeUI.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXOperator.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXParameter.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXReorderableList.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXReorderableListDark.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXReorderableListLight.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXSystemBorder.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXTypeColor.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\VFXView.uss" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\Resizable.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\StickyNote.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXBlackboardSection.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXComponentBoard-event.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXComponentBoard.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXContext.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXNode.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXParameter.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Resources\uxml\VFXSystemBorder.uxml" />
+    <None Include="Packages\com.unity.visualeffectgraph\Editor\Utils\Templates\VFXBlock.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\Common\VFXCommonCompute.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\DefaultStaticMeshOutput.shader" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleDecals\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleHexahedron\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleHexahedron\PassBasicForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleHexahedron\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleHexahedron\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleHexahedron\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLines\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLines\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLines\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLines\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLinesSW\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLinesSW\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLinesSW\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleLinesSW\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleMeshes\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleMeshes\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleMeshes\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleMeshes\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticlePoints\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticlePoints\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticlePoints\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticlePoints\PassMotionVectors.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticlePoints\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\PassGS.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleQuads\PassVS.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleSpheres\Pass.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleSpheres\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\ParticleSpheres\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Hexahedron\PassGBuffer.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Hexahedron\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Mesh\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Mesh\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Mesh\PassGBuffer.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Mesh\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Quad\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Quad\PassForward.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Quad\PassGBuffer.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Quad\PassShadowCaster.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Sphere\PassDepth.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\Sphere\PassGBuffer.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleBasicCube.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleCube.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleDecal.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleLinesHW.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleLinesSW.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleLitCube.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleLitMesh.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleLitQuad.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleMeshes.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticlePoints.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleQuad.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\Templates\VFXParticleSphere.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXCommon.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXGlobalDefines.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXLit.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXLit.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXLitPixelOutput.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXLitVaryings.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\HDRP\VFXPasses.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleBasicCube.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleCube.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleDecal.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleLinesHW.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleLinesSW.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleMeshes.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticlePoints.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\Templates\VFXParticleQuad.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\VFXCommon.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\VFXGlobalDefines.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\RenderPipeline\Legacy\VFXPasses.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\Sort.compute" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXCameraSort.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXCommon.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXCommonOutput.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXCopyBuffer.compute" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXFillIndirectArgs.compute" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXInit.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXNoise.cginc" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXParticleCommon.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXParticleHeader.template" />
+    <None Include="Packages\com.unity.visualeffectgraph\Shaders\VFXUpdate.template" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
